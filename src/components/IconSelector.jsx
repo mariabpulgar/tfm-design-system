@@ -2,11 +2,11 @@
 import React from 'react';
 import StatusIcon  from '../icons/Status.svg?react'
 import PlusIcon  from '../icons/Plus.svg?react'
-import CheckedIcon from '../icons/Check.svg?react'
+import CheckedIcon from '../icons/Check-1.svg?react'
 import InfoIcon from '../icons/Info.svg?react'
 import WarningIcon from '../icons/Warning.svg?react'
 import CloseIcon from '../icons/Close.svg?react'
-import typography from '../tokens/typography?react';
+import './IconSelector.css';
 
 const icons = {
     statusIcon: StatusIcon,
@@ -16,22 +16,19 @@ const icons = {
     warningIcon: WarningIcon,
     closeIcon: CloseIcon,
 };
-export default function IconSelector({name, size = typography.small.fontSize, color = 'currentColor', ...props }){
-    const IconComponent = icons[name];
+export default function IconSelector({ name, color = 'currentColor', ...props }) {
+  const IconComponent = icons[name];
 
-    if(!IconComponent){
-        console.warn(`Icon "${name}" not found.`);
-        return null;
-    }
-    return (
-        <IconComponent
-            style={{
-                width: size,
-                height: size,
-                color,
-            }}
-            {...props}
+  if (!IconComponent) {
+    console.warn(`Icon "${name}" not found.`);
+    return null;
+  }
 
-        />
-    );
+  return (
+    <IconComponent
+      className="icon-selector"
+      style={{ color }} // solo color dinámico
+      {...props}
+    />
+  );
 }

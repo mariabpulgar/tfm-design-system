@@ -1,0 +1,5 @@
+.icon-selector {
+  width: 16px;
+  height: 16px;
+  color: currentColor; /* se sobrescribirá si pasas otro color como prop */
+}
