@@ -1,4 +1,6 @@
-//Se crea el componente IconSelector con el fin de seleccionar dinamicamente los iconos. Al importar los iconos al final se debe escribir ?react para que los iconos puedan ser renderizados. 
+//Se crea el componente IconSelector con el fin de seleccionar dinamicamente los iconos. Al importar los iconos al final se debe escribir ?react para que los iconos puedan ser renderizados. Luego de importar el icono se anade en la const icons para que pueda ser reutilizado posteriormente. 
+
+
 import React from 'react';
 import StatusIcon  from '../icons/Status.svg?react'
 import PlusIcon  from '../icons/Plus.svg?react'
