@@ -1,6 +1,7 @@
 import React from 'react';
 import IconSelector from './IconSelector';
 import colors from '../tokens/colors';
+import borders from '../tokens/border-radius';
 import './StatusLabel.css';
 
 
@@ -101,6 +102,7 @@ const StatusLabel = ({ variant = 'default', text, ...props }) => {
       className="status-label"
       style={{
         border: `1px solid ${current.borderColor}`,
+        borderRadius: borders.radiusFull,
         flexDirection: current.iconPosition === 'trailing' ? 'row-reverse' : 'row',
       }}
       {...props}>

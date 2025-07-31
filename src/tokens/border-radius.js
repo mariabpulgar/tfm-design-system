@@ -1,5 +1,4 @@
 const borders = {
-    
   radius0: 0,
   radius050: 2,
   radius100: 4,
