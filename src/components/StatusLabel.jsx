@@ -103,8 +103,7 @@ const StatusLabel = ({ variant = 'default', text, ...props }) => {
         border: `1px solid ${current.borderColor}`,
         flexDirection: current.iconPosition === 'trailing' ? 'row-reverse' : 'row',
       }}
-      {...props}
-    >
+      {...props}>
       <IconSelector
         name={current.iconName}
         color={current.iconColor}
