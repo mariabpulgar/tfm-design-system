@@ -8,6 +8,7 @@ import CheckedIcon from '../icons/Check-1.svg?react'
 import InfoIcon from '../icons/Info.svg?react'
 import WarningIcon from '../icons/Warning.svg?react'
 import CloseIcon from '../icons/Close.svg?react'
+import NotificationIcon from '../icons/Notification.svg?react'
 import './IconSelector.css';
 
 const icons = {
@@ -17,6 +18,7 @@ const icons = {
     infoIcon: InfoIcon,
     warningIcon: WarningIcon,
     closeIcon: CloseIcon,
+    notificationIcon: NotificationIcon,
 };
 export default function IconSelector({ name, color = 'currentColor', ...props }) {
   const IconComponent = icons[name];
