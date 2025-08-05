@@ -57,6 +57,7 @@ const TemplateWithContext = (args) => (
 
 // Historias principales
 export const FullWidth = Template.bind({});
+FullWidth.tags = ['autodocs'];
 FullWidth.args = {
   variant: 'fullWidth',
 };
@@ -69,6 +70,7 @@ FullWidth.parameters = {
 };
 
 export const Center = Template.bind({});
+Center.tags = ['autodocs'];
 Center.args = {
   variant: 'center',
   text: 'OR',
@@ -82,6 +84,7 @@ Center.parameters = {
 };
 
 export const Chip = Template.bind({});
+Chip.tags = ['autodocs'];
 Chip.args = {
   variant: 'chip',
   text: 'Personal data',
@@ -93,4 +96,3 @@ Chip.parameters = {
     },
   },
 };
-

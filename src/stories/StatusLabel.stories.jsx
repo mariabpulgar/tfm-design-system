@@ -27,6 +27,7 @@ export default {
 const Template = (args) => <StatusLabel {...args} />;
 
 export const Default = Template.bind({});
+Default.tags = ['autodocs'];
 Default.args = {
   variant: 'default',
   text: 'Status default',
