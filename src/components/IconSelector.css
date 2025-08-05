@@ -1,4 +1,45 @@
-.icon-selector {
+/* Clases de tamaño para IconSelector aplicadas directamente al SVG */
+.icon-selector-small {
   width: 16px;
   height: 16px;
+  padding: 1px;
+  flex-shrink: 0;
+}
+
+.icon-selector-medium {
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  flex-shrink: 0;
+}
+
+.icon-selector-regular {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.icon-selector-large {
+  width: 28px;
+  height: 28px;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.icon-selector-display {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+/* Estilos base para todos los SVG */
+.icon-selector-small,
+.icon-selector-medium,
+.icon-selector-regular,
+.icon-selector-large,
+.icon-selector-display {
+  display: inline-block;
+  vertical-align: middle;
 }
