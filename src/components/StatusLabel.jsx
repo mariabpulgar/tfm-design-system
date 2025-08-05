@@ -8,6 +8,7 @@ import './StatusLabel.css';
 const variantConfig = {
     default: {
         iconName: 'statusIcon',
+        iconSize: 'medium', // <-- tamaño predeterminado de nuestro sistema de diseño
         borderColor: colors.grayDarkActive,
         iconColor: colors.grayDarkActive,
         textColor: colors.grayDarkActive,
@@ -17,6 +18,7 @@ const variantConfig = {
     },
     active: {
         iconName: 'statusIcon',
+        iconSize: 'medium',
         borderColor: colors.successNormal,
         iconColor: colors.successNormal,
         textColor: colors.grayDarkActive,
@@ -26,6 +28,7 @@ const variantConfig = {
 
     activeInfo: {
         iconName: 'statusIcon',
+        iconSize: 'medium',
         borderColor: colors.ciamNormal,
         iconColor: colors.ciamNormal,
         textColor: colors.grayDarkActive,
@@ -35,6 +38,7 @@ const variantConfig = {
 
     warning: {
         iconName: 'statusIcon',
+        iconSize: 'medium',
         borderColor: colors.yellowNormal,
         iconColor: colors.yellowNormal,
         textColor: colors.grayDarkActive,
@@ -43,6 +47,7 @@ const variantConfig = {
     },
     errorLabel: {
         iconName: 'statusIcon',
+        iconSize: 'medium',
         borderColor: colors.errorNormal,
         iconColor: colors.errorNormal,
         textColor: colors.grayDarkActive,
@@ -52,6 +57,7 @@ const variantConfig = {
 
     activeIcon: {
         iconName: 'checkedIcon',
+        iconSize: 'medium',
         borderColor: colors.successNormal,
         iconColor: colors.successNormal,
         textColor: colors.grayDarkActive,
@@ -61,6 +67,7 @@ const variantConfig = {
 
     defaultIcon: {
         iconName: 'plusIcon',
+        iconSize: 'medium',
         borderColor: colors.grayDarkActive,
         iconColor: colors.grayDarkActive,
         textColor: colors.grayDarkActive,
@@ -70,6 +77,7 @@ const variantConfig = {
 
     activeInfoIcon: {
         iconName: 'infoIcon',
+        iconSize: 'medium',
         borderColor: colors.ciamNormal,
         iconColor: colors.ciamNormal,
         textColor: colors.grayDarkActive,
@@ -78,6 +86,7 @@ const variantConfig = {
     },
     warningIcon: {
         iconName: 'warningIcon',
+        iconSize: 'medium',
         borderColor: colors.yellowNormal,
         iconColor: colors.yellowNormal,
         textColor: colors.grayDarkActive,
@@ -86,6 +95,7 @@ const variantConfig = {
     },
     errorLabelIcon: {
         iconName: 'closeIcon',
+        iconSize: 'medium',
         borderColor: colors.errorNormal,
         iconColor: colors.errorNormal,
         textColor: colors.grayDarkActive,
@@ -109,6 +119,7 @@ const StatusLabel = ({ variant = 'default', text, ...props }) => {
       <IconSelector
         name={current.iconName}
         color={current.iconColor}
+        size={current.iconSize} // <-- acá se llama al controlador de tamaño
       />
       <span
         className="status-label-text"

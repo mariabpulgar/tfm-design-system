@@ -2,3 +2,29 @@
   width: 16px;
   height: 16px;
 }
+
+.icon-size-small {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-size-medium {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-size-large {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-size-extraLarge {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-size-display {
+  width: 40px;
+  height: 40px;
+}
+
