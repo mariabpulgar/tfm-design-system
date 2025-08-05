@@ -1,0 +1,46 @@
+/* Icon Button Classes */
+
+.icon-button-container-large, 
+.icon-button-container-medium {
+  display: inline-flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--border-width-100);
+  border: none;
+  cursor: pointer;
+  
+}
+
+.icon-button-container-small {
+  display: inline-flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-100);
+  border: none;
+  cursor: pointer;
+  
+}
+.icon-button-default {
+  background-color: var(--gray-light);
+  color: var(--gray-dark-active);
+}
+
+.icon-button-default:hover {
+  background-color: var(--gray-normal);
+  color: var(--gray-dark-active);
+}
+
+.icon-button-default:active {
+  background-color: var(--gray-normal-hover);
+  color: var(--gray-light);
+}
+
+.icon-button-default:disabled {
+  background-color: var(--gray-normal);
+  color: var(--gray-light);
+  cursor: not-allowed;
+};
