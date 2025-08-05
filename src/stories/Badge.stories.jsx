@@ -65,6 +65,7 @@ export default {
 
 // Default story
 export const Default = {
+  tags: ['autodocs'],
   args: {
     count: 5,
     showIcon: true,
@@ -73,6 +74,7 @@ export const Default = {
 
 // With Icon
 export const WithIcon = {
+  tags: ['autodocs'],
   args: {
     count: 10,
     showIcon: true,
@@ -88,6 +90,7 @@ export const WithIcon = {
 
 // Without Icon
 export const WithoutIcon = {
+  tags: ['autodocs'],
   args: {
     count: 3,
     showIcon: false,
@@ -103,6 +106,7 @@ export const WithoutIcon = {
 
 // High Count (with overflow)
 export const HighCount = {
+  tags: ['autodocs'],
   args: {
     count: 150,
     showIcon: true,
@@ -118,6 +122,7 @@ export const HighCount = {
 
 // Custom Max Value
 export const CustomMax = {
+  tags: ['autodocs'],
   args: {
     count: 25,
     max: 20,
@@ -134,6 +139,7 @@ export const CustomMax = {
 
 // Dot Indicator
 export const DotIndicator = {
+  tags: ['autodocs'],
   args: {
     dot: true,
     showIcon: true,
@@ -149,6 +155,7 @@ export const DotIndicator = {
 
 // Zero Count (Hidden)
 export const ZeroCountHidden = {
+  tags: ['autodocs'],
   args: {
     count: 0,
     showZero: false,
@@ -165,6 +172,7 @@ export const ZeroCountHidden = {
 
 // Zero Count (Shown)
 export const ZeroCountShown = {
+  tags: ['autodocs'],
   args: {
     count: 0,
     showZero: true,
@@ -181,6 +189,7 @@ export const ZeroCountShown = {
 
 // Edge Cases
 export const EdgeCases = {
+  tags: ['autodocs'],
   render: () => (
     <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start' }}>
       <div style={{ textAlign: 'center' }}>
@@ -212,6 +221,7 @@ export const EdgeCases = {
 
 // Interactive Playground
 export const Playground = {
+  tags: ['autodocs'],
   args: {
     count: 5,
     max: 99,
