@@ -5,6 +5,7 @@ import Badge from './components/Badge';
 import Divider from './components/Divider';
 import Button from './components/Button';
 import IconButton from './components/IconButton';
+import InputText from './components/InputText'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Divider variant="chip" text="hola"></Divider>
       <Button text="Button" variant="btn-text" size="small"></Button>
       <IconButton></IconButton>
+      <InputText></InputText>
     </div>    
   );
 }
