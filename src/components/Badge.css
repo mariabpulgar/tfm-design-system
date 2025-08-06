@@ -1,0 +1,39 @@
+@import '../App.css';
+
+.badge-container{
+    margin-top: 22px;
+}
+
+.badge-content {
+    background-color: var(--magenta-normal);
+    color: var(--gray-light);
+    display: inline-flex;
+    border-radius: var(--radius-full);
+    padding: 2px;
+    position: absolute;
+    left: 22px;
+    top: -22px;
+    min-width: 14px;
+    min-height: 14px;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Dot variant - smaller circular badge without text */
+.badge-content.dot {
+    min-width: 8px;
+    min-height: 8px;
+    left: 24px;
+    top: -20px;
+}
+
+.badge-icon{
+    position: relative;
+}
+
+.badge-icon svg{
+    color: var(--ciam-normal);
+}

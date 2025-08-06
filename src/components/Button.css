@@ -1,0 +1,172 @@
+/* Tamaños de botones */
+.btn-large {
+  display: inline-flex;
+  height: 38px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-100, 4px);
+  flex-shrink: 0;
+}
+
+.btn-medium {
+  display: inline-flex;
+  height: 34px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-100, 4px);
+  flex-shrink: 0;
+}
+
+.btn-small {
+  display: inline-flex;
+  height: 26px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-100, 4px);
+  flex-shrink: 0;
+}
+
+/* Variantes de botones */
+.btn-primary {
+  border: none;
+  background-color: var(--ciam-normal);
+  border-radius: var(--radius-100);
+  color: var(--gray-light);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--ciam-normal-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--ciam-normal-active);
+}
+
+.btn-primary:disabled {
+  background-color: var(--ciam-light-active);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  border: none;
+  background-color: var(--blue-normal);
+  border-radius: var(--radius-100);
+  color: var(--gray-light);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: var(--blue-dark-active);
+}
+
+.btn-secondary:active {
+  background-color: var(--blue-dark-hover);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--blue-light);
+  color: var(--blue-light-active);
+  cursor: not-allowed;
+}
+
+.btn-tertiary {
+  border: var(--border-width-025) solid var(--magenta-normal);
+  background-color: var(--gray-light);
+  border-radius: var(--radius-100);
+  color: var(--magenta-normal);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-tertiary:hover {
+  background-color: var(--magenta-light-hover);
+}
+
+.btn-tertiary:active {
+  background-color: var(--magenta-normal);
+  color: var(--gray-light);
+}
+
+.btn-tertiary:disabled {
+  background-color: var(--gray-light);
+  color: var(--magenta-light-hover);
+  border: var(--border-width-025) solid var(--magenta-light-hover);
+  cursor: not-allowed;
+}
+
+.btn-error {
+  border-radius: var(--radius-100);
+  border: var(--border-width-025) solid var(--gray-light);
+  background: var(--error-normal);
+  color: var(--gray-light);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-error:hover {
+  background-color: var(--error-normal-hover);
+}
+
+.btn-error:active {
+  background-color: var(--error-normal-active);
+}
+
+.btn-error:disabled {
+  background-color: var(--gray-light);
+  color: var(--error-light-hover);
+  border: var(--border-width-025) solid var(--error-light-hover);
+  cursor: not-allowed;
+}
+
+.btn-text {
+  border: none;
+  background-color: transparent;
+  color: var(--ciam-normal);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-text:hover {
+  border: none;
+  color: var(--ciam-dark);
+}
+
+.btn-text:active {
+  border: none;
+  color: var(--ciam-dark-active);
+}
+
+.btn-text:disabled {
+  border: none;
+  color: var(--gray-normal-hover);
+  cursor: not-allowed;
+}
+
+/* Estilos para iconos */
+.btn-icon {
+  color: currentColor;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Tamaños de iconos según el tamaño del botón */
+.btn-small .btn-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.btn-medium .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-large .btn-icon {
+  width: 20px;
+  height: 20px;
+}

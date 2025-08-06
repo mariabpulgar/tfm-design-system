@@ -1,6 +1,9 @@
-.icon-selector {
+/* Clases de tamaño para IconSelector aplicadas directamente al SVG */
+.icon-selector-small {
   width: 16px;
   height: 16px;
+  padding: 1px;
+  flex-shrink: 0;
 }
 
 .icon-size-small {
