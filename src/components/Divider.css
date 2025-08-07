@@ -1,0 +1,69 @@
+/* Divider Full Width */
+.divider-full-width {
+  height: var(--border-width-025);
+  background-color: var(--gray-normal);
+  border: none;
+  width: 100%;
+  margin: 0;
+}
+
+/* Divider Center */
+.divider-center {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--space-200);
+}
+
+.divider-center::before,
+.divider-center::after {
+  content: '';
+  flex: 1;
+  height: var(--border-width-025);
+  background-color: var(--gray-normal);
+}
+
+.divider-center span {
+  color: var(--gray-normal);
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  line-height: normal;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Divider Chip */
+.divider-chip {
+  display: flex;
+  width: 100%;
+  padding: 0 var(--space-300);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  position: relative;
+}
+
+.divider-chip::before,
+.divider-chip::after {
+  content: '';
+  flex: 1;
+  height: var(--border-width-025);
+  background-color: var(--gray-normal);
+}
+
+.divider-chip span {
+  border-radius: var(--radius-full);
+  background: var(--gray-light-active);
+  padding: var(--space-100) var(--space-300);
+  color: var(--gray-normal);
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  white-space: nowrap;
+}

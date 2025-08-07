@@ -1,0 +1,77 @@
+/* InputText.css */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+  margin-top: var(--space-800);
+  margin-bottom: var(--space-800);
+}
+
+.input-label {
+  display: flex;
+  height: 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.input-text {
+  display: flex;
+  height: 46px;
+  padding: 14px 12px;
+  align-items: flex-start;
+  gap: var(--space-100);
+  align-self: stretch;
+  border-radius: var(--radius-150);
+  border: 1px solid var(--gray-normal-hover);
+  background-color: var(--gray-light);
+  margin-top: var(--space-200);
+  margin-bottom: var(--space-200);
+  font-size: 14px;
+  
+}
+
+.input-text:focus {
+  border: 1px solid var(--ciam-normal);
+  outline: none;
+}
+
+
+
+.input-text:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--gray-light);
+}
+
+/* Estado de error */
+.input-text.error {
+  border: 1px solid var(--error-normal);
+}
+
+.input-text.error:focus {
+  border: 1px solid var(--error-normal);
+}
+
+.input-error-message {
+  color: var(--error-normal-hover);
+  font-size: 14px;
+  display: none;
+  margin-top: var(--space-100, 4px);
+}
+
+.input-error-message.visible {
+  display: block;
+}
+
+/* Placeholder styling */
+.input-text::placeholder {
+  color: var(--gray-normal, #999);
+  opacity: 1;
+}
+
+/* Hover states */
+.input-text:hover:not(:disabled):not(.error) {
+  border-color: var(--gray-dark-hover, #666);
+}
+
