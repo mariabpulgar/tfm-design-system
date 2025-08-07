@@ -19,7 +19,14 @@ function App() {
       <Divider variant="chip" text="hola"></Divider>
       <Button text="Button" variant="btn-text" size="small"></Button>
       <IconButton></IconButton>
-      <InputText></InputText>
+      <InputText
+          label="Teléfono"
+          type="tel"
+          placeholder="(555) 123-4567"
+          id="phone"
+          name="phone"
+          maxLength={15}
+        />
     </div>    
   );
 }
