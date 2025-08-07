@@ -13,14 +13,14 @@
   flex-shrink: 0;
 }
 
-.icon-selector-regular {
+.icon-selector-large {
   width: 24px;
   height: 24px;
   padding: 2px;
   flex-shrink: 0;
 }
 
-.icon-selector-large {
+.icon-selector-extraLarge {
   width: 28px;
   height: 28px;
   padding: 2px;
