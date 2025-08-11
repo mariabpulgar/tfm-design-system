@@ -1,0 +1,81 @@
+/* TextArea.css */
+.textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+  margin-top: var(--space-800);
+  margin-bottom: var(--space-800);
+}
+
+.textarea-label {
+  display: flex;
+  height: 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.textarea-input {
+  display: flex;
+  height: 140px;
+  padding: 14px 12px;
+  align-items: flex-start;
+  gap: var(--space-100);
+  align-self: stretch;
+  border-radius: var(--radius-150);
+  border: 1px solid var(--gray-normal-hover);
+  background-color: var(--gray-light);
+  margin-top: var(--space-200);
+  margin-bottom: var(--space-200);
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.textarea-input:focus {
+  border: 1px solid var(--ciam-normal);
+  outline: none;
+}
+
+.textarea-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--gray-light);
+}
+
+/* Estado de error */
+.textarea-input.error {
+  border: 1px solid var(--error-normal);
+}
+
+.textarea-input.error:focus {
+  border: 1px solid var(--error-normal);
+}
+
+.textarea-error-message {
+  color: var(--error-normal-hover);
+  font-size: 14px;
+  display: none;
+  margin-top: var(--space-100, 4px);
+}
+
+.textarea-error-message.visible {
+  display: block;
+}
+
+/* Placeholder styling */
+.textarea-input::placeholder {
+  color: var(--gray-normal, #999);
+  opacity: 1;
+}
+
+/* Hover states */
+.textarea-input:hover:not(:disabled):not(.error) {
+  border-color: var(--gray-dark-hover, #666);
+}
+
+/* Resize handle styling */
+.textarea-input::-webkit-resizer {
+  background-color: var(--gray-normal);
+  border-radius: 2px;
+}
