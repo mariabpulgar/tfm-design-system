@@ -72,6 +72,6 @@
 
 /* Hover states */
 .input-text:hover:not(:disabled):not(.error) {
-  border-color: var(--gray-dark-hover, #666);
+  border-color: var(--ciam-normal, #666);
 }
 
