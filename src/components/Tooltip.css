@@ -1,0 +1,87 @@
+/* Contenedor principal */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Caja del texto del tooltip */
+.tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 12px); /* por defecto: arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 320px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid #2C779B; /* azul más oscuro */
+  background-color: #BFE3F2; /* azul claro como en la imagen */
+  box-shadow: 0 4px 12px rgba(44, 119, 155, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+/* Triángulo relleno */
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #BFE3F2; /* mismo azul claro del fondo */
+}
+
+/* Triángulo borde */
+.tooltip-text::before {
+  content: '';
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #2C779B; /* mismo azul del borde */
+  z-index: -1;
+}
+
+/* Texto interno */
+.tooltip-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333; /* texto oscuro para contraste */
+  text-align: left;
+}
+
+/* Ícono del tooltip */
+.tooltip-icon {
+  background-color: #2C779B; /* azul oscuro */
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip-icon:hover {
+  background-color: #256180;
+}
+
+.tooltip-icon:active {
+  background-color: #1e4e66;
+}
+
+.tooltip-icon .icon-selector {
+  color: #fff; /* icono blanco */
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Estado visible */
+.tooltip-container.active .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%);
+}

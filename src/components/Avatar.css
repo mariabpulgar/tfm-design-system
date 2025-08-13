@@ -1,0 +1,123 @@
+/* Tokens no tipográficos */
+:root {
+  --Avatar-bg: var(--Colores-Ciam-Normal, #3A9ECE);
+  --Avatar-fg: var(--Colores-Grises-Light, #FEFEFE);
+  --Avatar-radius: var(--Border-radius-full, 9999px);
+
+  --Avatar-padding: var(--Space-space-300, 12px);
+  --Avatar-gap: 10px;
+
+  --Avatar-size-xxs: 24px;
+  --Avatar-size-xs: 32px;
+  --Avatar-size-s: 42px;
+  --Avatar-size-m: 50px;
+  --Avatar-size-l: 60px;
+  --Avatar-size-xl: 72px;
+  --Avatar-size-xxl: 118px;
+
+  --Avatar-icon-scale: 60%;
+
+  --Avatar-skeleton-1: var(--skeleton-1, #e9eef1);
+  --Avatar-skeleton-2: var(--skeleton-2, #f5f8fa);
+}
+
+/* Base */
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Avatar-gap);
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+
+  border-radius: var(--Avatar-radius);
+  background: var(--Avatar-bg);
+  color: var(--Avatar-fg);
+
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  padding: var(--Avatar-padding);
+}
+
+/* Cuando usamos imagen como background */
+.avatar--bg {
+  /* Equivalente a: background: url(src) lightgray 50% / cover no-repeat; 
+     El url() lo inyecta el JSX vía style="background-image" */
+  background-color: var(--Avatar-bg, lightgray);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Tamaños */
+.avatar--xxs { width: var(--Avatar-size-xxs); height: var(--Avatar-size-xxs); }
+.avatar--xs  { width: var(--Avatar-size-xs);  height: var(--Avatar-size-xs); }
+.avatar--s   { width: var(--Avatar-size-s);   height: var(--Avatar-size-s); }
+.avatar--m   { width: var(--Avatar-size-m);   height: var(--Avatar-size-m); }
+.avatar--l   { width: var(--Avatar-size-l);   height: var(--Avatar-size-l); }
+.avatar--xl  { width: var(--Avatar-size-xl);  height: var(--Avatar-size-xl); }
+.avatar--xxl { width: var(--Avatar-size-xxl); height: var(--Avatar-size-xxl); }
+
+/* Imagen <img> (modo 'img') */
+.avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+/* Iniciales (tipografía fija) */
+.avatar__initials {
+  display: inline-block;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+
+  color: var(--Colores-Grises-Light, #FEFEFE);
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "Rethink Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.avatar--xxs .avatar__initials,
+.avatar--xs  .avatar__initials { font-size: 11px; }
+.avatar--s   .avatar__initials { font-size: 14px; }
+.avatar--m   .avatar__initials { font-size: 17px; }
+.avatar--l   .avatar__initials { font-size: 20px; }
+.avatar--xl  .avatar__initials { font-size: 25px; }
+.avatar--xxl .avatar__initials { font-size: 42px; }
+
+/* Ícono fallback */
+.avatar__icon {
+  width: var(--Avatar-icon-scale);
+  height: var(--Avatar-icon-scale);
+  pointer-events: none;
+}
+
+/* Skeleton */
+.avatar--loading {
+  background: linear-gradient(
+    90deg,
+    var(--Avatar-skeleton-1) 25%,
+    var(--Avatar-skeleton-2) 37%,
+    var(--Avatar-skeleton-1) 63%
+  );
+  background-size: 200% 100%;
+  animation: avatar-skeleton 1.2s ease-in-out infinite;
+}
+
+.avatar__skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+@keyframes avatar-skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

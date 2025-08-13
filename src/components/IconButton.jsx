@@ -66,7 +66,7 @@ const IconButton = ({
 IconButton.propTypes = {
   iconName: PropTypes.string,
   variant: PropTypes.oneOf(['default']), // Agrega más si defines más variantes
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'extraLarge', 'display']),
   disabled: PropTypes.bool,
   active: PropTypes.bool,
   onClick: PropTypes.func,
