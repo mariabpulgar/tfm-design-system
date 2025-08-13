@@ -6,40 +6,28 @@
   flex-shrink: 0;
 }
 
-.icon-selector-medium {
+.icon-size-small {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-size-medium {
   width: 20px;
   height: 20px;
-  padding: 1px;
-  flex-shrink: 0;
 }
 
-.icon-selector-large {
+.icon-size-large {
   width: 24px;
   height: 24px;
-  padding: 2px;
-  flex-shrink: 0;
 }
 
-.icon-selector-extraLarge {
+.icon-size-extraLarge {
   width: 28px;
   height: 28px;
-  padding: 2px;
-  flex-shrink: 0;
 }
 
-.icon-selector-display {
+.icon-size-display {
   width: 40px;
   height: 40px;
-  padding: 2px;
-  flex-shrink: 0;
 }
 
-/* Estilos base para todos los SVG */
-.icon-selector-small,
-.icon-selector-medium,
-.icon-selector-regular,
-.icon-selector-large,
-.icon-selector-display {
-  display: inline-block;
-  vertical-align: middle;
-}

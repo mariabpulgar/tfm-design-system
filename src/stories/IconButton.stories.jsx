@@ -21,7 +21,7 @@ export default {
     },
     size: {
       control: 'radio',
-      options: ['small', 'medium', 'large', 'extraLarge', 'display'],
+      options: ['small', 'medium', 'large'],
       description: 'Tamaño del botón',
     },
     variant: {
