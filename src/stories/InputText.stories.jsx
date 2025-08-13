@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InputText from '../components/InputText';
 
+
 // Configuración principal de Storybook
 export default {
   title: 'Components/InputText',

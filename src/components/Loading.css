@@ -1,0 +1,63 @@
+.loading-container {
+  --size: 8px;   /* diámetro del círculo */
+  --x: 16px;      /* 1x */
+  --y: 16px;      /* 1y */
+
+  position: relative;
+  width: calc(var(--x) * 3 + var(--size));
+  height: calc(var(--y) + var(--size));
+}
+
+.loading-circle {
+  position: absolute;
+  left: 0;
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.loading-circle:nth-child(1) { background: var(--ciam-dark-hover)}
+.loading-circle:nth-child(2) { background: var(--ciam-normal-hover)}
+.loading-circle:nth-child(3) { background: var(--blue-light-active);}
+
+/* Un ciclo completo del sistema son 4 pasos.*/
+.loading-circle:nth-child(1) { animation: path-a 2.5s infinite linear; }
+.loading-circle:nth-child(2) { animation: path-b 2.5s infinite linear; }
+.loading-circle:nth-child(3) { animation: path-c 2.5s infinite linear; }
+
+@keyframes path-a {
+  0%        { transform: translate(calc(0 * var(--x)), 0); }
+  8.333%    { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* 1º mov: diagonal ↑→ */
+  25%       { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* se mantiene arriba */
+  33.333%   { transform: translate(calc(2 * var(--x)), 0); }                   /* 4º mov: baja a 2x */
+  50%       { transform: translate(calc(2 * var(--x)), 0); }                   /* quieta en 2x */
+  58.333%   { transform: translate(calc(1 * var(--x)), 0); }                   /* 3º mov (ciclo 2): ← a 1x */
+  75%       { transform: translate(calc(1 * var(--x)), 0); }                   /* quieta en 1x */
+  91.666%   { transform: translate(calc(0 * var(--x)), 0); }                   /* 3º mov (ciclo 3): ← a 0x */
+  100%      { transform: translate(calc(0 * var(--x)), 0); }
+}
+
+@keyframes path-b {
+  0%        { transform: translate(calc(1 * var(--x)), 0); }                   /* inicia en 1x */
+  16.666%   { transform: translate(calc(0 * var(--x)), 0); }                   /* 3º mov: ← a 0x */
+  33.333%   { transform: translate(calc(0 * var(--x)), 0); }                   /* quieta en 0x */
+  41.666%   { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* 1º mov (ciclo 2): ↑→ */
+  58.333%   { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* se mantiene arriba */
+  66.666%   { transform: translate(calc(2 * var(--x)), 0); }                   /* 4º mov: baja a 2x */
+  83.333%   { transform: translate(calc(2 * var(--x)), 0); }                   /* quieta en 2x */
+  91.666%   { transform: translate(calc(1 * var(--x)), 0); }                   /* 3º mov (ciclo 3): ← a 1x */
+  100%      { transform: translate(calc(1 * var(--x)), 0); }
+}
+
+@keyframes path-c {
+  0%        { transform: translate(calc(2 * var(--x)), 0); }                   /* inicia en 2x */
+  16.666%   { transform: translate(calc(1 * var(--x)), 0); }                   /* 3º mov: ← a 1x */
+  33.333%   { transform: translate(calc(1 * var(--x)), 0); }                   /* quieta en 1x */
+  58.333%   { transform: translate(calc(0 * var(--x)), 0); }                   /* 3º mov (ciclo 2): ← a 0x */
+  66.666%   { transform: translate(calc(0 * var(--x)), 0); }                   /* quieta en 0x */
+  75%       { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* 1º mov (ciclo 3): ↑→ */
+  91.666%   { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* se mantiene arriba */
+  100%      { transform: translate(calc(2 * var(--x)), 0); }                   /* 4º mov: baja a 2x */
+}
