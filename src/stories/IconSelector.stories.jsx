@@ -54,4 +54,3 @@ Default.args = {
   color: '#545454',
 };
 
-

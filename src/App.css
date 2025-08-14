@@ -10,4 +10,10 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
+    height: 100%;
+}
+
+.centrando-el-div{
+    position: fixed; inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
 }
