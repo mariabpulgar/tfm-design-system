@@ -43,6 +43,12 @@ p {
   font-weight: var(--font-weight-regular);
 }
 
+button {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--h6-font-size);
+}
+
 /* Estilos para texto pequeño */
 .small-text {
   font-size: var(--small-font-size);
