@@ -1,19 +1,14 @@
 import React from 'react';
 import './App.css'
-import Avatar from  './components/Avatar'
-
+import StatusLabel from './components/StatusLabel'
 
 
 function App() {
   return (
     <div className="centrando-el-div">
-      <Avatar
-        fallback="initials"
-        initials="auto"
-        initialsCount={2}
-        mode="img"
-        name="Ana Álvarez"
-        size="m"
+      <StatusLabel
+        text="Status default"
+        variant="warningIcon"
       />
     </div>    
   );
