@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import Divider from './components/Divider'
 import Button from './components/Button'
+import InputText from './components/InputText';
 
 
 function App() {
@@ -15,6 +16,14 @@ function App() {
         size="medium"
         text="Error Button"
         variant="btn-error"
+      />
+      <InputText
+        id="default-input"
+        label="Nombre"
+        name="defaultInput"
+        onChange={() => {}}
+        placeholder="Ingresa tu nombre"
+        value=""
       />
     </div>    
   );
