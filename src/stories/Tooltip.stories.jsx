@@ -2,7 +2,6 @@
 import React from 'react';
 import Tooltip from '../components/Tooltip';
 import '../components/Tooltip.css';
-import '../components/IconSelector';
 
 // Usa tu IconSelector real para obtener la lista de nombres
 import { iconNames } from '../components/IconSelector';
@@ -11,6 +10,7 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     controls: { expanded: true },
@@ -19,6 +19,8 @@ export default {
         component:
           'Tooltip con disparador de ícono (IconSelector). Configurable en posición, trigger, ícono, tamaño y color. El contenido acepta texto o ReactNode.',
       },
+      // Para que el snippet de Docs no muestre el decorator
+      source: { excludeDecorators: true },
     },
   },
   argTypes: {
@@ -44,7 +46,7 @@ export default {
     iconSize: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
-      description: 'Tamaño del ícono (coincide con tus iconSizeClasses).',
+      description: 'Tamaño del ícono (coincide con tus clases).',
     },
     iconColor: {
       control: 'color',
@@ -58,24 +60,12 @@ export default {
       control: 'text',
       description: 'Clases CSS extra para el contenedor.',
     },
-    // Ocultamos cualquier prop interna no relevante
+    // Ocultamos props internas si las hubiera
     IconComponent: { table: { disable: true } },
   },
 };
 
-const Template = (args) => (
-  <div
-    style={{
-      padding: 100,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: 220,
-    }}
-  >
-    <Tooltip {...args} />
-  </div>
-);
+const Template = (args) => <Tooltip {...args} />;
 
 // ---- Story: Default ----
 export const Default = Template.bind({});
@@ -101,4 +91,3 @@ Playground.args = {
   disabled: false,
   className: '',
 };
-Playground.storyName = 'Playground Interactivo';
