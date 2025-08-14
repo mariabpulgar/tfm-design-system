@@ -2,6 +2,7 @@
 .tooltip-container {
   position: relative;
   display: inline-block;
+  transform: translateX(400%);
 }
 
 /* Caja del texto del tooltip */
@@ -9,8 +10,8 @@
   position: absolute;
   bottom: calc(100% + 12px); /* por defecto: arriba */
   left: 50%;
-  transform: translateX(-50%);
-  max-width: 320px;
+  width: 320px;
+  height: 89px;
   padding: 16px 20px;
   border-radius: 8px;
   border: 1px solid #2C779B; /* azul más oscuro */
@@ -19,6 +20,7 @@
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
+  margin-top: 50%;
 }
 
 /* Triángulo relleno */
@@ -48,6 +50,7 @@
 
 /* Texto interno */
 .tooltip-text p {
+  font-family: "Rethink Sans";
   margin: 0;
   font-size: 14px;
   line-height: 1.4;

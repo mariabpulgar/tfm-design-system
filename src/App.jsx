@@ -3,6 +3,7 @@ import './App.css'
 import Divider from './components/Divider'
 import Button from './components/Button'
 import InputText from './components/InputText';
+import Tooltip from './components/Tooltip'
 
 
 function App() {
@@ -24,6 +25,14 @@ function App() {
         onChange={() => {}}
         placeholder="Ingresa tu nombre"
         value=""
+      />
+      <Tooltip
+        content="Este es un tooltip con información útil para el usuario."
+        iconColor="#FEFEFE"
+        iconName="infoIcon"
+        iconSize="medium"
+        position="top"
+        trigger="click"
       />
     </div>    
   );
