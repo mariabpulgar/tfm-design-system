@@ -1,6 +1,5 @@
 import React from 'react';
 import IconSelector, { iconNames } from '../components/IconSelector';
-import { iconSizeClasses } from '../tokens/icon-sizes';
 
 // Configuración de metadatos para Storybook
 export default {
@@ -19,11 +18,6 @@ export default {
     name: {
       control: { type: 'select' },
       options: iconNames,
-    },
-    size: {
-      control: { type: 'select' },
-      options: Object.keys(iconSizeClasses), // <-- Opciones de tamaño dinámicas
-      description: 'Elige un tamaño predefinido para el icono.',
     },
     color: {
       control: 'color',
