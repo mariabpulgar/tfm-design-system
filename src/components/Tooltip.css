@@ -5,6 +5,7 @@
 /* Contenedor externo */
 .tooltip-container {
   display: inline-block;
+  height: 139px;
 }
 
 /* Wrapper interno con ancho fijo y botón centrado */
