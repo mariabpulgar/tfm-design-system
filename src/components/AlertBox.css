@@ -1,0 +1,8 @@
+.alert-box{
+    display: flex;
+    width: 450px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Space-space-1600, 64px);
+}
