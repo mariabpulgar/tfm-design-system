@@ -1,0 +1,27 @@
+.button-group-container {
+  display: inline-flex;
+  white-space: nowrap;              
+}
+
+.btn--in-group { border-radius: 0; }
+
+.btn--in-group:first-child {
+  border-top-left-radius: var(--radius-100, 12px);
+  border-bottom-left-radius: var(--radius-100, 12px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn--in-group:nth-child(2) {
+  border-radius: 0;
+}
+
+.btn--in-group:nth-child(3),
+.btn--in-group:last-child {
+  border-top-right-radius: var(--radius-100, 12px);
+  border-bottom-right-radius: var(--radius-100, 12px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
