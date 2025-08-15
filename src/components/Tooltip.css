@@ -1,90 +1,207 @@
-/* Contenedor principal */
+/* =========================
+   Tooltip con variables CIAM
+   ========================= */
+
+/* Contenedor externo */
 .tooltip-container {
-  position: relative;
   display: inline-block;
-  transform: translateX(400%);
 }
 
-/* Caja del texto del tooltip */
-.tooltip-text {
-  position: absolute;
-  bottom: calc(100% + 12px); /* por defecto: arriba */
-  left: 50%;
-  width: 320px;
-  height: 89px;
-  padding: 16px 20px;
-  border-radius: 8px;
-  border: 1px solid #2C779B; /* azul más oscuro */
-  background-color: #BFE3F2; /* azul claro como en la imagen */
-  box-shadow: 0 4px 12px rgba(44, 119, 155, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
-  margin-top: 50%;
-}
-
-/* Triángulo relleno */
-.tooltip-text::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #BFE3F2; /* mismo azul claro del fondo */
-}
-
-/* Triángulo borde */
-.tooltip-text::before {
-  content: '';
-  position: absolute;
-  top: calc(100% + 1px);
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid #2C779B; /* mismo azul del borde */
-  z-index: -1;
-}
-
-/* Texto interno */
-.tooltip-text p {
-  font-family: "Rethink Sans";
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #333; /* texto oscuro para contraste */
-  text-align: left;
-}
-
-/* Ícono del tooltip */
-.tooltip-icon {
-  background-color: #2C779B; /* azul oscuro */
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
+/* Wrapper interno con ancho fijo y botón centrado */
+.tooltip-wrapper {
   position: relative;
+  width: 320px;              /* ancho fijo del tooltip */
+  display: flex;
+  justify-content: center;   /* centra horizontalmente el botón */
+  align-items: center;       /* centra verticalmente si es necesario */
 }
 
-.tooltip-icon:hover {
-  background-color: #256180;
+/* Disparador (según Figma) */
+.tooltip-icon {
+  display: flex;
+  padding: var(--space-200);            /* 8px */
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-100);                /* 4px */
+  border-radius: var(--radius-full);    /* 9999px */
+  background: var(--ciam-dark);         /* #2C779B */
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  position: relative;
+  z-index: 2;
 }
+.tooltip-icon:hover  { background: var(--ciam-dark-hover); }   /* #235F7C */
+.tooltip-icon:active { background: var(--ciam-dark-active); }  /* #1A475D */
 
-.tooltip-icon:active {
-  background-color: #1e4e66;
-}
-
+/* Si tu ícono es un SVG dentro */
 .tooltip-icon .icon-selector {
-  color: #fff; /* icono blanco */
   display: block;
   width: 20px;
   height: 20px;
+  color: currentColor;  /* hereda blanco */
 }
 
-/* Estado visible */
+/* Panel del tooltip */
+.tooltip-text {
+  position: absolute;
+  width: 320px;
+  min-height: 85px;
+  padding: var(--space-400) var(--space-500);   /* 16px 20px */
+  border-radius: var(--radius-150);             /* 6px */
+  border: var(--border-width-025) solid var(--ciam-dark);
+  background: var(--ciam-light-active);         /* #E1F0F8 */
+  box-shadow: 0 4px 12px rgba(44,119,155,.15);
+  opacity: 0;
+  visibility: hidden;
+  white-space: normal;
+  overflow: visible;
+  transition: opacity .2s ease, visibility .2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================
+   Posiciones y flechas
+   ========================= */
+
+/* TOP */
+.tooltip-container.position-top .tooltip-text {
+  bottom: calc(100% + 12px);
+  left: 0;
+}
+.tooltip-container.position-top .tooltip-text::after,
+.tooltip-container.position-top .tooltip-text::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip-container.position-top .tooltip-text::after {
+  top: 100%;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--ciam-light-active);
+}
+.tooltip-container.position-top .tooltip-text::before {
+  top: calc(100% + var(--border-width-025));
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid var(--ciam-dark);
+  z-index: -1;
+}
+
+/* BOTTOM */
+.tooltip-container.position-bottom .tooltip-text {
+  top: calc(100% + 12px);
+  bottom: auto;
+  left: 0;
+}
+.tooltip-container.position-bottom .tooltip-text::after,
+.tooltip-container.position-bottom .tooltip-text::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip-container.position-bottom .tooltip-text::after {
+  bottom: 100%;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--ciam-light-active);
+}
+.tooltip-container.position-bottom .tooltip-text::before {
+  bottom: calc(100% + var(--border-width-025));
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid var(--ciam-dark);
+  z-index: -1;
+}
+
+/* LEFT */
+.tooltip-container.position-left .tooltip-text {
+  right: calc(100% + 12px);
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tooltip-container.position-left .tooltip-text::after,
+.tooltip-container.position-left .tooltip-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tooltip-container.position-left .tooltip-text::after {
+  left: 100%;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--ciam-light-active);
+}
+.tooltip-container.position-left .tooltip-text::before {
+  left: calc(100% + var(--border-width-025));
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid var(--ciam-dark);
+  z-index: -1;
+}
+
+/* RIGHT */
+.tooltip-container.position-right .tooltip-text {
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tooltip-container.position-right .tooltip-text::after,
+.tooltip-container.position-right .tooltip-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tooltip-container.position-right .tooltip-text::after {
+  right: 100%;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--ciam-light-active);
+}
+.tooltip-container.position-right .tooltip-text::before {
+  right: calc(100% + var(--border-width-025));
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 9px solid var(--ciam-dark);
+  z-index: -1;
+}
+
+/* =========================
+   Texto interno
+   ========================= */
+.tooltip-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--gray-darker);
+  text-align: left;
+}
+
+/* =========================
+   Estado visible
+   ========================= */
 .tooltip-container.active .tooltip-text {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+/* =========================
+   Ajuste pantallas estrechas
+   ========================= */
+@media (max-width: 340px) {
+  .tooltip-wrapper {
+    width: 100%;
+  }
+  .tooltip-text {
+    width: 100%;
+    left: 0;
+  }
 }
