@@ -5,21 +5,24 @@ import IconButton from './IconButton'
 
 function AlertBox(){
     return(
-        <div className="alert-box">
-            <IconSelector
-            color="#545454"
-            name="infoIcon"
-            size="display"
-            />
-            <div>
-                <h6>Error</h6>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit luctus.</p>
+        <div className="alert-box alert-information-box">
+            <div className="icon-and-text">
+                <IconSelector
+                    color="var(--ciam-dark)"
+                    name="infoIcon"
+                    size="display"
+                />
+                <div className="alert-text">
+                    <h6>Alert</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit luctus.</p>
+                </div>
             </div>
+            
             <IconButton
-            iconName="closeIcon"
-            onClick={() => {}}
-            size="medium"
-            variant="default"
+                iconName="closeIcon"
+                onClick={() => {}}
+                size="medium"
+                variant="default"
             />
         </div>
     );
