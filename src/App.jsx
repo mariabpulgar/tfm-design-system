@@ -3,16 +3,13 @@ import './App.css'
 import AlertBox from './components/AlertBox';
 import ButtonGroup from './components/ButtonGroup'
 import SimpleCard from './components/SimpleCard';
+import ButtonCard from './components/ButtonCard';
 
 
 function App() {
   return (
     <div>
-      <SimpleCard
-        description="este es un ejemplo"
-        title="Card 1"
-        variant="vertical"
-      />
+      <ButtonCard></ButtonCard>
     </div>    
   );
 }
