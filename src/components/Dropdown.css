@@ -1,0 +1,65 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilo del botón del dropdown */
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-200) var(--space-300);
+  width: 380px;
+  height: 44px;
+  background-color: var(--gray-light);
+  border: 1px solid var(--gray-normal);
+  border-radius: var(--radius-150);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: var(--paragraph-font-size);
+  color: var(--gray-darker);
+}
+
+.dropdown-toggle:hover {
+  background-color: var(--gray-light-hover);
+  border-color: var(--gray-normal-hover);
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease-in-out;
+  color: var(--gray-darker);
+}
+
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  margin-top: var(--space-100);
+  width: 380px;
+  background-color: var(--gray-light);
+  border-radius: var(--radius-150);
+  z-index: 1000;
+  list-style-type: none;
+  padding: var(--space-100) 0;
+}
+
+/* Estilo de cada elemento del menú */
+.dropdown-item a {
+  display: block;
+  align-content: center;
+  height: 44px;
+  padding: var(--space-200) var(--space-400);
+  border-radius: var(--radius-150);
+  text-decoration: none;
+  color: var(--gray-darker);
+  font-size: var(--paragraph-font-size);
+  transition: background-color 0.2s;
+}
+
+.dropdown-item a:hover {
+  background-color: var(--ciam-light);
+}
+
+.dropdown-item a:active {
+  background-color: var(--ciam-light-active);
+}
