@@ -8,7 +8,13 @@ function App() {
   return (
     <div>
       <ButtonGroup></ButtonGroup>
-      <AlertBox></AlertBox>
+      <AlertBox
+        dismissible
+        message="This is an informational alert. Toggle dismissible to show/hide the close button."
+        onClose={() => {}}
+        title="Information"
+        variant="info"
+      />
     </div>    
   );
 }
