@@ -10,6 +10,12 @@
     background: #FFF;
 }
 
+.simple-card-horizontal:hover{
+    border-radius: var(--radius-300);
+    border: var(--border-width-025) solid var(--ciam-light-active);
+    background: var(--gray-light-hover);
+}
+
 .card-image-horizontal {
     width: 150px;
     flex-shrink: 0;
@@ -50,6 +56,12 @@
     background: #FFF;
     border-radius: var(--radius-300);
 
+}
+
+.simple-card-vertical:hover {
+    border-radius: var(radius-300);
+    border: var(--border-width-025, 1px) solid var(--ciam-light-active);
+    background: var(--gray-light-hover);
 }
 
 .simple-card-vertical img {

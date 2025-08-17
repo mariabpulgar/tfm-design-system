@@ -8,7 +8,11 @@ import SimpleCard from './components/SimpleCard';
 function App() {
   return (
     <div>
-      <SimpleCard></SimpleCard>
+      <SimpleCard
+        description="este es un ejemplo"
+        title="Card 1"
+        variant="vertical"
+      />
     </div>    
   );
 }
