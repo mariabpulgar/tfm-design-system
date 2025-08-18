@@ -1,10 +1,23 @@
+// src/stories/IconButton.stories.jsx
 import React from 'react';
 import IconButton from '../components/IconButton';
+import '../components/SearchBar.css'; // <-- asegura .btn-* en Storybook
+import '../components/IconButton.css';
 
 export default {
   title: 'Components/IconButton',
   component: IconButton,
-  tags: ['autodocs'], // 🔍 Activa la generación automática de documentación
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    controls: { expanded: true },
+    docs: {
+      description: {
+        component:
+          'Botón icónico que compone clases de tamaño (`icon-button-container-*`) y variantes visuales (`.btn-*` o `icon-button-default`).',
+      },
+    },
+  },
   argTypes: {
     iconName: {
       control: 'select',
@@ -15,31 +28,38 @@ export default {
         'infoIcon',
         'warningIcon',
         'checkedIcon',
-        'notificationIcon'
+        'notificationIcon',
+        'download1Icon',
+        'upload1Icon',
+        'home2Icon',
       ],
-      description: 'Nombre del ícono a mostrar',
+      description: 'Nombre del ícono a mostrar.',
     },
     size: {
-      control: 'radio',
+      control: 'inline-radio',
       options: ['small', 'medium', 'large', 'extraLarge', 'display'],
-      description: 'Tamaño del botón',
+      description: 'Tamaño del botón.',
+      table: { defaultValue: { summary: 'medium' } },
     },
     variant: {
-      control: 'text',
-      description: 'Variante visual del botón (CSS class)',
+      control: 'inline-radio',
+      options: ['default', 'primary', 'secondary', 'tertiary', 'error', 'text'],
+      description:
+        'Variante visual (clases CSS: `.btn-*` o `icon-button-default`).',
+      table: { defaultValue: { summary: 'default' } },
     },
     disabled: {
       control: 'boolean',
-      description: 'Desactiva el botón',
+      description: 'Desactiva el botón.',
     },
     active: {
       control: 'boolean',
-      description: 'Aplica estilo de botón activo',
+      description: 'Estado visual activo (si tu CSS lo utiliza).',
     },
     onClick: { action: 'clicked' },
     children: {
       control: 'text',
-      description: 'Texto opcional dentro del botón',
+      description: 'Texto opcional dentro del botón.',
     },
   },
   args: {
@@ -52,32 +72,105 @@ export default {
   },
 };
 
-/**
- * Historia básica solo con ícono
- */
+/** Solo ícono (variante por defecto) */
 export const SoloIcono = {
   args: {
     children: '',
   },
 };
 
-/**
-
-
-/**
- * Botón deshabilitado
- */
-export const Deshabilitado = {
+/** Con texto junto al ícono */
+export const ConTexto = {
   args: {
-    disabled: true,
+    children: 'Acción',
+    iconName: 'plusIcon',
+    variant: 'primary',
   },
 };
 
-/**
- * Botón activo visualmente
- */
+/** Variantes visuales */
+export const Primario = {
+  args: {
+    variant: 'primary',
+    iconName: 'plusIcon',
+  },
+};
+
+export const Secundario = {
+  args: {
+    variant: 'secondary',
+    iconName: 'download1Icon',
+  },
+};
+
+export const Terciario = {
+  args: {
+    variant: 'tertiary',
+    iconName: 'infoIcon',
+    children: 'Info',
+  },
+};
+
+export const Error = {
+  args: {
+    variant: 'error',
+    iconName: 'closeIcon',
+  },
+};
+
+export const Texto = {
+  args: {
+    variant: 'text',
+    iconName: 'upload1Icon',
+    children: 'Subir',
+  },
+};
+
+/** Tamaños */
+export const Small = {
+  args: {
+    size: 'small',
+    variant: 'primary',
+    iconName: 'checkedIcon',
+  },
+};
+
+export const Large = {
+  args: {
+    size: 'large',
+    variant: 'secondary',
+    iconName: 'notificationIcon',
+  },
+};
+
+export const ExtraLarge = {
+  args: {
+    size: 'extraLarge',
+    variant: 'primary',
+    iconName: 'statusIcon',
+  },
+};
+
+export const Display = {
+  args: {
+    size: 'display',
+    variant: 'tertiary',
+    iconName: 'warningIcon',
+    children: 'Alerta',
+  },
+};
+
+/** Estados */
+export const Deshabilitado = {
+  args: {
+    disabled: true,
+    variant: 'primary',
+  },
+};
+
 export const Activo = {
   args: {
     active: true,
+    variant: 'secondary',
   },
 };
