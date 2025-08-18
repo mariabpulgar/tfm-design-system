@@ -1,22 +1,26 @@
 import React from 'react'
-import SimpleCard from './SimpleCard'
 import Button from './Button'
+import './ButtonCard.css';
+import rectangle from '../assets/Rectangle979.svg';
 
 function ButtonCard(){
     return(
-        <div className="button-card">
-            <SimpleCard
-            description="Lorem ipsum dolor sit amet."
-            title="Card"
-            variant="horizontal"
-            />
-             <Button
-            onClick={() => {}}
-            size="medium"
-            text="Button"
-            type="button"
-            variant="btn-primary"
-            />
+        <div className="button-card simple-card-horizontal">
+            <div className="card-image-horiontal">
+                <img src={rectangle} alt="placeholder"></img>
+            </div>
+            <div className="card-text">
+                <h5>Card</h5>
+                <p>Lorem ipsum dolor sit amet.</p>
+                    <Button
+                    onClick={() => {}}
+                    size="medium"
+                    text="Button"
+                    type="button"
+                    variant="btn-primary"
+                    />
+            </div>
+       
         </div>
     );
 }

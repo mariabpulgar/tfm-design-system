@@ -42,6 +42,10 @@
     color: var(--gray-dark-hover);
 }
 
+.card-text button{
+    margin-top: var(--space-200);
+}
+
 /* Vertical */
 
 .simple-card-vertical {
