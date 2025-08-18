@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconSelector from './IconSelector';
-import './IconButton.css' // Ajusta la ruta según tu estructura
+import './IconButton.css';
+
 
 const IconButton = ({
   iconName = 'closeIcon',
-  variant = 'default',
-  size = 'medium',
+  variant = 'default', // 'default' | 'primary' | 'secondary' | 'tertiary' | 'error' | 'text'
+  size = 'medium',     // 'small' | 'medium' | 'large' | 'extraLarge' | 'display'
   disabled = false,
   active = false,
   onClick,
@@ -14,30 +15,36 @@ const IconButton = ({
   children,
   ...props
 }) => {
-  // Mapeo de tamaños a clases CSS
+  // Tamaños -> clases de contenedor
   const containerSizes = {
     small: 'icon-button-container-small',
     medium: 'icon-button-container-medium',
     large: 'icon-button-container-large',
+    extraLarge: 'icon-button-container-large', // reuse large
+    display: 'icon-button-container-large',    // reuse large
   };
 
-  // Mapeo de variantes a clases CSS
+  // Variantes -> clases (usa tus .btn-*)
   const variants = {
     default: 'icon-button-default',
-    // Agrega más variantes aquí si es necesario
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    tertiary: 'btn-tertiary',
+    error: 'btn-error',
+    text: 'btn-text',
   };
 
-  // Mapeo del tamaño del botón al tamaño del ícono
+  // Tamaño del ícono relativo al botón
   const iconSizeMapping = {
     small: 'small',
     medium: 'small',
     large: 'medium',
+    extraLarge: 'medium',
+    display: 'medium',
   };
 
   const handleClick = (e) => {
-    if (!disabled && onClick) {
-      onClick(e);
-    }
+    if (!disabled && onClick) onClick(e);
   };
 
   const containerClass = containerSizes[size] || containerSizes.medium;
@@ -50,13 +57,14 @@ const IconButton = ({
       className={combinedClassName}
       onClick={handleClick}
       disabled={disabled}
+      aria-pressed={active || undefined}
       aria-label={children ? undefined : iconName.replace(/([A-Z])/g, ' $1').trim()}
       {...props}
     >
       <IconSelector
         name={iconName}
         size={iconSizeMapping[size]}
-        color="currentColor"
+        color="currentColor" 
       />
       {children}
     </button>
@@ -65,7 +73,7 @@ const IconButton = ({
 
 IconButton.propTypes = {
   iconName: PropTypes.string,
-  variant: PropTypes.oneOf(['default']), // Agrega más si defines más variantes
+  variant: PropTypes.oneOf(['default', 'primary', 'secondary', 'tertiary', 'error', 'text']),
   size: PropTypes.oneOf(['small', 'medium', 'large', 'extraLarge', 'display']),
   disabled: PropTypes.bool,
   active: PropTypes.bool,

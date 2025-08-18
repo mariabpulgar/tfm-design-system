@@ -1,16 +1,14 @@
 /* Icon Button Classes */
-
-.icon-button-container-large, 
+.icon-button-container-large,
 .icon-button-container-medium {
   display: inline-flex;
   padding: 8px;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border-radius: var(--border-width-100);
+  border-radius: var(--radius-100);
   border: none;
   cursor: pointer;
-  
 }
 
 .icon-button-container-small {
@@ -22,8 +20,8 @@
   border-radius: var(--radius-100);
   border: none;
   cursor: pointer;
-  
 }
+
 .icon-button-default {
   background-color: var(--gray-light);
   color: var(--gray-dark-active);
@@ -43,4 +41,118 @@
   background-color: var(--gray-normal);
   color: var(--gray-light);
   cursor: not-allowed;
-};
+}
+
+/* =========================================================
+   Shared Button Variants (para Button y IconButton)
+   (SIN transiciones ni animaciones)
+   ========================================================= */
+
+.btn-primary {
+  border: none;
+  background-color: var(--ciam-normal);
+  border-radius: var(--radius-100);
+  color: var(--gray-light);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--ciam-normal-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--ciam-normal-active);
+}
+
+.btn-primary:disabled {
+  background-color: var(--ciam-light-active);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  border: none;
+  background-color: var(--blue-normal);
+  border-radius: var(--radius-100);
+  color: var(--gray-light);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--blue-dark-active);
+}
+
+.btn-secondary:active {
+  background-color: var(--blue-dark-hover);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--blue-light);
+  color: var(--blue-light-active);
+  cursor: not-allowed;
+}
+
+.btn-tertiary {
+  border: var(--border-width-025) solid var(--magenta-normal);
+  background-color: var(--gray-light);
+  border-radius: var(--radius-100);
+  color: var(--magenta-normal);
+  cursor: pointer;
+}
+
+.btn-tertiary:hover {
+  background-color: var(--magenta-light-hover);
+}
+
+.btn-tertiary:active {
+  background-color: var(--magenta-normal);
+  color: var(--gray-light);
+}
+
+.btn-tertiary:disabled {
+  background-color: var(--gray-light);
+  color: var(--magenta-light-hover);
+  border: var(--border-width-025) solid var(--magenta-light-hover);
+  cursor: not-allowed;
+}
+
+.btn-error {
+  border-radius: var(--radius-100);
+  background: var(--error-normal);
+  color: var(--gray-light);
+  cursor: pointer;
+}
+
+.btn-error:hover {
+  background-color: var(--error-normal-hover);
+}
+
+.btn-error:active {
+  background-color: var(--error-normal-active);
+}
+
+.btn-error:disabled {
+  background-color: var(--gray-light);
+  color: var(--error-light-hover);
+  border: var(--border-width-025) solid var(--error-light-hover);
+  cursor: not-allowed;
+}
+
+.btn-text {
+  border: none;
+  background-color: transparent;
+  color: var(--ciam-normal);
+  cursor: pointer;
+}
+
+.btn-text:hover {
+  color: var(--ciam-dark);
+}
+
+.btn-text:active {
+  color: var(--ciam-dark-active);
+}
+
+.btn-text:disabled {
+  color: var(--gray-normal-hover);
+  cursor: not-allowed;
+}
