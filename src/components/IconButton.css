@@ -117,7 +117,6 @@
 
 .btn-error {
   border-radius: var(--radius-100);
-  border: var(--border-width-025) solid var(--gray-light);
   background: var(--error-normal);
   color: var(--gray-light);
   cursor: pointer;

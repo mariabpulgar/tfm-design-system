@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css'
-import ButtonCard from './components/ButtonCard';
-import SearchBar from './components/SearchBar';
+import Modal from './components/Modal'
 
 
 function App() {
   return (
     <div>
-      <SearchBar></SearchBar>
+      <Modal>
+
+      </Modal>
     </div>    
   );
 }
