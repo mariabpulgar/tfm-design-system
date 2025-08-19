@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css'
-import Modal from './components/Modal'
+import Accordion from './components/Accordion';
 
 
 function App() {
   return (
     <div>
-      <Modal>
-
-      </Modal>
+     <Accordion></Accordion>
     </div>    
   );
 }
