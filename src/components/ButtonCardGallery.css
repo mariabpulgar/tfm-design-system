@@ -1,0 +1,77 @@
+.gallery-card-horizontal {
+  display: flex;
+  align-items: flex-start;
+  width: 470px;
+  gap: var(--space-400);
+  padding: 10px;
+  background: #fff;
+  border-radius: var(--radius-300);
+  flex-shrink: 0;
+}
+
+.gallery-card-horizontal:hover {
+  border-radius: var(--radius-300);
+  border: var(--border-width-025) solid var(--ciam-light-active);
+  background: var(--gray-light-hover);
+}
+
+.gallery-media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+/* Imagen principal */
+.gallery-hero {
+  width: 200px;  
+  border-radius: var(--radius-100);
+  overflow: hidden;
+  outline: none;
+}
+
+.gallery-hero img {
+  width: 100%;
+  height: 200px;  
+  display: block;
+  object-fit: cover;
+}
+
+/* Miniaturas */
+.gallery-thumbs {
+  display: flex;
+  gap: var(--space-100);
+}
+
+.thumb {
+  width: 47px;
+  height: 47px;
+  padding: 0;
+  border: var(--border-width-025) solid transparent;
+  background: var(--gray-light-hover);
+  border-radius: var(--radius-100);
+  cursor: pointer;
+}
+
+.thumb:is(:focus-visible, :hover) {
+  border-color: var(--gray-normal);
+  outline: none;
+}
+
+.thumb.is-active {
+  border-color: var(--gray-normal-hover);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--gray-light-hover), transparent 20%);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.gallery-divider {
+  width: 100%;
+  border: none;
+  border-top: var(--border-width-025) solid #e9ecef;
+  margin: var(--space-100) 0;
+}
