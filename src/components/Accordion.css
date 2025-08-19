@@ -1,30 +1,35 @@
 /* Contenedor principal */
 .accordion-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.accordion-wrapper {
+  display: flex;
   width: 560px;
+  flex-direction: column;
+  align-items: flex-start;
+
 }
 
-
+/* Wrapper con borde punteado */
+.accordion-wrapper {
+  display: flex;
+  width: 560px;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: white;
+  border-radius: var(--radius-150);
+}
 
 /* Item individual del accordion */
 .accordion-item {
-    display: flex;
-    padding: 12px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 6px 6px 0 0;
-    border-top: 1px solid var(--gray-light-active);
-    border-bottom: 1px solid var(--gray-light-active);
-    background: var(--gray-light);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-top: 1px solid var(--gray-light-active);
+  border-bottom: 1px solid var(--gray-light-active);
+  background: var(--gray-ligh);
 }
 
-.accordion-item:last-child {
-  border-bottom: none;
+.accordion-item:nth-child(3){
+    border-radius: var(--radius-150);
+
 }
 
 /* Header/botón del accordion */
@@ -33,46 +38,49 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
   text-align: left;
-  color: #1f2937;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-darker);  
+  padding: 12px;
+  flex-shrink: 0; /* evita que se deforme */
 }
 
-.accordion-header:hover {
-  background-color: #f9fafb;
-}
 
-.accordion-header:focus {
-  outline: none;
-}
 
 /* Título del item */
 .accordion-title {
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-darker);
 }
 
-/* Icono + / - */
-.accordion-icon {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #6b7280;
-}
-
-/* Contenido expandido */
+/* Contenido expandido con animación */
 .accordion-content {
-  padding-bottom: 1rem;
-  padding-left: 0;
-  padding-right: 0;
+  max-height: 0;              /* cerrado por defecto */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  border-top: 1px solid transparent;
+  background: var(--gray-light);
+  border-radius: var(--radius-150);
+
+}
+
+
+
+/* Cuando el item está abierto */
+.accordion-item.open .accordion-content {
+  max-height: 500px; /* ajusta según lo que necesites */
+  border-top: 1px solid var(--gray-light-active);
 }
 
 /* Texto del contenido */
 .accordion-text {
-  color: #6b7280;
-  line-height: 1.6;
-  margin: 0;
+  font-size: var(--paragraph-font-size);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-dark-active);
+  padding: 8px 12px;
 }
