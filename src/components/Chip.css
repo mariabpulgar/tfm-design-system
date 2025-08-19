@@ -1,0 +1,23 @@
+.chip{
+    display: inline-flex;
+    height: 24px;
+    padding: 0 var(--space-300);
+    align-items: center;
+    gap: var(--space-100);
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--gray-dark-active);
+    background: var(--gray-light-active);
+}
+
+.chip-title{
+    color: var(--gray-dark-active);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-weight-regular);
+}
+
+.chip-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
