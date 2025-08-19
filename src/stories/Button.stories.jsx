@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
 
-// Configuración principal del componente
 export default {
   title: 'Components/Button',
   component: Button,
@@ -12,7 +11,7 @@ export default {
     docs: {
       description: {
         component:
-          'Componente Button con diferentes variantes, tamaños e iconos laterales. Usa la prop `isGroup` para ocultar los íconos cuando el botón se use dentro de un ButtonGroup.',
+          'Componente Button con variantes, tamaños e íconos laterales. Usa `isGroup` para ocultar ambos íconos cuando esté dentro de un ButtonGroup, o controla individualmente con `showLeftIcon` y `showRightIcon`.',
       },
     },
   },
@@ -47,8 +46,20 @@ export default {
     isGroup: {
       control: 'boolean',
       description:
-        'Si es `true`, el botón se usa dentro de un ButtonGroup y oculta los íconos laterales.',
+        'Si es `true`, el botón se usa dentro de un ButtonGroup y oculta ambos íconos laterales.',
       table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+
+    // NUEVO: control fino de íconos
+    showLeftIcon: {
+      control: 'boolean',
+      description: 'Muestra el ícono izquierdo cuando `isGroup` es `false`.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
+    },
+    showRightIcon: {
+      control: 'boolean',
+      description: 'Muestra el ícono derecho cuando `isGroup` es `false`.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
     },
 
     // Eventos
@@ -72,19 +83,20 @@ export default {
     },
   },
   args: {
-    // Defaults globales para el Playground y las historias que no los sobrescriban
     variant: 'btn-primary',
     size: 'medium',
     text: 'Button',
     disabled: false,
-    isGroup: false, // por defecto false
+    isGroup: false,
+    showLeftIcon: true,
+    showRightIcon: true,
     type: 'button',
   },
 };
 
 // Historia por defecto
 export const Default = {
-  name: 'Default (con iconos)',
+  name: 'Default (iconos a ambos lados)',
 };
 
 // Variantes
@@ -133,7 +145,56 @@ export const InGroup = {
     docs: {
       description: {
         story:
-          'Simula el uso del botón dentro de un ButtonGroup. Con `isGroup` en `true`, los íconos laterales no se renderizan.',
+          'Con `isGroup` en `true`, los íconos laterales no se renderizan.',
+      },
+    },
+  },
+};
+
+// NUEVAS HISTORIAS solicitadas
+export const LeftIconAndText = {
+  name: 'Primer botón + Texto (izquierdo + texto)',
+  args: {
+    text: 'Icono izquierdo',
+    showLeftIcon: true,
+    showRightIcon: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Muestra el ícono izquierdo seguido del texto.',
+      },
+    },
+  },
+};
+
+export const TextAndRightIcon = {
+  name: 'Texto + Segundo botón (texto + derecho)',
+  args: {
+    text: 'Icono derecho',
+    showLeftIcon: false,
+    showRightIcon: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Muestra el texto seguido del ícono derecho.',
+      },
+    },
+  },
+};
+
+export const TextOnly = {
+  name: 'Solo texto',
+  args: {
+    text: 'Solo texto',
+    showLeftIcon: false,
+    showRightIcon: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'No se muestran íconos; se mantiene el estilo del botón.',
       },
     },
   },
@@ -147,12 +208,14 @@ export const Playground = {
     text: 'Playground Button',
     disabled: false,
     isGroup: false,
+    showLeftIcon: true,
+    showRightIcon: true,
   },
   parameters: {
     docs: {
       description: {
         story:
-          'Usa los controles de la derecha para experimentar con diferentes configuraciones del botón.',
+          'Usa los controles para activar/desactivar íconos y combinar variantes/tamaños.',
       },
     },
   },
