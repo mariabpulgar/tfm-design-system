@@ -156,3 +156,64 @@
   color: var(--gray-normal-hover);
   cursor: not-allowed;
 }
+
+.btn-pagination {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-100);
+  height: 34px;
+  width: 34px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "liga" 0;
+  gap: 0;
+  cursor: pointer;
+  
+  /* colores base (inactivo) */
+  background-color: var(--gray-light);
+  color: var(--gray-dark-active);
+  border: var(--border-width-025) solid var(--gray-normal);
+}
+
+/* Estado activo */
+.btn-pagination.icon-button-active {
+  background-color: var(--ciam-normal);
+  color: var(--gray-light);
+  border-color: var(--ciam-normal);
+}
+
+/* Disabled */
+.btn-pagination:disabled {
+  background-color: var(--gray-normal);
+  color: var(--gray-light);
+  border-color: var(--gray-normal);
+  cursor: not-allowed;
+}
+
+/* Span del número */
+.icon-button-number {
+  display: block;
+  line-height: 1;
+  align-items: center; 
+  width: 100%;
+}
+
+ .icon-button-container-small.btn-pagination {
+   width: 28px;
+   height: 28px;
+   font-size: 12px;
+   padding: 0 !important;
+ }
+ .icon-button-container-medium.btn-pagination {
+   width: 36px;
+   height: 36px;
+   font-size: 14px;
+   padding: 0 !important;
+ }
+ .icon-button-container-large.btn-pagination {
+   width: 44px;
+   height: 44px;
+   font-size: 16px;
+   padding: 0 !important;
+ }
