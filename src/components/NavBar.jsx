@@ -1,6 +1,7 @@
 import React from 'react'
 import Rectangle982 from '../assets/Rectangle982.png'
 import Button from './Button';
+import './NavBar.css'
 
 function NavBar({
     imageSrc = Rectangle982
@@ -14,12 +15,26 @@ function NavBar({
                 <a>Quienes somos</a>
                 <a>Ubicación</a>
                 <Button
+                iconColor="currentColor"
+                iconPosition="left"
+                iconSize="medium"
+                leftIconName="dropLeftIcon"
+                onClick={() => {}}
+                rightIconName="dropDownIcon"
+                showLeftIcon={false}
+                showRightIcon
+                size="medium"
+                text="Adopción"
+                type="button"
+                variant="btn-text"
+                />
+                <Button
                 text="Contacto"
                 isGroup={false}
                 iconSide="left"
                 showLeftIcon={true}
                 showRightIcon={false}
-                leftIconName="download1Icon"
+                leftIconName="sendIcon"
                 iconSize="medium"
                 iconColor="currentColor"
                 type="button"
