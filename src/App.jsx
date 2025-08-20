@@ -3,20 +3,13 @@ import './App.css'
 import Accordion from './components/Accordion';
 import Chip from './components/Chip'
 import Button from './components/Button';
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
     <div>
-        <Button
-          onClick={() => {}}
-          showLeftIcon
-          showRightIcon
-          size="medium"
-          text="Button"
-          type="button"
-          variant="btn-primary"
-        />  
+        <NavBar></NavBar>
     </div>    
   );
 }
