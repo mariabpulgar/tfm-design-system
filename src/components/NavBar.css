@@ -20,5 +20,61 @@
 
 .navbar-items a{
     padding: 8px 12px;
-    color: var(--ciam-normal)
+    color: var(--ciam-normal);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--h6-font-size);
+    text-decoration: none;
+}
+
+.navbar-items a:hover{
+    color: var(--ciam-dark);
+}
+
+.adopcion-wrap { 
+    position: relative;
+    perspective: 600px; 
+}
+.submenu[hidden] { 
+    display: none; 
+}
+.submenu { 
+    position: absolute; 
+    right: 0; /* etc estilos */ 
+    background-color: #FFFFFF;
+    
+}
+
+/* Quitar viñetas y sangrías */
+.nav-bar ul,
+.submenu {
+    list-style-type: none;   /* o list-style-type: none; */
+    width: 200px;
+    padding-left: 0;
+   
+}
+
+.submenu-li{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray-normal);
+    padding: 8px 12px;
+    align-self: stretch;
+}
+
+.submenu-li a{
+    color: var(--blue-normal);
+}
+
+
+
+.adopcion-wrap button svg {
+  transition: transform 200ms ease;
+  transform-origin: center;
+}
+
+.adopcion-wrap button[aria-expanded="true"] svg {
+  transform: rotateX(180deg);
 }

@@ -84,7 +84,6 @@ const icons = Object.fromEntries(
         'Volumen-off': 'volumenOffIcon',
         'Volumen-on': 'volumenOnIcon',
         Wallet: 'walletIcon',
-        'Drop-down': 'dropDownIcon'
       }[iconName] || iconName);
 
     return [formattedName, component.default || component];
