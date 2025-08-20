@@ -35,6 +35,12 @@ export default {
       ],
       description: 'Nombre del ícono a mostrar.',
     },
+
+    number: { 
+      control: { type: 'number', min: 1, max: 99, step: 1 },
+      description: 'Número para la variante de paginación.',
+    },  // <-- pagination nuevo
+    
     size: {
       control: 'inline-radio',
       options: ['small', 'medium', 'large', 'extraLarge', 'display'],
@@ -43,9 +49,9 @@ export default {
     },
     variant: {
       control: 'inline-radio',
-      options: ['default', 'primary', 'secondary', 'tertiary', 'error', 'text'],
+      options: ['default', 'primary', 'secondary', 'tertiary', 'error', 'text', 'pagination'],
       description:
-        'Variante visual (clases CSS: `.btn-*` o `icon-button-default`).',
+        'Variante visual (incluye `.btn-pagination` para números).',
       table: { defaultValue: { summary: 'default' } },
     },
     disabled: {
@@ -69,6 +75,7 @@ export default {
     disabled: false,
     active: false,
     children: '',
+    number: undefined, // <-- pagination nuevo
   },
 };
 
@@ -172,5 +179,13 @@ export const Activo = {
   args: {
     active: true,
     variant: 'secondary',
+  },
+};
+
+export const Paginacion = {
+  args: {
+    variant: 'pagination',
+    number: 1,
+    active: true,
   },
 };

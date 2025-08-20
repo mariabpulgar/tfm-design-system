@@ -156,3 +156,41 @@
   color: var(--gray-normal-hover);
   cursor: not-allowed;
 }
+
+.btn-pagination {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-100);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  
+  /* colores base (inactivo) */
+  background-color: var(--gray-light);
+  color: var(--gray-dark-active);
+  border: var(--border-width-025) solid var(--gray-normal);
+}
+
+/* Estado activo */
+.btn-pagination.icon-button-active {
+  background-color: var(--ciam-normal);
+  color: var(--gray-light);
+  border-color: var(--ciam-normal);
+}
+
+/* Disabled */
+.btn-pagination:disabled {
+  background-color: var(--gray-normal);
+  color: var(--gray-light);
+  border-color: var(--gray-normal);
+  cursor: not-allowed;
+}
+
+/* Span del número */
+.icon-button-number {
+  display: block;
+  line-height: 1; 
+  text-align: center;
+  width: 100%;
+}
