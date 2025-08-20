@@ -162,8 +162,12 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-100);
+  height: 34px;
+  width: 34px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "liga" 0;
+  gap: 0;
   cursor: pointer;
   
   /* colores base (inactivo) */
@@ -190,7 +194,26 @@
 /* Span del número */
 .icon-button-number {
   display: block;
-  line-height: 1; 
-  text-align: center;
+  line-height: 1;
+  align-items: center; 
   width: 100%;
 }
+
+ .icon-button-container-small.btn-pagination {
+   width: 28px;
+   height: 28px;
+   font-size: 12px;
+   padding: 0 !important;
+ }
+ .icon-button-container-medium.btn-pagination {
+   width: 36px;
+   height: 36px;
+   font-size: 14px;
+   padding: 0 !important;
+ }
+ .icon-button-container-large.btn-pagination {
+   width: 44px;
+   height: 44px;
+   font-size: 16px;
+   padding: 0 !important;
+ }

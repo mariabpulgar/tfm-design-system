@@ -1,0 +1,19 @@
+.pagination-root {
+  display: inline-block;
+}
+
+.pagination-list {
+  display: flex;
+  gap: var(--space-200);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.pagination-ellipsis {
+  min-width: 24px;
+  text-align: center;
+  color: var(--gray-dark-active);
+  user-select: none;
+}
