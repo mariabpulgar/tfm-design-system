@@ -1,3 +1,13 @@
+/* Estilos base del botón */
+.btn {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Tamaños de botones */
 .btn-large {
   display: inline-flex;
@@ -7,6 +17,8 @@
   align-items: center;
   gap: var(--space-100);
   flex-shrink: 0;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--h6-font-size);
 }
 
 .btn-medium {
@@ -171,4 +183,3 @@
 .btn--in-group {
   height: 38px;
 }
-
