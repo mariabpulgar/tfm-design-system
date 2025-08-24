@@ -63,3 +63,23 @@
 .dropdown-item a:active {
   background-color: var(--ciam-light-active);
 }
+
+/* Fila interna con checkbox dentro del menú */
+.dropdown-checkbox-row {
+  display: block;
+  align-content: center;
+  height: 44px;
+  padding: var(--space-200) var(--space-400);
+  border-radius: var(--radius-150);
+}
+
+/* Hover consistente con las anclas del menú */
+.dropdown-item:hover .dropdown-checkbox-row {
+  background-color: var(--ciam-light);
+}
+
+/* Cursor mano dentro del checkbox */
+.dropdown-checkbox-row .checkbox-label,
+.dropdown-checkbox-row .checkbox-input {
+  cursor: pointer;
+}
