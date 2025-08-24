@@ -24,7 +24,6 @@ const Dropdown = ({ title, items, inline = false, mode = 'single', defaultSelect
   onChange?.(Array.from(next));
 };
 
-// Reemplaza tu multipleSummary por esta
 const multipleSummary = () => {
   const selectedKeys = Array.from(selectedSet);
   const map = items.map((item, i) => ({ key: keyFor(item, i), label: item.label }));
@@ -37,7 +36,7 @@ const multipleSummary = () => {
 
   return (
     <div className={`dropdown ${inline ? 'dropdown--inline' : ''}`}>
-      <button className="dropdown-toggle" onClick={toggleDropdown}>
+      <button type="button" className="dropdown-toggle" onClick={toggleDropdown}>
         <span className="button-text">
           {mode === 'single' ? (selected ? selected.label : title) : multipleSummary()}
         </span>
