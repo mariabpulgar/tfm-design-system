@@ -1,10 +1,9 @@
-/* InputText.css */
 .input-group {
   display: flex;
   flex-direction: column;
   gap: var(--space-200);
-  margin-top: var(--space-800);
-  margin-bottom: var(--space-800);
+  margin-top: var(--space-200);
+  margin-bottom: var(--space-200);
   width: 380px;
 }
 
@@ -26,8 +25,6 @@
   border-radius: var(--radius-150);
   border: 1px solid var(--gray-normal-hover);
   background-color: var(--gray-light);
-  margin-top: var(--space-200);
-  margin-bottom: var(--space-200);
   font-size: 14px;
   
 }
@@ -45,7 +42,6 @@
   background-color: var(--gray-light);
 }
 
-/* Estado de error */
 .input-text.error {
   border: 1px solid var(--error-normal);
 }
@@ -65,13 +61,11 @@
   display: block;
 }
 
-/* Placeholder styling */
 .input-text::placeholder {
   color: var(--gray-normal, #999);
   opacity: 1;
 }
 
-/* Hover states */
 .input-text:hover:not(:disabled):not(.error) {
   border-color: var(--ciam-normal, #666);
 }
