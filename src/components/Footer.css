@@ -1,0 +1,147 @@
+.footer {
+  color: var(--gray-light);
+  background: var(--blue-normal);
+  font-family: inherit;
+}
+
+.footer__band {
+  border-top: 1px solid var(--gray-light);
+}
+
+.footer__band--top {
+  border-top: none;
+}
+
+.footer__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--radius-400);
+}
+
+.footer__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.footer__nav {
+  justify-self: end;
+}
+
+.footer__nav-list,
+.footer__utility-list,
+.footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+}
+
+.footer__nav-item,
+.footer__utility-item,
+.footer__social-item {
+  display: inline-flex;
+}
+
+.footer__link {
+  color: var(--gray-light);
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer__link:hover,
+.footer__link:focus {
+  text-decoration: underline;
+}
+
+/* Banda media */
+.footer__container--middle {
+  grid-template-columns: 1fr auto;
+}
+
+.footer__social-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gray-light);
+  color: var(--gray-darker);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+}
+.footer__social-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Banda inferior */
+.footer__container--bottom {
+  grid-template-columns: 1fr auto;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__logo-box {
+  width: 120px;           
+  height: 72px;           
+  padding: 8px;           
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.footer__logo--placeholder {
+  width: 48px;
+  height: 36px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 4px;
+}
+
+.footer__copy {
+  margin: 0;
+  color: var(--gray-light);
+}
+
+.footer__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer__back:hover,
+.footer__back:focus {
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+  .footer__nav { justify-self: start; }
+  .footer__container--bottom {
+    gap: 16px;
+  }
+}

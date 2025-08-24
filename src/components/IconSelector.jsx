@@ -84,6 +84,14 @@ const icons = Object.fromEntries(
         'Volumen-off': 'volumenOffIcon',
         'Volumen-on': 'volumenOnIcon',
         Wallet: 'walletIcon',
+        Facebook: 'facebookIcon',
+        Instagram: 'instagramIcon',
+        TikTok: 'tiktokIcon',
+        Whatsapp: 'whatsappIcon',
+        FacebookA: 'facebookAIcon',
+        InstagramA: 'instagramAIcon',
+        TikTokA: 'tiktokAIcon',
+        WhatsappA: 'whatsappAIcon',
       }[iconName] || iconName);
 
     return [formattedName, component.default || component];

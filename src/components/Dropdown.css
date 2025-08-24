@@ -1,15 +1,15 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
-/* Estilo del botón del dropdown */
 .dropdown-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: var(--space-200) var(--space-300);
-  width: 380px;
+  width: 100%;
   height: 44px;
   background-color: var(--gray-light);
   border: 1px solid var(--gray-normal);
@@ -18,6 +18,13 @@
   transition: all 0.2s ease-in-out;
   font-size: var(--paragraph-font-size);
   color: var(--gray-darker);
+}
+
+.dropdown--inline{
+  width: 100%;
+  position: static;
+  margin-top: var(--space-100);
+  box-sizing: border-box;
 }
 
 .dropdown-toggle:hover {
@@ -30,17 +37,17 @@
   color: var(--gray-darker);
 }
 
-
 .dropdown-menu {
-  position: absolute;
+  position: static;
   top: 100%;
   margin-top: var(--space-100);
-  width: 380px;
+  width: 100%; 
   background-color: var(--gray-light);
   border-radius: var(--radius-150);
   z-index: 1000;
   list-style-type: none;
   padding: var(--space-100) 0;
+  box-sizing: border-box;
 }
 
 /* Estilo de cada elemento del menú */
@@ -62,4 +69,29 @@
 
 .dropdown-item a:active {
   background-color: var(--ciam-light-active);
+}
+
+.dropdown-checkbox-row {
+  display: block;
+  align-content: center;
+  height: 44px;
+  padding: var(--space-200) var(--space-400);
+  border-radius: var(--radius-150);
+}
+
+.dropdown-item:hover .dropdown-checkbox-row {
+  background-color: var(--ciam-light);
+}
+
+/* Cursor mano dentro del checkbox */
+.dropdown-checkbox-row .checkbox-label,
+.dropdown-checkbox-row .checkbox-input {
+  cursor: pointer;
+}
+
+.button-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
