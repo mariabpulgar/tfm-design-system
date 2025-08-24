@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import logoImg from "../assets/Logo_FACP_Blanco_v2.svg";
 
 const meta = {
   title: "Layout/Footer",
@@ -29,7 +30,7 @@ export const Basico = {
       { name: "tiktokAIcon", label: "TikTok", href: "#" },
     ],
     logo: {
-      src: "",
+      src: logoImg,
       alt: "Logo",
     },
     year: 2025,
