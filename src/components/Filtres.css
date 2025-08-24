@@ -1,0 +1,29 @@
+.filters-panel {
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filters-title {
+  font-size: var(--h5-font-size, 18px);
+  color: var(--gray-darker);
+  margin: 0;
+}
+
+.filters-clear-btn {
+  font-size: var(--paragraph-font-size, 14px);
+}
+
+.filters-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-150);
+}
+

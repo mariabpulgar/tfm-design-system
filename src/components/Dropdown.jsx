@@ -3,7 +3,7 @@ import IconSelector from './IconSelector';
 import Checkbox from './Checkbox';
 import './Dropdown.css';
 
-const Dropdown = ({ title, items, mode = 'single', defaultSelected = [], onChange }) => {
+const Dropdown = ({ title, items, inline = false, mode = 'single', defaultSelected = [], onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null); // guarda la opción seleccionada
   const [selectedSet, setSelectedSet] = useState(() => new Set(defaultSelected));
@@ -24,15 +24,19 @@ const Dropdown = ({ title, items, mode = 'single', defaultSelected = [], onChang
   onChange?.(Array.from(next));
 };
 
+// Reemplaza tu multipleSummary por esta
 const multipleSummary = () => {
-  const count = selectedSet.size;
+  const selectedKeys = Array.from(selectedSet);
+  const map = items.map((item, i) => ({ key: keyFor(item, i), label: item.label }));
+  const labels = selectedKeys.map(k => (map.find(m => m.key === k)?.label || k));
+  const count = labels.length;
   if (count === 0) return title;
-  if (count === 1) return '1 seleccionado';
-  return `${count} seleccionados`;
+  if (count <= 3) return labels.join(', ');
+  return `${labels.slice(0, 2).join(', ')}, +${count - 2}`;
 };
 
   return (
-    <div className="dropdown">
+    <div className={`dropdown ${inline ? 'dropdown--inline' : ''}`}>
       <button className="dropdown-toggle" onClick={toggleDropdown}>
         <span className="button-text">
           {mode === 'single' ? (selected ? selected.label : title) : multipleSummary()}
