@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css'
-import Hero from './components/Hero'
+import './App.css';
+import CardList from './components/CardList'
+
 
 
 function App() {
   return (
     <div>
-        <Hero></Hero>
+      <CardList></CardList>
+
     </div>    
   );
 }

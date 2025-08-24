@@ -49,6 +49,7 @@
 /* Vertical */
 
 .simple-card-vertical {
+    width: 202px;
     display: inline-flex;
     padding: 10px 10px 16px 10px;
     flex-direction: column;

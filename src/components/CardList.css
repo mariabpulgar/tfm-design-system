@@ -1,0 +1,20 @@
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;   /* centra horizontalmente */
+  padding: 106px 81px 105px 81px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.card-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-auto-rows: auto;                  
+  gap: var(--space-400);                 
+  max-width: 1200px;                     
+  padding: 20px;
+  margin-inline: auto;                   
+}
