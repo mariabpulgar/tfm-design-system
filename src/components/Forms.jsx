@@ -38,14 +38,14 @@ const FORMS = {
         options: [
           { id: 'med', label: 'Medellín' },
           { id: 'bog', label: 'Bogotá' },
-          { id: 'cali', label: 'Cali' },
+          { id: 'cali', label: 'Cartagena' },
         ]
       },
       { name: 'living',    label: 'Living space *', placeholder: 'Choose', type: 'select', required: true, col: 12,
         options: [
-          { id: 'house', label: 'House' },
-          { id: 'apt',   label: 'Apartment' },
-          { id: 'farm',  label: 'Farm' },
+          { id: 'house', label: 'Apartament' },
+          { id: 'apt',   label: 'House whith yard' },
+          { id: 'farm',  label: 'Farm or open area' },
         ]
       },
       { name: 'message',   label: 'Why do you want to adopt? *', placeholder: 'Type your message here...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
