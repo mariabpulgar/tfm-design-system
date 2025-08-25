@@ -1,7 +1,6 @@
 
 .grid-gallery-container{
     display: flex;
-    width: 610px;
     flex-direction: column;
     align-items: center;
     gap: var(--space-800);
@@ -9,6 +8,7 @@
 
 .grid-gallery-grid{
     display: flex;
+    width: 610px;
     flex-direction: column;
     align-items: center;
     gap: var(--space-500);
@@ -26,4 +26,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-500);
+}
+
+.grid-gallery-title h2{
+    margin: 0;
+    padding: 0;
+    color: var(--ciam-normal);
 }
