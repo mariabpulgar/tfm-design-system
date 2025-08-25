@@ -1,20 +1,23 @@
 import React from 'react';
 import './App.css';
 import SimpleCard from './components/SimpleCard';
-import gato from '../src/assets/perrito.jpg'
-
+import ButtonCard from './components/ButtonCard';
 
 
 function App() {
   return (
     <div>
-      <SimpleCard
-        variant='vertical'
-        title="Adopta un gato"
-        description="Este es un hermoso gato que busca hogar."
-        imgSrc={gato}
-        imgAlt="Gato en adopción"
-     
+      <ButtonCard
+        buttonSize="medium"
+        buttonText="Ver más"
+        buttonType="button"
+        buttonVariant="btn-primary"
+        description="Descripción corta de la card."
+        imageAlt="placeholder"
+        imageSrc="../src/assets/perrito.jpg"
+        onButtonClick={() => {}}
+        orientation="horizontal"
+        title="Título de la card"
       />
     </div>    
   );

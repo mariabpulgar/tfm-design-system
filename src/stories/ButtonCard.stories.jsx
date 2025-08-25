@@ -13,7 +13,7 @@ export default {
     docs: {
       description: {
         component:
-          'Card con imagen, título, descripción y botón integrado. Soporta orientación **horizontal** y **vertical**.',
+          'Card con imagen, título, descripción y botón integrado. Soporta orientación **horizontal** y **vertical**. La variante del componente de imagen se asigna automáticamente según `orientation`.',
       },
     },
   },
@@ -21,7 +21,7 @@ export default {
     orientation: {
       control: { type: 'inline-radio' },
       options: ['horizontal', 'vertical'],
-      description: 'Orientación del layout.',
+      description: 'Orientación del layout (también controla la variante de la imagen).',
       table: { defaultValue: { summary: 'horizontal' } },
     },
     title: {
@@ -40,7 +40,7 @@ export default {
       table: { defaultValue: { summary: 'Button' } },
     },
     buttonVariant: {
-      control: 'text',
+      control: 'text', // o { type: 'select', options: ['btn-primary','btn-secondary','btn-tertiary'] } si tienes esas variantes
       description: 'Variante del botón (ej. "btn-primary").',
       table: { defaultValue: { summary: 'btn-primary' } },
     },
@@ -57,7 +57,7 @@ export default {
       table: { defaultValue: { summary: 'button' } },
     },
     imageSrc: {
-      control: 'text',
+      control: 'text', // si prefieres subir archivos, cambia a 'file' con loader
       description:
         'Fuente de la imagen. Por defecto usa el asset importado (rectangle).',
     },
@@ -68,7 +68,8 @@ export default {
     },
     onButtonClick: {
       action: 'clicked',
-      description: 'Callback al hacer click en el botón.',
+      description: 'Callback al hacer clic en el botón.',
+      table: { category: 'Events' },
     },
   },
   args: {
@@ -101,7 +102,7 @@ export const ConImagenPersonalizada = {
   args: {
     title: 'Card con imagen personalizada',
     description: 'Usando otra imagen mediante prop.',
-    imageSrc: rectangle, // reemplazar por otra ruta si la tienes disponible
+    imageSrc: rectangle, // reemplaza por otra ruta/import si quieres
     imageAlt: 'ilustración',
   },
 };
