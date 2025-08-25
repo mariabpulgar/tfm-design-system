@@ -10,48 +10,63 @@ import line from '../assets/Line3.jpg';
 function GridGallery() {
   return (
     <div className="grid-gallery-container">
-      <div className="grid-first-row">
-        <Image
-          alt="Foto de un perrito feliz"
-          src={perrito}
-          variant="img-grid-gallery-large"
-        />
-        <div className="small-images">
-            <Image
-            alt="Gráfico de elipse decorativa"
-            src={elipse}
-            variant="img-grid-gallery-small"
-            />
-            <Image
-            alt="Logo de la Fundación Ángeles con Patas"
-            src={logo}
-            variant="img-grid-gallery-small"
-            />  
+        <div className="grid-gallery-title">
+            <h2>Grid gallery</h2>
         </div>
-             
-      </div>
-
-      <div className="grid-second-row">
-        <div className="small-images">
+        <div className="grid-gallery-grid">
+        <div className="grid-first-row">
             <Image
-            alt="Fotografía decorativa Line3"
-            src={line}
-            variant="img-grid-gallery-small"
-            />
-            <Image
-            alt="Otra imagen del perrito"
+            alt="Foto de un perrito feliz"
             src={perrito}
-            variant="img-grid-gallery-small"
-            /> 
+            variant="img-grid-gallery-large"
+            />
+            <div className="small-images">
+                <Image
+                alt="Gráfico de elipse decorativa"
+                src={elipse}
+                variant="img-grid-gallery-small"
+                />
+                <Image
+                alt="Logo de la Fundación Ángeles con Patas"
+                src={logo}
+                variant="img-grid-gallery-small"
+                />  
+            </div>
+                
         </div>
 
-        <Image
-          alt="Otra elipse decorativa"
-          src={elipse}
-          variant="img-grid-gallery-large"
-        />
-      </div>
+        <div className="grid-second-row">
+            <div className="small-images">
+                <Image
+                alt="Fotografía decorativa Line3"
+                src={line}
+                variant="img-grid-gallery-small"
+                />
+                <Image
+                alt="Otra imagen del perrito"
+                src={perrito}
+                variant="img-grid-gallery-small"
+                /> 
+            </div>
+
+            <Image
+            alt="Otra elipse decorativa"
+            src={elipse}
+            variant="img-grid-gallery-large"
+            />
+        </div>
+        </div>
+        <div className="grid-gallery-pagination">
+            <Pagination
+                totalPages={3}
+                page={1}
+                size="medium"
+                onChange={(page) => console.log('Nueva página:', page)}
+            />
+            
+        </div>
     </div>
+
   );
 }
 
