@@ -28,6 +28,16 @@
     height: 46px;
 }
 
+.img-grid-gallery-large{
+    width: 400px;
+    height: 400px;
+}
+
+.img-grid-gallery-small{
+    width: 190px;
+    height: 190px; 
+}
+
 .img-testimonial {
     width: 300px;
     height: 200px;

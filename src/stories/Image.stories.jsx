@@ -33,6 +33,8 @@ export default {
         'img-buttonCard-vertical',
         'img-gallery-principal',
         'img-gallery-mini',
+        'img-grid-gallery-large',
+        'img-grid-gallery-small',
         'img-testimonial',
       ],
       description: 'Clase CSS que define el tamaño/variante de la imagen.',
@@ -67,6 +69,14 @@ GalleryPrincipal.args = { variant: 'img-gallery-principal' };
 export const GalleryMini = Template.bind({});
 GalleryMini.storyName = 'Imagen de Galería Mini';
 GalleryMini.args = { variant: 'img-gallery-mini' };
+
+export const GridGalleryLarge = Template.bind({});
+GridGalleryLarge.storyName = 'Imagen de Galería Grid Grande';
+GridGalleryLarge.args = { variant: 'img-grid-gallery-large' };
+
+export const GridGallerySmall = Template.bind({});
+GridGallerySmall.storyName = 'Imagen de Galería Grid Pequeña';
+GridGallerySmall.args = { variant: 'img-grid-gallery-small' };
 
 export const Testimonial = Template.bind({});
 Testimonial.storyName = 'Imagen de Testimonio';
