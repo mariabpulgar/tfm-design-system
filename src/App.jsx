@@ -1,23 +1,24 @@
 import React from 'react';
 import './App.css';
-import SimpleCard from './components/SimpleCard';
-import ButtonCard from './components/ButtonCard';
+import Gallery from './components/Gallery';
+import perrito from './assets/perrito.jpg'
+import elipse from './assets/elipse.png'
+import loguito from './assets/Logo_FACP_Color.svg'
 
 
 function App() {
+  const images = [
+    { src: perrito, alt: "Imagen 1" },
+    { src: elipse, alt: "Imagen 2" },
+    { src: loguito, alt: "Imagen 3" },
+    { src: perrito, alt: "Imagen 4" },
+  ];
   return (
     <div>
-      <ButtonCard
-        buttonSize="medium"
-        buttonText="Ver más"
-        buttonType="button"
-        buttonVariant="btn-primary"
-        description="Descripción corta de la card."
-        imageAlt="placeholder"
-        imageSrc="../src/assets/perrito.jpg"
-        onButtonClick={() => {}}
-        orientation="horizontal"
-        title="Título de la card"
+      <Gallery
+        images={images}
+        title="Collar para gato"
+        description="Collar ajustable con campanita. Material antialérgico y disponible en varios colores."
       />
     </div>    
   );
