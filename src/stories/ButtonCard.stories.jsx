@@ -98,18 +98,3 @@ export const Vertical = {
   },
 };
 
-export const ConImagenPersonalizada = {
-  args: {
-    title: 'Card con imagen personalizada',
-    description: 'Usando otra imagen mediante prop.',
-    imageSrc: rectangle, // reemplaza por otra ruta/import si quieres
-    imageAlt: 'ilustración',
-  },
-};
-
-export const BotonSecundario = {
-  args: {
-    buttonText: 'Acción secundaria',
-    buttonVariant: 'btn-secondary',
-  },
-};
