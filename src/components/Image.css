@@ -51,7 +51,7 @@
 }
 
 .img-style-wrapper{
-    border-radius: var(--radius-100);
+    border-radius:  var(--radius-100) var(--radius-100) 0 0;
     overflow: hidden;         
     display: inline-block;     
     line-height: 0;  
