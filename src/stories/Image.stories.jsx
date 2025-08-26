@@ -9,7 +9,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente de imagen con variantes de tamaño predefinidas mediante clases CSS.',
+        component:
+          'Componente de imagen con variantes de tamaño predefinidas mediante clases CSS.',
       },
     },
   },
@@ -21,7 +22,8 @@ export default {
     },
     alt: {
       control: 'text',
-      description: 'Texto alternativo de la imagen (importante para accesibilidad).',
+      description:
+        'Texto alternativo de la imagen (importante para accesibilidad).',
       defaultValue: 'Imagen de ejemplo',
     },
     variant: {
@@ -35,7 +37,8 @@ export default {
         'img-gallery-mini',
         'img-grid-gallery-large',
         'img-grid-gallery-small',
-        'img-testimonial',
+        'img-testimonial',   // ✅ agregada aquí
+        'img-partners',      // ✅ y la que también definiste en el CSS
       ],
       description: 'Clase CSS que define el tamaño/variante de la imagen.',
     },
@@ -81,3 +84,7 @@ GridGallerySmall.args = { variant: 'img-grid-gallery-small' };
 export const Testimonial = Template.bind({});
 Testimonial.storyName = 'Imagen de Testimonio';
 Testimonial.args = { variant: 'img-testimonial' };
+
+export const Partners = Template.bind({});
+Partners.storyName = 'Imagen de Partners';
+Partners.args = { variant: 'img-partners' };
