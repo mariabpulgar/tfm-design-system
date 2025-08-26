@@ -1,0 +1,59 @@
+.map {
+  position: relative;
+  min-height: 150px; 
+  border-radius: var(--radius-150);
+  overflow: hidden;
+  background: var(--gray-light);
+  box-sizing: border-box;
+}
+
+.map-embed {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.map-overlay {
+  position: absolute;
+  z-index: 2;
+  right: var(--space-400);
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: calc(100% - (var(--space-400) * 2));
+  background: #fff;
+  border-radius: var(--radius-150);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  padding: var(--space-400);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;  
+}
+
+.map-title {
+  margin: 0 0 var(--space-200);
+  color: var(--gray-darker);
+}
+
+.map-desc {
+  margin: 0 0 var(--space-300);
+  color: var(--gray-dark-active);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 700px) {
+  .map { width: 100% !important; }        
+  .map-overlay {
+    left: var(--space-300);
+    right: var(--space-300);
+    top: auto;
+    bottom: var(--space-300);
+    transform: none;
+    width: auto !important;                 
+  }
+}
