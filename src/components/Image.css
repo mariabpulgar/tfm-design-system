@@ -43,18 +43,17 @@
     height: 200px;
 }
 
-.img-partners{
-    width:  80px;
-    height: 80px;
-}
-
 .img-style-wrapper{
-    /* border-radius:  var(--radius-100) var(--radius-100) 0 0; */
+    border-radius:  var(--radius-100) var(--radius-100) 0 0;
     overflow: hidden;         
     display: inline-block;     
     line-height: 0;  
 }
-
+.img-partners{
+    width:  80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+}
 .img-style{
    display: block;
    width: 100%;
