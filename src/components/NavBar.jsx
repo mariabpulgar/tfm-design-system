@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Rectangle982 from '../assets/Rectangle982.svg';
-import Vector148 from '../assets/Vector148.svg';
+import Rectangle982 from '../assets/Rectangle982.svg?url';
+import Vector148 from '../assets/Vector148.svg?url';
 import Button from './Button';
 import IconSelector from './IconSelector';
 import './NavBar.css';

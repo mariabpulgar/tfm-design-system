@@ -1,72 +1,179 @@
-/* HERO 100% ancho y 400px de alto */
-.hero-section{
-  --pad-x: 80px;
+/* HERO 100% ancho y altura ajustable */
+.hero-section {
+  /* --pad-x: 80px; */
+  width: 1000px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 400px;
+
   padding: 0 var(--pad-x);
   box-sizing: border-box;
   position: relative;
 }
 
+
 /* Texto a la izquierda */
 .hero-container-text {
-  max-width: 620px;
+  width: 520px;
   z-index: 3;
   position: relative;
+  flex: 0 0 auto;
 }
 
-/* Contenedor de la imagen: tamaño + bleed a la derecha */
-.hero-container-media{
+
+.hero-container-media {
   height: 100%;
-  /* añade var(--pad-x) para que el fondo/imagen sangren hasta el borde;
-     +8px extra por seguridad ante redondeos */
-  width: calc(clamp(360px, 70vw, 1320px) + var(--pad-x) + 8px);
-  margin-right: calc(-1 * (var(--pad-x) + 8px));
+  width: 581px;
   flex: 0 0 auto;
   position: relative;
-  /* sin background aquí; la elipse ahora es la máscara del <img> */
+  height: 400px;
 }
 
-/* Imagen: cubre el área y se recorta con la elipse, centrada al medio de la foto */
-.hero-container-media img{
+
+/* Imagen: se recorta con la elipse SVG */
+.hero-container-media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  /* Máscara (WebKit + estándar) */
+  object-position: center;
+  
+  /* Máscara con tu elipse SVG existente */
   -webkit-mask-image: url('../assets/ellipse5.svg');
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: 50% 50%;   /* centro del <img> */
-  -webkit-mask-size: cover;         /* escala proporcional para cubrir */
-
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-size: cover;
+  
   mask-image: url('../assets/ellipse5.svg');
   mask-repeat: no-repeat;
-  mask-position: 50% 50%;           /* centro del <img> */
-  mask-size: cover;                  /* escala proporcional para cubrir */
+  mask-position: 50% 50%;
+  mask-size: cover;
 }
+
+
+/* Placeholder cuando no hay imagen */
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Aplicar la misma máscara al placeholder */
+  -webkit-mask-image: url('../assets/ellipse5.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-size: cover;
+  
+  mask-image: url('../assets/ellipse5.svg');
+  mask-repeat: no-repeat;
+  mask-position: 50% 50%;
+  mask-size: cover;
+}
+
+
+/* Botón de play para el placeholder */
+.play-button {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #374151;
+}
+
+
+.play-button:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
 
 /* Títulos */
-.hero-title-h1{
-  width: 507px;
-  margin: 0 0 var(--space-400) 0;
-  color: var(--blue-normal);
-}
-.hero-title-h5{
-  color: var(--blue-normal);
-  margin: 0 0 var(--space-200) 0;
-}
-.hero-container-text button{
-  width: 180px;
+.hero-title-h5 {
+  color: var(--blue-normal, #4338ca);
+  margin: 0 0 var(--space-200, 16px) 0;
+
 }
 
-/* (Opcional) Fallback muy básico si no hay soporte de mask */
+
+.hero-title-h1 {
+  width: 507px;
+  height: 110px;
+  color: var(--blue-normal, #4338ca);
+  margin: 0 0 var(--space-400, 32px) 0;
+
+  
+}
+
+
+/* Estilo del botón */
+.hero-container-text button {
+  width: auto;
+  min-width: 160px;
+}
+
+
+/* Fallback si no hay soporte de mask */
 @supports not ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
-  .hero-container-media img{
+  .hero-container-media img {
     border-radius: 50%;
     overflow: hidden;
   }
 }
+
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-section {
+    --pad-x: 40px;
+    min-height: 450px;
+    padding: 40px var(--pad-x);
+  }
+  
+  .hero-container-media {
+    width: calc(clamp(300px, 45vw, 500px) + var(--pad-x) + 8px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px var(--pad-x);
+    min-height: auto;
+  }
+  
+  .hero-container-text {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .hero-container-media {
+    width: 350px;
+    height: 350px;
+    margin-right: 0;
+    min-height: auto;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero-section {
+    --pad-x: 20px;
+  }
+  
+  .hero-container-media {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+
