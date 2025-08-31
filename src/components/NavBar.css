@@ -1,7 +1,14 @@
+.nav-bar-container{
+    display: flex;
+    justify-content: center;
+    background: #FFF;
+}
 .nav-bar{
     display: flex;
     height: 80px;
-    padding: 10px 80px;
+    width: 1512px;
+    padding-left: 140px;
+    padding-right: 140px;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
