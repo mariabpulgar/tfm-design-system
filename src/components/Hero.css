@@ -1,15 +1,22 @@
+
+.hero-container{
+  display: flex;
+  justify-content: center;
+  background: #FFF;
+  width: 100%;
+}
+
+
 /* HERO 100% ancho y altura ajustable */
 .hero-section {
   /* --pad-x: 80px; */
-  width: 1000px;
+  width: 1512px;
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 var(--pad-x);
-  box-sizing: border-box;
-  position: relative;
+  padding-left: 140px;
+  /* padding: 0 var(--pad-x); */
 }
 
 
@@ -24,7 +31,7 @@
 
 .hero-container-media {
   height: 100%;
-  width: 581px;
+  width: 56%;
   flex: 0 0 auto;
   position: relative;
   height: 400px;

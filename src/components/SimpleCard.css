@@ -69,3 +69,7 @@
     background: var(--gray-light-hover);
 }
 
+.card-image-vertical {
+
+    border-radius: var(--radius-300);
+}
