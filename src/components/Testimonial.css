@@ -29,7 +29,7 @@
 .testimonial-text{
     display: flex;
     width: 300px;
-    min-height: 120px; /* Cambia height por min-height */
+    min-height: 160px; /* Cambia height por min-height */
     padding: var(--space-400, 20px) var(--space-500, 24px);
     flex-direction: column;
     justify-content: space-between;
@@ -37,6 +37,7 @@
     border-radius: 0 0 var(--space-100, 8px) var(--space-100, 8px);
     background: var(--gray-light, #f5f5f5);
     margin: 0;
+    gap: auto;
 }
 
 .testimonial-text p, .testimonial-text h6{

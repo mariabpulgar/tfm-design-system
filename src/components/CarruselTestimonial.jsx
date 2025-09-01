@@ -1,23 +1,31 @@
+// CarruselTestimonial.jsx
 import React from 'react';
 import './CarruselTestimonial.css';
-import Testimonial from './Testimonial.jsx';
-import IconButton from './IconButton.jsx';
-import Rectangle979 from '../assets/Rectangle979.svg'; // ← importa el asset
+import Testimonial from './Testimonial';
+import IconButton from './IconButton';
 
-function CarruselTestimonial() {
-  const handlePrev = () => {
-    // lógica de moverse a la izquierda (cuando la agregues)
-  };
+function CarruselTestimonial({ children, items = [] }) {
+  const handlePrev = () => {};
+  const handleNext = () => {};
 
-  const handleNext = () => {
-    // lógica de moverse a la derecha (cuando la agregues)
-  };
+  const hasChildren = React.Children.count(children) > 0;
+  const content = hasChildren
+    ? children
+    : items.map((t, i) => (
+        <Testimonial
+          key={i}
+          imageSrc={t.imageSrc}
+          altText={t.altText}
+          text={t.text}
+          userName={t.userName}
+        />
+      ));
 
   return (
     <div className="carrusel-testimonial-container">
       <div className="left-button">
         <IconButton
-          iconName="dropLeftIcon"     // ← usa un nombre válido
+          iconName="dropLeftIcon"
           onClick={handlePrev}
           size="medium"
           variant="outline"
@@ -26,29 +34,12 @@ function CarruselTestimonial() {
       </div>
 
       <div className="testimonials">
-        <Testimonial
-          altText="Foto del usuario"
-          imageSrc={Rectangle979}     // ← pasa el import, no la ruta "/src/..."
-          text="“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”"
-          userName="User name"
-        />
-        <Testimonial
-          altText="Foto del usuario"
-          imageSrc={Rectangle979}
-          text="“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”"
-          userName="User name"
-        />
-        <Testimonial
-          altText="Foto del usuario"
-          imageSrc={Rectangle979}
-          text="“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”"
-          userName="User name"
-        />
+        {content}
       </div>
 
       <div className="right-button">
         <IconButton
-          iconName="dropRightIcon"    // ← usa un nombre válido
+          iconName="dropRightIcon"
           onClick={handleNext}
           size="medium"
           variant="outline"
