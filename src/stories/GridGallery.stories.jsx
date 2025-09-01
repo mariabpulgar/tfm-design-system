@@ -143,3 +143,18 @@ CustomPattern.args = {
   boundaryCount: 1,
   showPrevNext: true,
 };
+
+// --- Nueva historia: sin paginación y sin hueco del wrapper (opción 2) ---
+export const NoPaginationTight = Template.bind({});
+NoPaginationTight.storyName = "Sin paginación (compacta)";
+NoPaginationTight.args = {
+  images: IMAGES,
+  pageSize: 6, // ajusta a IMAGES.length si quieres todas en una sola “página”
+  showTitle: true,
+  title: "Galería sin paginación (compacta)",
+  // Oculta el render de la paginación y evita flechas
+  renderPagination: () => null,
+  showPrevNext: false,
+  // Elimina el espacio del wrapper de paginación
+  paginationClass: "grid-gallery-pagination--hidden",
+};

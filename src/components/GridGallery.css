@@ -33,3 +33,5 @@
     padding: 0;
     color: var(--ciam-normal);
 }
+
+.grid-gallery-pagination--hidden { display: none; }

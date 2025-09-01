@@ -16,11 +16,11 @@ const FORMS = {
     subtitle: 'Get in touch with us by filling out this short form.',
     submitText: 'Send',
     fields: [
-      { name: 'fullName', label: 'Full name *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 12 },
+      { name: 'fullName', label: 'Nombre completo *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 12 },
       { name: 'email',    label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',    label: 'Phone',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'subject',  label: 'Subject *',   placeholder: 'e.g. Question about donations', type: 'text', required: true, col: 12 },
-      { name: 'message',  label: 'Message *',   placeholder: 'Type your message here...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
+      { name: 'phone',    label: 'Teléfono',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
+      { name: 'subject',  label: 'Asunto *',   placeholder: 'e.g. Preguntas para donación', type: 'text', required: true, col: 12 },
+      { name: 'message',  label: 'Mensaje *',   placeholder: 'Escribe tu mensaje aquí...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
     ],
   },
 
@@ -30,22 +30,22 @@ const FORMS = {
     subtitle: 'Ready to adopt? Fill out the form and meet your new best friend.',
     submitText: 'Send',
     fields: [
-      { name: 'fullName',  label: 'Full name *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 6 },
-      { name: 'age',       label: 'Age *',       placeholder: 'e.g. 30',       type: 'text', required: true, numeric: true, col: 6 },
+      { name: 'fullName',  label: 'Nombre completo *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 6 },
+      { name: 'age',       label: 'Edad *',       placeholder: 'e.g. 30',       type: 'text', required: true, numeric: true, col: 6 },
       { name: 'email',     label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',     label: 'Phone',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'city',      label: 'City *',      placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'phone',     label: 'Teléfono',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
+      { name: 'city',      label: 'Ciudad *',      placeholder: 'Choose', type: 'select', required: true, col: 12,
         options: [
           { id: 'med', label: 'Medellín' },
           { id: 'bog', label: 'Bogotá' },
           { id: 'cali', label: 'Cartagena' },
         ]
       },
-      { name: 'living',    label: 'Living space *', placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'living',    label: 'Tipo de vivienda *', placeholder: 'Choose', type: 'select', required: true, col: 12,
         options: [
-          { id: 'house', label: 'Apartament' },
-          { id: 'apt',   label: 'House whith yard' },
-          { id: 'farm',  label: 'Farm or open area' },
+          { id: 'house', label: 'Apartamento' },
+          { id: 'apt',   label: 'Casa con patio' },
+          { id: 'farm',  label: 'Finca o lugar abierto' },
         ]
       },
       { name: 'message',   label: 'Why do you want to adopt? *', placeholder: 'Type your message here...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },

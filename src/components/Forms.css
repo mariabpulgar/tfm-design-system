@@ -1,64 +1,141 @@
-.forms-card {
-  max-width: 720px;
-  width: 100%;
-  margin: 0 auto;
-  background: var(--gray-light);
-  border: 1px solid var(--gray-normal);
-  border-radius: var(--radius-150);
-  padding: var(--space-600);
-  box-sizing: border-box;
-}
+.forms-card { 
+  max-width: 720px; 
+  width: 100%; 
+  margin: 0 auto; 
+  background: var(--gray-light); 
+  border: 1px solid var(--gray-normal); 
+  border-radius: var(--radius-150); 
+  padding: var(--space-600); 
+  box-sizing: border-box; 
+} 
 
-.forms-header {
-  text-align: center;
-  margin-bottom: var(--space-500);
-}
-.forms-title { margin: 0 0 var(--space-300) 0; color: var(--ciam-dark); }
-.forms-divider { border: none; height: 1px; background: var(--gray-normal); margin: 0 0 var(--space-300) 0; }
-.forms-subtitle { margin: 0; color: var(--gray-dark-active); }
+.forms-header { 
+  text-align: center; 
+  margin-bottom: var(--space-500); 
+} 
 
-.forms-form { display: flex; flex-direction: column; }
+.forms-title { 
+  margin: 0 0 var(--space-300) 0; 
+  color: var(--ciam-dark); 
+} 
 
-.forms-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-300);
-}
+.forms-divider { 
+  border: none; 
+  height: 1px; 
+  background: var(--gray-normal); 
+  margin: 0 0 var(--space-300) 0; 
+} 
 
-.forms-card .input-group,
-.forms-card .forms-input {
-  width: 100% !important;
-}
+.forms-subtitle { 
+  margin: 0; 
+  color: var(--gray-dark-active); 
+} 
 
-.forms-textarea {
-  min-height: 140px;
-  resize: vertical;
-}
+.forms-form { 
+  display: flex; 
+  flex-direction: column; 
+} 
 
-.forms-helper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: var(--space-100);
-  color: var(--gray-dark-active);
-  font-size: 12px;
-}
+.forms-grid { 
+  display: grid; 
+  grid-template-columns: repeat(12, 1fr); 
+  gap: var(--space-300); 
+} 
 
-.forms-actions {
-  margin-top: var(--space-600);
-  display: flex;
-  justify-content: center;
-}
+.forms-card .input-group, 
+.forms-card .forms-input { 
+  width: 100% !important; 
+} 
 
-.forms-actions {
-  margin-top: var(--space-600);
-  display: block;             
-}
+.forms-textarea { 
+  min-height: 140px; 
+  resize: vertical; 
+} 
 
-.forms-actions .btn {
-  width: 100%;                 
-}
+.forms-helper { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: var(--space-100); 
+  color: var(--gray-dark-active); 
+  font-size: 12px; 
+} 
 
-@media (max-width: 640px) {
-  .forms-grid { grid-template-columns: 1fr; }
+/* === Actions === */ 
+.forms-actions { 
+  margin-top: var(--space-600); 
+  display: block; 
+} 
+
+.forms-actions .btn { 
+  width: 100%; 
+} 
+
+/* === Placeholders === */ 
+input.input-text::placeholder, 
+textarea.input-text::placeholder, 
+.forms-input input::placeholder, 
+.forms-input textarea::placeholder { 
+  color: var(--gray-normal-hover); /* <--- se usa esta variable */ 
+  opacity: 1; /* elimina opacidad por defecto */ 
+} 
+
+/* Prefijos para compatibilidad */ 
+input.input-text::-webkit-input-placeholder, 
+textarea.input-text::-webkit-input-placeholder { 
+  color: var(--gray-normal-hover); 
+} 
+
+input.input-text:-ms-input-placeholder, 
+textarea.input-text:-ms-input-placeholder { 
+  color: var(--gray-normal-hover); 
+} 
+
+input.input-text::-ms-input-placeholder, 
+textarea.input-text::-ms-input-placeholder { 
+  color: var(--gray-normal-hover); 
+} 
+
+/* Focus */ 
+input.input-text:focus::placeholder, 
+textarea.input-text:focus::placeholder { 
+  color: var(--gray-normal); /* más oscuro en focus */ 
+} 
+
+/* Disabled y read-only */ 
+input.input-text:disabled::placeholder, 
+textarea.input-text:disabled::placeholder, 
+input.input-text[readonly]::placeholder, 
+textarea.input-text[readonly]::placeholder { 
+  color: var(--gray-normal); 
+  opacity: 0.8; 
+} 
+
+/* Error */ 
+input.input-text.error::placeholder, 
+textarea.input-text.error::placeholder { 
+  color: var(--error-dark, #DF3F40); 
+  opacity: 1; 
+} 
+
+/* Color de texto real (no placeholder) */ 
+input.input-text, 
+textarea.input-text { 
+  color: var(--ciam-dark); 
+  background: #fff; 
+} 
+
+/* === Dropdown === */ 
+.forms-select .dropdown-inline-title { 
+  color: var(--gray-normal-hover); 
+} 
+
+.forms-select.has-value .dropdown-inline-title { 
+  color: var(--ciam-dark); 
+} 
+
+@media (max-width: 640px) { 
+  .forms-grid { 
+    grid-template-columns: 1fr; 
+  } 
 }
