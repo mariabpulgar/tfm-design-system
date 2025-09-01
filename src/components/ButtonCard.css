@@ -22,7 +22,12 @@
     align-self: stretch;
     border-radius: var(--radius-100);
 }
-
+.card-text-container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .card-text {
     display: flex;
     flex-direction: column;
@@ -45,6 +50,8 @@
 .card-text button {
     margin-top: var(--space-200);
 }
+
+
 
 /* Vertical */
 

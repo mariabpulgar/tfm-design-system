@@ -36,19 +36,20 @@ function ButtonCard({
           variant={imageVariant}
         />
       </div>
-
-      <div className="card-text">
-        <h5>{title}</h5>
-        <p>{description}</p>
-
-        <Button
-          onClick={onButtonClick}
-          size={buttonSize}
-          text={buttonText}
-          type={buttonType}
-          variant={buttonVariant}
-        />
+      <div className="card-text-container">
+        <div className="card-text">
+          <h5>{title}</h5>
+          <p>{description}</p>
+        </div>
+          <Button
+            onClick={onButtonClick}
+            size={buttonSize}
+            text={buttonText}
+            type={buttonType}
+            variant={buttonVariant}
+          />
       </div>
+
     </div>
   );
 }
