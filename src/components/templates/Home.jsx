@@ -135,49 +135,51 @@ function Home() {
       </div>
 
       <div className="home-container-4">
-        <div className="home-contact-form">
-          <Forms
-                type="contact"
-                schema={undefined}
-                title=''
-                subtitle=''
-                submitText={undefined}
-                onSubmit={(values) => console.log("Contact:", values)}
-              />
-        </div>
-        <div className="home-grid">
-          <div className="home-grid-text">
-            <h2>Escríbenos</h2>
-            <h5>Cada mensaje es una oportunidad para ayudar a más animales. Déjanos tus datos y te contactaremos lo antes posible.</h5>
+        <div className="home-cntr-4-wrapper">
+          <div className="home-contact-form">
+            <Forms
+                  type="contact"
+                  schema={undefined}
+                  title=''
+                  subtitle=''
+                  submitText={undefined}
+                  onSubmit={(values) => console.log("Contact:", values)}
+                />
           </div>
-          <div className="home-grid-images">
-              <GridGallery
-                images={[
-                  {
-                    alt: 'Perrito feliz',
-                    id: 1,
-                    src: ImageGrid1
-                  },
-                  {
-                    alt: 'Elipse decorativa',
-                    id: 2,
-                    src: ImageGrid2
-                  },
-                  {
-                    alt: 'Logo FACP a color',
-                    id: 3,
-                    src: ImageGrid3
-                  }
-                ]}
-                pageSize={3}
-                paginationClass="grid-gallery-pagination--hidden"
-                renderPagination={() => {}}
-                showTitle
-                title=""
-              />
+          <div className="home-grid">
+            <div className="home-grid-text">
+              <h2>Escríbenos</h2>
+              <h5>Cada mensaje es una oportunidad para ayudar a más animales. Déjanos tus datos y te contactaremos lo antes posible.</h5>
+            </div>
+            <div className="home-grid-images">
+                <GridGallery
+                  images={[
+                    {
+                      alt: 'Perrito feliz',
+                      id: 1,
+                      src: ImageGrid1
+                    },
+                    {
+                      alt: 'Elipse decorativa',
+                      id: 2,
+                      src: ImageGrid2
+                    },
+                    {
+                      alt: 'Logo FACP a color',
+                      id: 3,
+                      src: ImageGrid3
+                    }
+                  ]}
+                  pageSize={3}
+                  paginationClass="grid-gallery-pagination--hidden"
+                  renderPagination={() => {}}
+                  showTitle
+                  title=""
+                />
+            </div>
           </div>
         </div>
-      </div>
+     </div>
 
 
       

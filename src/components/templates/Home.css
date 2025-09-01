@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--space-1600);
 }
 
 .home-container-text{
@@ -47,6 +46,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: var(--space-2000);
+    padding-bottom: var(--space-2000);
 }
 
 .home-container-2 h2,
@@ -88,4 +89,62 @@
     width: 100%;
     flex-direction: row;
     gap: var(--space-600);
+}
+
+.home-container-4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1200);
+    background-color: var(--gray-normal);
+
+}
+
+.home-cntr-4-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1512px;
+    margin-left: 140px;
+    margin-right: 140px;
+}
+
+.home-contact-form {
+    display: flex;
+    width: 700px;
+    padding: var(--space-800) var(--space-600);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-400);
+}
+
+.home-grid{
+    display: flex;
+    height: 580px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    justify-content: center;
+}
+
+.home-grid-text{
+    display: flex;
+    flex-direction: column;
+    max-width: 488px;
+    width: 100%;
+    gap: 20px;
+}
+
+.home-grid-text h2,
+.home-grid-text h5{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.home-grid-text h2{
+    color: var(--ciam-dark-active);
+}
+
+.home-grid-text h5{
+    color: var(--gray-dark-active)
 }
