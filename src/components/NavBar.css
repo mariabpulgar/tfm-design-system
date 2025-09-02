@@ -8,10 +8,12 @@
   z-index: 200;
 }
 
+/* Desktop look igual: 1512px centrado */
 .nav-bar{
   display: flex;
   height: 80px;
-  width: 1512px;
+  width: 100%;
+  max-width: 1512px;
   padding-left: 140px;
   padding-right: 140px;
   justify-content: space-between;
@@ -109,4 +111,93 @@
 /* Vector divisorio (por si lo usas) */
 .vector-divider img{
   display: block;
+}
+
+/* --------------------------- */
+/*        BREAKPOINTS          */
+/* --------------------------- */
+
+/* <= 1200px: reduce padding lateral manteniendo layout */
+@media (max-width: 1200px) {
+  .nav-bar {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+/* <= 992px: aún más compacto */
+@media (max-width: 992px) {
+  .nav-bar {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .navbar-items {
+    gap: calc(var(--space-100) - 4px);
+  }
+}
+
+/* <= 768px: columna, separadores fuera, links envuelven
+   El submenú se vuelve "bloque" bajo el botón */
+@media (max-width: 768px) {
+  .nav-bar {
+    height: auto;            /* deja crecer por contenido */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    flex-direction: column;  /* logo arriba, links abajo */
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .navbar-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-items {
+    width: 100%;
+    min-height: unset;
+    height: auto;
+    padding: 4px 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;         /* permitir salto de línea */
+    row-gap: 8px;
+    column-gap: 8px;
+  }
+
+  .navbar-items a {
+    padding: 8px 10px;
+  }
+
+  .vector-divider {
+    display: none;           /* oculta divisores en móvil */
+  }
+
+  /* Submenú como bloque apilado bajo el botón */
+  .submenu {
+    position: static;        /* ya no absoluto */
+    width: 100%;
+    margin-top: 4px;
+    box-shadow: none;        /* visual más simple en móvil */
+    border-radius: 6px;
+    border: 1px solid var(--gray-normal);
+  }
+
+  .submenu-li {
+    padding: 10px 12px;
+  }
+}
+
+/* <= 480px: aún más aire y toques de ergonomía */
+@media (max-width: 480px) {
+  .navbar-items {
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+
+  .navbar-items a {
+    padding: 10px 12px;      /* área táctil mayor */
+  }
 }
