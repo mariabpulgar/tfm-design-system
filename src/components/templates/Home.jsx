@@ -8,6 +8,7 @@ import Testimonial from '../Testimonial'; //
 import ButtonCardList from '../ButtonCardList';
 import Forms from '../Forms';
 import GridGallery from '../GridGallery';
+import Map from '../Map';
 import perrito from '../../assets/perrito2.jpg';
 import Rectangle982 from '../../assets/Rectangle982.svg'; 
 import Dato01 from '../../assets/DATO01.svg';
@@ -179,6 +180,23 @@ function Home() {
             </div>
           </div>
         </div>
+     </div>
+
+     <div className="home-container-5">
+        <div className="home-container-5-text">
+          <h2>Visítanos en Turbaco</h2>
+          <h5>Nuestro refugio está abierto para ti. Aquí cuidamos a los animales rescatados y te acompañamos en el proceso de adopción.</h5>
+        </div>
+        <Map
+          buttonText="Ver en mapa"
+          description="Estamos en Turbaco, Bolívar. Ven a conocernos, donar insumos o adoptar un nuevo compañero de vida."
+          height={300}
+          lat={6.274}
+          lng={-75.593}
+          onButtonClick={() => {}}
+          title="Fundación Ángeles con Patas"
+          zoom={14}
+        />
      </div>
 
 
