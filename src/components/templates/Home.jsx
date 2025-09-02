@@ -9,6 +9,7 @@ import ButtonCardList from '../ButtonCardList';
 import Forms from '../Forms';
 import GridGallery from '../GridGallery';
 import Map from '../Map';
+import Footer from '../Footer'
 import perrito from '../../assets/perrito2.jpg';
 import Rectangle982 from '../../assets/Rectangle982.svg'; 
 import Dato01 from '../../assets/DATO01.svg';
@@ -200,6 +201,67 @@ function Home() {
           />
         </div>
 
+     </div>
+     <div className="home-container-6">
+        <Footer
+          backToTop={{
+            href: '#top',
+            icon: 'topIcon',
+            label: 'Volver arriba'
+          }}
+          logo={{
+            alt: 'Logo',
+            src: '/src/assets/Logo_FACP_Blanco_v2.svg'
+          }}
+          navLinks={[
+            {
+              href: '#',
+              label: 'Quiénes somos'
+            },
+            {
+              href: '#',
+              label: 'Adopciones'
+            },
+            {
+              href: '#',
+              label: 'Donaciones'
+            }
+          ]}
+          socials={[
+            {
+              href: '#',
+              label: 'Instagram',
+              name: 'instagramAIcon'
+            },
+            {
+              href: '#',
+              label: 'WhatsApp',
+              name: 'whatsappAIcon'
+            },
+            {
+              href: '#',
+              label: 'Facebook',
+              name: 'facebookAIcon'
+            },
+            {
+              href: '#',
+              label: 'TikTok',
+              name: 'tiktokAIcon'
+            }
+          ]}
+          title="Ángeles con Patas"
+          utilityLinks={[
+            {
+              href: '#',
+              label: '📞 +57 305 657 3826'
+            },
+            {
+              href: '#',
+              label: '✉️  funangeles@hotmail.com'
+            }
+          ]}
+          year={2025}
+        />
      </div>
 
 

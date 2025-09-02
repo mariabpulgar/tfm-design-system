@@ -188,3 +188,8 @@
     max-width: 813px;
     text-align: center;
 }
+
+.home-container-6{
+    margin-top: var(--space-2000);
+    width: 100%;
+}
