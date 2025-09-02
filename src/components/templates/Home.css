@@ -148,3 +148,43 @@
 .home-grid-text h5{
     color: var(--gray-dark-active)
 }
+
+.home-container-5{
+    width: 100%;
+    padding-top: var(--space-1000);
+    padding-bottom: var(--space-1000);
+}
+
+.home-cntr-5-wrapper{
+    max-width: 1512px;
+    width: 100%;
+    margin-left: 140px;
+    margin-right: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1600);
+}
+
+.home-container-5-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-400);
+}
+
+.home-container-5-text h2,
+.home-container-5-text h5{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.home-container-5-text h2{
+    color: var(--ciam-dark-active);
+}
+
+.home-container-5-text h5{
+    color: var(--gray-dark-active);
+    max-width: 813px;
+    text-align: center;
+}
