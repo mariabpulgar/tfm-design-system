@@ -1,15 +1,14 @@
 import React from 'react';
 import './Home.css';
-import NavBar from '../NavBar';
-import Hero from '../Hero';
-import Image from '../Image';
-import CarruselTestimonial from '../CarruselTestimonial';
-import Testimonial from '../Testimonial'; // 
-import ButtonCardList from '../ButtonCardList';
-import Forms from '../Forms';
-import GridGallery from '../GridGallery';
-import Map from '../Map';
-import Footer from '../Footer'
+import NavBar from '../organisms/NavBar';
+import Hero from '../organisms/Hero';
+import Image from '../atoms/Image';
+import CarruselTestimonial from '../organisms/CarruselTestimonial';
+import Testimonial from '../molecules/Testimonial'; // 
+import Forms from '../organisms/Forms';
+import GridGallery from '../organisms/GridGallery';
+import Map from '../organisms/Map';
+import Footer from '../organisms/Footer'
 import perrito from '../../assets/perrito2.jpg';
 import Rectangle982 from '../../assets/Rectangle982.svg'; 
 import Dato01 from '../../assets/DATO01.svg';
@@ -96,7 +95,7 @@ function Home() {
     Cada gesto suma para darles a los animales la vida que merecen.</h5>
         </div>
         <div className="home-container-3-button-cards">
-                <ButtonCardList
+                {/* <ButtonCardList
                     className=""
                     emptyMessage="No hay elementos para mostrar."
                     items={[
@@ -132,7 +131,7 @@ function Home() {
                     }
                     ]}
                     orientation="horizontal"
-                />
+                /> */}
         </div>
       </div>
 
