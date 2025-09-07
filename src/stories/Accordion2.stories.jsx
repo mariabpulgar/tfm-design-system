@@ -1,14 +1,10 @@
-// src/stories/Accordion2.stories.jsx
-// Nota: Asegúrate de tener @storybook/addon-essentials en .storybook/main.(js|cjs|mjs)
-// addons: ['@storybook/addon-essentials', ...]
 
-// Importa el componente y, si lo necesitas, tus estilos globales o del componente
-import Accordion2 from '../components/Accordion2.jsx';
+import Accordion2 from '../components/organisms/Accordion2';
 import '../App.css';
-import '../components/Accordion.css';
+import '../components/organisms/Accordion2.css';
 
 const meta = {
-  title: 'Molecules/Accordion2',
+  title: 'Organisms/Accordion2',
   component: Accordion2,
   tags: ['autodocs'],
   parameters: {

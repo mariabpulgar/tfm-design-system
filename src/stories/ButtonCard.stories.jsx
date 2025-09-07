@@ -1,10 +1,10 @@
 // src/stories/ButtonCard.stories.jsx
 import React from 'react';
-import ButtonCard from '../components/ButtonCard';
+import ButtonCard from '../components/molecules/ButtonCard';
 import rectangle from '../assets/Rectangle979.svg';
 
 export default {
-  title: 'Components/ButtonCard',
+  title: 'Molecules/ButtonCard',
   component: ButtonCard,
   tags: ['autodocs'],
   parameters: {

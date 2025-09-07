@@ -1,0 +1,85 @@
+:root{
+  /* Ciam */
+  --ciam-light: #EBF5FA;
+  --ciam-light-hover: #EEF9FF;
+  --ciam-light-active: #E1F0F8;
+  --ciam-normal: #3A9ECE;
+  --ciam-normal-hover: #348EB9;
+  --ciam-normal-active: #2E7EA5;
+  --ciam-dark: #2C779B;
+  --ciam-dark-hover: #235F7C;
+  --ciam-dark-active: #1A475D;
+  --ciam-darker: #143748;
+
+  /* Blue */
+  --blue-light: #EAEBF6;
+  --blue-light-hover: #E0E1F1;
+  --blue-light-active: #BEC2E2;
+  --blue-normal: #2E39A0;
+  --blue-normal-hover: #293390;
+  --blue-normal-active: #252E80;
+  --blue-dark: #232B78;
+  --blue-dark-hover: #1C2260;
+  --blue-dark-active: #151A48;
+  --blue-darker: #101438;
+
+  /* Magenta */
+  --magenta-light: #FDE6F2;
+  --magenta-light-hover: #FCD9EC;
+  --magenta-light-active: #F8B0D7;
+  --magenta-normal: #E8007F;
+  --magenta-normal-hover: #D10072;
+  --magenta-normal-active: #BA0066;
+  --magenta-dark: #AE005F;
+  --magenta-dark-hover: #8B004C;
+  --magenta-dark-active: #680039;
+  --magenta-darker: #51002C;
+
+  /* Yellow */
+  --yellow-light: #FCF9E6;
+  --yellow-light-hover: #FBF6DA;
+  --yellow-light-active: #F6EDB2;
+  --yellow-normal: #E3C408;
+  --yellow-normal-hover: #CCB007;
+  --yellow-normal-active: #B69D06;
+  --yellow-dark: #AA9306;
+  --yellow-dark-hover: #887605;
+  --yellow-dark-active: #665804;
+  --yellow-darker: #4F4503;
+
+  /* Error */
+  --error-light: #FFE6E6;
+  --error-light-hover: #FFD9D9;
+  --error-light-active: #FFB0B0;
+  --error-normal: #FF0000;
+  --error-normal-hover: #E60000;
+  --error-normal-active: #CC0000;
+  --error-dark: #BF0000;
+  --error-dark-hover: #990000;
+  --error-dark-active: #730000;
+  --error-darker: #590000;
+
+  /* Gray */
+  --gray-light: #FEFEFE;
+  --gray-light-hover: #FDFDFD;
+  --gray-light-active: #FAFAFA;
+  --gray-normal: #F0F0F0;
+  --gray-normal-hover: #D8D8D8;
+  --gray-normal-active: #C0C0C0;
+  --gray-dark: #B4B4B4;
+  --gray-dark-hover: #7D7D7D;
+  --gray-dark-active: #545454;
+  --gray-darker: #2F2F2F;
+
+  /* Success */
+  --success-light: #E9F9EF;
+  --success-light-hover: #DEF6E7;
+  --success-light-active: #BAEDCD;
+  --success-normal: #22C55E;
+  --success-normal-hover: #1FB155;
+  --success-normal-active: #1B9E4B;
+  --success-dark: #1A9447;
+  --success-dark-hover: #147638;
+  --success-dark-active: #0F592A;
+  --success-darker: #0C4521;
+}

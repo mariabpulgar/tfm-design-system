@@ -1,0 +1,80 @@
+/* Base: wrapper fluido + recorte correcto */
+.img-style-wrapper{
+  --img-max: 100%;
+  border-radius: var(--radius-100) var(--radius-100) 0 0;
+  overflow: hidden;
+  display: block;          /* mejor que inline-block para layouts fluidos */
+  width: min(100%, var(--img-max));
+  line-height: 0;
+}
+
+.img-style{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* llena el contenedor sin deformar */
+}
+
+/* ===== Variantes con aspect-ratio + clamp ===== */
+/* SimpleCard horizontal: 150x100 => 3/2 */
+.img-simpleCard-horizontal{
+  aspect-ratio: 3 / 2;
+  width: clamp(120px, 45vw, 150px);
+}
+
+/* SimpleCard vertical: 182x110 => 91/55 ≈ 1.655 */
+.img-simpleCard-vertical{
+  aspect-ratio: 91 / 55;
+  width: clamp(140px, 45vw, 182px);
+}
+
+/* ButtonCard horizontal: antes tenía height:100% (dependía del padre).
+   Mejor: 3/2 y ancho fluido */
+.img-buttonCard-horizontal{
+  aspect-ratio: 3 / 2;
+  width: clamp(120px, 45vw, 150px);
+}
+
+/* ButtonCard vertical: 182x142 => 91/71 */
+.img-buttonCard-vertical{
+  aspect-ratio: 91 / 71;
+  width: clamp(140px, 45vw, 182px);
+}
+
+/* Gallery principal: 200x200 => cuadrado */
+.img-gallery-principal{
+  aspect-ratio: 1 / 1;
+  width: clamp(140px, 40vw, 200px);
+}
+
+/* Gallery mini: ~46x46 => cuadrado mini */
+.img-gallery-mini{
+  aspect-ratio: 1 / 1;
+  width: clamp(36px, 10vw, 46px);
+}
+
+/* Grid gallery large: cuadrado grande */
+.img-grid-gallery-large{
+  aspect-ratio: 1 / 1;
+  width: clamp(220px, 60vw, 400px);
+}
+
+/* Grid gallery small: cuadrado pequeño */
+.img-grid-gallery-small{
+  aspect-ratio: 1 / 1;
+  width: clamp(140px, 35vw, 190px);
+}
+
+/* Testimonial: antes height:100% (frágil). Define una razón y ancho fluido.
+   Ajusta la razón si tu diseño requiere otra (aquí 3/2 como ejemplo). */
+.img-testimonial {
+  aspect-ratio: 3 / 2;
+  width: clamp(220px, 60vw, 300px);
+}
+
+/* Partners: círculo responsivo con aspect-ratio 1 y borde redondo */
+.img-partners{
+  aspect-ratio: 1 / 1;
+  width: clamp(56px, 20vw, 80px);
+  border-radius: var(--radius-full);
+}

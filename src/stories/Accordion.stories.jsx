@@ -1,8 +1,8 @@
 import React from "react";
-import Accordion from "../components/Accordion";
+import Accordion from "../components/organisms/Accordion.jsx";
 
 export default {
-  title: "Components/Accordion",
+  title: "Organisms/Accordion",
   component: Accordion,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

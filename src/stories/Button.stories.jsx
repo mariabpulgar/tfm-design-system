@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import Button from '../components/molecules/Button';
 
 // Lista base de opciones de iconos (ajústala a tu mapeo real de IconSelector)
 const ICON_OPTIONS = [
@@ -22,7 +22,7 @@ const ICON_OPTIONS = [
 ];
 
 export default {
-  title: 'Components/Button',
+  title: 'Molecules/Button',
   component: Button,
   tags: ['autodocs'],
   parameters: {

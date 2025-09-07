@@ -1,4 +1,4 @@
-import Divider from '../components/Divider';
+import Divider from '../components/atomos/Divider';
 
 export default {
   title: 'Components/Divider',

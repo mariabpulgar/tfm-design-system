@@ -1,7 +1,7 @@
-import Badge from '../components/Badge';
+import Badge from '../components/molecules/Badge';
 
 export default {
-  title: 'Components/Badge',
+  title: 'Molecules/Badge',
   component: Badge,
   parameters: {
     layout: 'centered',

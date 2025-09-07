@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Checkbox from '../components/Checkbox';
+import Checkbox from '../components/atomos/Checkbox';
 
 // Componente para historia interactiva
 const InteractiveCheckbox = (args) => {

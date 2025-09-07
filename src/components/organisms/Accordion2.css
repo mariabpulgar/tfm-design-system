@@ -1,0 +1,89 @@
+/* Contenedor principal */
+.accordion-container {
+  display: flex;
+  width: 100%;              /* ocupa todo el ancho disponible */
+  max-width: 560px;         /* pero no más de 560px */
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;           /* centra en pantallas grandes */
+}
+
+/* Wrapper */
+.accordion-wrapper {
+  display: flex;
+  width: 100%;              /* igual que el container */
+  max-width: 560px;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: white;
+  border-radius: var(--radius-150);
+  overflow: hidden; /* asegura bordes redondeados */
+}
+
+/* Item */
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-top: 1px solid var(--gray-light-active);
+  border-bottom: 1px solid var(--gray-light-active);
+  background: var(--gray-light);
+}
+
+/* Header como botón de texto (usa tu Button) */
+.accordion-header {
+  width: 100%;
+  justify-content: space-between;     /* texto a la izq, icono a la der */
+  text-align: left;
+  color: var(--gray-darker);
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+  padding: 12px;
+  border-radius: 0;
+}
+
+/* Título */
+.accordion-title {
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-darker);
+}
+
+/* Efecto hover/focus del header */
+.accordion-header:hover {
+  background: var(--gray-light-hover, transparent);
+}
+.accordion-header:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid var(--focus-ring-color, var(--blue-normal));
+  outline-offset: 2px;
+}
+
+/* Panel (con animación de altura) */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  border-top: 1px solid transparent;
+  background: var(--gray-light);
+}
+
+/* Abierto */
+.accordion-item.open .accordion-content {
+  max-height: 500px; /* ajusta según contenido esperado */
+  border-top: 1px solid var(--gray-light-active);
+}
+
+/* Texto del panel */
+.accordion-text {
+  font-size: var(--paragraph-font-size);
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-dark-active);
+  padding: 8px 12px 12px 12px;
+}
+
+/* Reduce motion si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-content {
+    transition: none;
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import Avatar from "../components/Avatar";
+import Avatar from "../components/molecules/Avatar";
 
 export default {
-  title: "Components/Avatar",
+  title: "Molecules/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

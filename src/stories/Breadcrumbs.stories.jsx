@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Breadcrumbs from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/molecules/Breadcrumbs';
 
 export default {
-  title: 'Components/Breadcrumbs',
+  title: 'Molecules/Breadcrumbs',
   tags: ['autodocs'],
   component: Breadcrumbs,
   parameters: {

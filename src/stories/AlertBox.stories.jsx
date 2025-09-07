@@ -1,8 +1,9 @@
-import AlertBox from '../components/AlertBox';
-import '../components/AlertBox.css';
+import AlertBox from '../components/molecules/AlertBox';
+import '../components/molecules/AlertBox.css';
+
 
 export default {
-  title: 'Components/AlertBox',
+  title: 'Molecules/AlertBox',
   component: AlertBox,
   tags: ['autodocs'],
   parameters: {
