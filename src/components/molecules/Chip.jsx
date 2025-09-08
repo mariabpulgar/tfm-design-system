@@ -1,5 +1,5 @@
 import React from 'react'
-import IconSelector from '../atomos/IconSelector'
+import IconSelector from '../atoms/IconSelector'
 import './Chip.css'
 
 function Chip({title = "Removable chip"}){

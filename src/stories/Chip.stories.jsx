@@ -1,8 +1,10 @@
 import React from 'react';
-import Chip from '../components/Chip';
+import Chip from '../components/molecules/Chip';
+import '../components/molecules/Chip.css';
+import '../App.css'
 
 export default {
-  title: 'Components/Chip',
+  title: 'Molecules/Chip',
   component: Chip,
   tags: ['autodocs'],
   parameters: {
