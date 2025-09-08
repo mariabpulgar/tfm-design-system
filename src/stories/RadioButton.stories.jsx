@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RadioButton from '../components/RadioButton';
+import RadioButton from '../components/atoms/RadioButton';
 
 const optionsArray = [
   { label: 'Opción A', value: 'opcionA' },
@@ -8,7 +8,7 @@ const optionsArray = [
 ];
 
 export default {
-  title: 'Components/RadioButton',
+  title: 'Atoms/RadioButton',
   component: RadioButton,
   argTypes: {
     id: { control: false },
