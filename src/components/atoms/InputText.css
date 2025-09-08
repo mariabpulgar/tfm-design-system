@@ -1,3 +1,4 @@
+/* Grupo contenedor */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,7 @@
   width: 380px;
 }
 
+/* Label */
 .input-label {
   display: flex;
   height: 18px;
@@ -15,7 +17,8 @@
   align-self: stretch;
 }
 
-.input-text {
+/* Campo de texto principal - CON MAYOR ESPECIFICIDAD */
+input.input-text {
   display: flex;
   height: 46px;
   padding: 14px 12px;
@@ -26,47 +29,105 @@
   border: 1px solid var(--gray-normal-hover);
   background-color: var(--gray-light);
   font-size: 14px;
-  
+  color: var(--gray-dark-active) !important; /* ✅ FORZADO con !important */
+  caret-color: var(--gray-dark-active) !important;
 }
 
-.input-text:focus {
+/* Focus - CON MAYOR ESPECIFICIDAD */
+input.input-text:focus {
   border: 1px solid var(--ciam-normal);
   outline: none;
-}
-
-
-
-.input-text:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  color: var(--gray-dark-active) !important; /* ✅ FORZADO con !important */
   background-color: var(--gray-light);
 }
 
-.input-text.error {
-  border: 1px solid var(--error-normal);
+/* Hover - CON MAYOR ESPECIFICIDAD */
+input.input-text:hover:not(:disabled):not(.error) {
+  border-color: var(--ciam-normal);
+  color: var(--gray-dark-active) !important; /* ✅ AGREGADO */
 }
 
-.input-text.error:focus {
-  border: 1px solid var(--error-normal);
+/* Disabled - CON MAYOR ESPECIFICIDAD */
+input.input-text:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--gray-light);
+  color: var(--gray-dark-active) !important; /* ✅ FORZADO con !important */
 }
 
+/* Error - CON MAYOR ESPECIFICIDAD */
+input.input-text.error {
+  border: 1px solid var(--error-normal);
+  color: var(--gray-dark-active) !important; /* ✅ AGREGADO */
+}
+
+input.input-text.error:focus {
+  border: 1px solid var(--error-normal);
+  color: var(--gray-dark-active) !important; /* ✅ AGREGADO */
+}
+
+/* NUEVO: Estado blur (cuando pierde el foco) */
+input.input-text:not(:focus) {
+  color: var(--gray-dark-active) !important;
+}
+
+/* NUEVO: Todos los estados posibles */
+input.input-text,
+input.input-text:active,
+input.input-text:visited {
+  color: var(--gray-dark-active) !important;
+}
+
+/* Mensaje de error */
 .input-error-message {
   color: var(--error-normal-hover);
   font-size: 14px;
   display: none;
   margin-top: var(--space-100, 4px);
 }
-
 .input-error-message.visible {
   display: block;
 }
 
-.input-text::placeholder {
-  color: var(--gray-normal, #999);
+/* Placeholder */
+input.input-text::placeholder {
+  color: var(--gray-normal, #999) !important;
   opacity: 1;
 }
 
-.input-text:hover:not(:disabled):not(.error) {
-  border-color: var(--ciam-normal, #666);
+/* --- Autofill (Chrome/Safari) forzado a tus colores --- */
+input.input-text:-webkit-autofill,
+input.input-text:-webkit-autofill:hover,
+input.input-text:-webkit-autofill:focus,
+input.input-text:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--gray-light) inset !important;
+  -webkit-text-fill-color: var(--gray-dark-active) !important;
+  caret-color: var(--gray-dark-active) !important;
+  transition: background-color 9999s ease-out 0s;
 }
 
+/* Forzar color en la primera línea (versiones viejas de Chrome/Safari) */
+input.input-text:-webkit-autofill::first-line {
+  color: var(--gray-dark-active) !important;
+}
+
+/* Autofill específico para password */
+input[type="password"].input-text:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--gray-light) inset !important;
+  -webkit-text-fill-color: var(--gray-dark-active) !important;
+  caret-color: var(--gray-dark-active) !important;
+}
+
+/* RESETEO AGRESIVO - Para sobrescribir cualquier estilo del navegador */
+input.input-text[type="text"],
+input.input-text[type="password"],
+input.input-text[type="email"],
+input.input-text[type="tel"],
+input.input-text[type="url"] {
+  color: var(--gray-dark-active) !important;
+}
+
+/* Específico para tu caso (si estás usando type="text" para password) */
+input.input-text[name="password"] {
+  color: var(--gray-dark-active) !important;
+}

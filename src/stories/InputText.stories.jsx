@@ -2,6 +2,7 @@
 import React from 'react';
 import InputText from '../components/atoms/InputText.jsx';
 import '../components/atoms/InputText.css';
+import '../App.css'
 
 export default {
   title: 'Atoms/InputText',

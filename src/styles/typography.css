@@ -54,3 +54,7 @@ button {
   font-size: var(--small-font-size);
   font-weight: var(--font-weight-regular);
 }
+
+input {
+  color: var(--gray-dark-active);
+}
