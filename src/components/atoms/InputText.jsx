@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './InputText.css';
+import '../../styles/tokens.css'
 
 const InputText = ({
   value,

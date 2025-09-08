@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Accordion.css';
-import IconSelector from '../atomos/IconSelector';
+import IconSelector from '../components/atomos/IconSelector';
 
 const AccordionItem = ({ title, content, isOpen, onToggle, index }) => {
   const contentId = `accordion-content-${index}`;

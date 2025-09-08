@@ -1,6 +1,7 @@
 // src/stories/Image.stories.jsx
 import Image from '../components/atoms/Image.jsx';
 import '../components/atoms/Image.css';
+import '../App.css'
 
 export default {
   title: 'Atoms/Image',
@@ -61,9 +62,21 @@ export const Playground = {
     variant: '',
     fallbackSrc: 'https://placehold.co/600x400?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/600x400"
+  alt="Placeholder image"
+  variant=""
+  fallbackSrc="https://placehold.co/600x400?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
-/** Historias por variante (snapshot friendly) */
+/** Historias por variante */
 export const SimpleCardHorizontal = {
   name: 'img-simpleCard-horizontal',
   args: {
@@ -71,6 +84,18 @@ export const SimpleCardHorizontal = {
     alt: 'SimpleCard horizontal',
     variant: 'img-simpleCard-horizontal',
     fallbackSrc: 'https://placehold.co/300x200?text=Fallback',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/300x200"
+  alt="SimpleCard horizontal"
+  variant="img-simpleCard-horizontal"
+  fallbackSrc="https://placehold.co/300x200?text=Fallback"
+/>`,
+      },
+    },
   },
 };
 
@@ -82,6 +107,18 @@ export const SimpleCardVertical = {
     variant: 'img-simpleCard-vertical',
     fallbackSrc: 'https://placehold.co/182x110?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/182x110"
+  alt="SimpleCard vertical"
+  variant="img-simpleCard-vertical"
+  fallbackSrc="https://placehold.co/182x110?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
 export const ButtonCardHorizontal = {
@@ -91,6 +128,18 @@ export const ButtonCardHorizontal = {
     alt: 'ButtonCard horizontal',
     variant: 'img-buttonCard-horizontal',
     fallbackSrc: 'https://placehold.co/300x200?text=Fallback',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/300x200"
+  alt="ButtonCard horizontal"
+  variant="img-buttonCard-horizontal"
+  fallbackSrc="https://placehold.co/300x200?text=Fallback"
+/>`,
+      },
+    },
   },
 };
 
@@ -102,6 +151,18 @@ export const ButtonCardVertical = {
     variant: 'img-buttonCard-vertical',
     fallbackSrc: 'https://placehold.co/182x142?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/182x142"
+  alt="ButtonCard vertical"
+  variant="img-buttonCard-vertical"
+  fallbackSrc="https://placehold.co/182x142?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
 export const GalleryPrincipal = {
@@ -111,6 +172,18 @@ export const GalleryPrincipal = {
     alt: 'Gallery principal',
     variant: 'img-gallery-principal',
     fallbackSrc: 'https://placehold.co/200x200?text=Fallback',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/200x200"
+  alt="Gallery principal"
+  variant="img-gallery-principal"
+  fallbackSrc="https://placehold.co/200x200?text=Fallback"
+/>`,
+      },
+    },
   },
 };
 
@@ -122,6 +195,18 @@ export const GalleryMini = {
     variant: 'img-gallery-mini',
     fallbackSrc: 'https://placehold.co/46x46?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/46x46"
+  alt="Gallery mini"
+  variant="img-gallery-mini"
+  fallbackSrc="https://placehold.co/46x46?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
 export const GridGalleryLarge = {
@@ -131,6 +216,18 @@ export const GridGalleryLarge = {
     alt: 'Grid gallery large',
     variant: 'img-grid-gallery-large',
     fallbackSrc: 'https://placehold.co/400x400?text=Fallback',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/400x400"
+  alt="Grid gallery large"
+  variant="img-grid-gallery-large"
+  fallbackSrc="https://placehold.co/400x400?text=Fallback"
+/>`,
+      },
+    },
   },
 };
 
@@ -142,6 +239,18 @@ export const GridGallerySmall = {
     variant: 'img-grid-gallery-small',
     fallbackSrc: 'https://placehold.co/190x190?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/190x190"
+  alt="Grid gallery small"
+  variant="img-grid-gallery-small"
+  fallbackSrc="https://placehold.co/190x190?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
 export const Testimonial = {
@@ -152,6 +261,18 @@ export const Testimonial = {
     variant: 'img-testimonial',
     fallbackSrc: 'https://placehold.co/300x200?text=Fallback',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/300x200"
+  alt="Testimonial"
+  variant="img-testimonial"
+  fallbackSrc="https://placehold.co/300x200?text=Fallback"
+/>`,
+      },
+    },
+  },
 };
 
 export const Partners = {
@@ -161,5 +282,17 @@ export const Partners = {
     alt: 'Partner logo',
     variant: 'img-partners',
     fallbackSrc: 'https://placehold.co/80x80?text=Fallback',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Image
+  src="https://placehold.co/80x80"
+  alt="Partner logo"
+  variant="img-partners"
+  fallbackSrc="https://placehold.co/80x80?text=Fallback"
+/>`,
+      },
+    },
   },
 };
