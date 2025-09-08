@@ -1,0 +1,62 @@
+.img-simpleCard-horizontal{
+    width: 150px;
+    height: 100px;
+}
+
+.img-simpleCard-vertical{
+    width: 182px;
+    height: 110px;
+}
+
+.img-buttonCard-horizontal{
+    width: 150px;
+    height: 100%;
+}
+
+.img-buttonCard-vertical{
+    width: 182px;
+    height: 142px;
+}
+
+.img-gallery-principal{
+    width: 200px;
+    height: 200px;
+}
+
+.img-gallery-mini{
+    width: 45.5px;
+    height: 46px;
+}
+
+.img-grid-gallery-large{
+    width: 400px;
+    height: 400px;
+}
+
+.img-grid-gallery-small{
+    width: 190px;
+    height: 190px; 
+}
+
+.img-testimonial {
+    width: 300px;
+    height: 100%;
+}
+
+.img-style-wrapper{
+    border-radius:  var(--radius-100) var(--radius-100) 0 0;
+    overflow: hidden;         
+    display: inline-block;     
+    line-height: 0;  
+}
+.img-partners{
+    width:  80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+}
+.img-style{
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}

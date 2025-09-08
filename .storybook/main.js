@@ -1,5 +1,3 @@
-
-
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   "stories": [
@@ -17,4 +15,5 @@ const config = {
     "options": {}
   }
 };
+
 export default config;

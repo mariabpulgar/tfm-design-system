@@ -10,55 +10,59 @@ const range = (start, end) => {
   return out;
 };
 
-/** Calcula items de paginación con elipsis */
+/** Versión simplificada y robusta para evitar duplicados */
 function usePageItems({ totalPages, page, siblingCount, boundaryCount }) {
-  // Casos triviales
   if (totalPages <= 0) return [];
   if (totalPages <= 1) return [1];
 
-  const startPages = range(1, Math.min(boundaryCount, totalPages));
-  const endPages = range(
-    Math.max(totalPages - boundaryCount + 1, boundaryCount + 1),
-    totalPages
-  );
+  const items = [];
+  
+  // Si hay pocas páginas, mostrar todas
+  if (totalPages <= 2 * (boundaryCount + siblingCount) + 3) {
+    return range(1, totalPages);
+  }
 
-  const siblingsStart = Math.max(
-    Math.min(
-      page - siblingCount,
-      totalPages - boundaryCount - siblingCount * 2
-    ),
-    boundaryCount + 2
-  );
+  // Páginas del inicio
+  const leftBoundary = Math.min(boundaryCount, totalPages);
+  for (let i = 1; i <= leftBoundary; i++) {
+    items.push(i);
+  }
 
-  const siblingsEnd = Math.min(
-    Math.max(
-      page + siblingCount,
-      boundaryCount + siblingCount * 2 + 1
-    ),
-    endPages.length > 0 ? endPages[0] - 2 : totalPages - 1
-  );
-
-  const items = [...startPages];
+  // Páginas alrededor de la actual
+  const leftSibling = Math.max(page - siblingCount, 1);
+  const rightSibling = Math.min(page + siblingCount, totalPages);
 
   // Elipsis izquierda
-  if (siblingsStart > boundaryCount + 2) {
+  if (leftSibling > leftBoundary + 2) {
     items.push("start-ellipsis");
-  } else if (boundaryCount + 1 < siblingsStart) {
-    items.push(boundaryCount + 1);
+  } else if (leftSibling === leftBoundary + 2) {
+    items.push(leftBoundary + 1);
   }
 
-  // Siblings
-  items.push(...range(siblingsStart, siblingsEnd));
+  // Páginas siblings (evitando solapamiento)
+  const startSibling = Math.max(leftSibling, leftBoundary + 1);
+  const endSibling = Math.min(rightSibling, totalPages - boundaryCount);
+  
+  for (let i = startSibling; i <= endSibling; i++) {
+    if (!items.includes(i)) {
+      items.push(i);
+    }
+  }
 
   // Elipsis derecha
-  if (siblingsEnd < totalPages - boundaryCount - 1) {
+  const rightBoundary = totalPages - boundaryCount + 1;
+  if (rightSibling < rightBoundary - 2) {
     items.push("end-ellipsis");
-  } else if (siblingsEnd + 1 <= totalPages - boundaryCount) {
-    items.push(siblingsEnd + 1);
+  } else if (rightSibling === rightBoundary - 2) {
+    items.push(rightBoundary - 1);
   }
 
-  // Últimos
-  items.push(...endPages);
+  // Páginas del final
+  for (let i = rightBoundary; i <= totalPages; i++) {
+    if (!items.includes(i)) {
+      items.push(i);
+    }
+  }
 
   return items;
 }
@@ -91,7 +95,7 @@ export default function Pagination({
   return (
     <nav className={["pagination-root", className].filter(Boolean).join(" ")} aria-label={ariaLabel}>
       <ul className="pagination-list" role="list">
-              {showPrevNext && (
+        {showPrevNext && (
           <li role="listitem">
             <IconButton
               variant={arrowVariant}   
@@ -132,8 +136,8 @@ export default function Pagination({
         {showPrevNext && (
           <li role="listitem">
             <IconButton
-              variant={arrowVariant}   // mismo estilo cuadrado
-              iconName={nextIcon}      // ← ícono derecho desde IconSelector
+              variant={arrowVariant}   
+              iconName={nextIcon}      
               size={size}
               disabled={disabled || page >= totalPages}
               onClick={() => goTo(page + 1)}

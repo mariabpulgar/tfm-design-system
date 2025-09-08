@@ -1,0 +1,15 @@
+.carrusel-testimonial-container, .testimonials { 
+    display:flex; 
+    align-items:center;
+    gap: var(--space-1000); 
+}
+
+.left-button,.right-button { 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    min-width:40px; 
+    z-index:2; 
+}
+
+

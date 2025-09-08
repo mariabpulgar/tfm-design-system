@@ -1,0 +1,28 @@
+/* Contenedor principal */
+.card-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  /* padding responsive: top/bottom crecen con el ancho */
+  padding: clamp(32px, 6vw, 106px) clamp(16px, 6vw, 81px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Grid */
+.card-list-grid {
+  /* 👇 variable para controlar el ancho mínimo de cada card */
+  --col-min: 320px;
+
+  display: grid;
+  gap: var(--space-400, 24px);
+  /* auto-fit coloca tantas columnas como quepan respetando --col-min */
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min), 1fr));
+
+  /* Tope para que nunca pasemos de 3 columnas (320*3 + gaps ≈ 1,080px) */
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  margin-inline: auto;
+}

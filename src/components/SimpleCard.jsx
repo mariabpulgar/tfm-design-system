@@ -1,21 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './SimpleCard.css';
+import Image from './Image';
 import rectangle from '../assets/Rectangle979.svg';
 
-function SimpleCard({ variant = 'horizontal', title = 'Card', description = 'Lorem ipsum dolor sit amet.' }) {
+function SimpleCard({
+  variant = 'vertical',            // 'horizontal' | 'vertical'
+  title = 'Card',
+  description = 'Lorem ipsum dolor sit amet.',
+  imgSrc = rectangle,             // override opcional; por defecto placeholder
+  imgAlt = 'placeholder',
+}) {
   const isHorizontal = variant === 'horizontal';
-  
+  const imageVariant = isHorizontal
+    ? 'img-simpleCard-horizontal'
+    : 'img-simpleCard-vertical';
+
   return (
-    <div className={isHorizontal ? "simple-card-horizontal" : "simple-card-vertical"}>
-      <div className={isHorizontal ? "card-image-horizontal" : ""}>
-        <img src={rectangle} alt="placeholder"/>
-      </div>
+    <article className={isHorizontal ? 'simple-card-horizontal' : 'simple-card-vertical'}>
+      {imgSrc && (
+        <div className={isHorizontal ? 'card-image-horizontal' : 'card-image-vertical'}>
+          <Image src={imgSrc} alt={imgAlt} variant={imageVariant} />
+        </div>
+      )}
+
       <div className="card-text">
         <h5>{title}</h5>
         <p>{description}</p>
       </div>
-    </div>
+    </article>
   );
 }
+
+SimpleCard.propTypes = {
+  variant: PropTypes.oneOf(['horizontal', 'vertical']),
+  title: PropTypes.string.isRequired,
+  // node permite strings o JSX (p.ej. <><strong>+100</strong> animales…</>)
+  description: PropTypes.node.isRequired,
+  imgSrc: PropTypes.string,
+  imgAlt: PropTypes.string,
+};
+
+SimpleCard.defaultProps = {
+  variant: 'vertical',
+  title: 'Card',
+  description: 'Lorem ipsum dolor sit amet.',
+  imgSrc: rectangle,
+  imgAlt: 'placeholder',
+};
 
 export default SimpleCard;

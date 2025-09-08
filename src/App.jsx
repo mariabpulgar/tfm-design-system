@@ -1,15 +1,20 @@
 import React from 'react';
-import './App.css'
-import Hero from './components/Hero'
+import './App.css';
+import Home  from './components/templates/home';
+import NavBar from './components/NavBar';
+
 
 
 function App() {
+
+
   return (
     <div>
-        <Hero></Hero>
+      <Home></Home>
+
     </div>    
   );
-}
+};
 
 export default App
  

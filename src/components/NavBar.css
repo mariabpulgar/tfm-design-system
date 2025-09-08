@@ -1,75 +1,104 @@
+.nav-bar-container{
+  display: flex;
+  justify-content: center;
+  background: #FFF;
+
+  /* Mantén la barra por encima del contenido (Hero) */
+  position: relative;
+  z-index: 200;
+}
+
+/* Desktop look igual: 1512px centrado */
 .nav-bar{
-    display: flex;
-    height: 80px;
-    padding: 10px 80px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 0 0 6px 6px;
-    background: #FFF;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  max-width: 1512px;
+  padding-left: 140px;
+  padding-right: 140px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0 0 6px 6px;
+  background: #FFF;
+
+  /* Habilita stacking y evita recortes del submenu */
+  position: relative;
+  z-index: 200;
+  overflow: visible;
 }
 
 .navbar-items{
-    display: flex;
-    height: 38px;
-    padding: 8px 12px;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-100);
+  display: flex;
+  height: 38px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-100);
 }
 
 .navbar-items a{
-    padding: 8px 12px;
-    color: var(--ciam-normal);
-    font-weight: var(--font-weight-regular);
-    font-size: var(--h6-font-size);
-    text-decoration: none;
+  padding: 8px 12px;
+  color: var(--ciam-normal);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--h6-font-size);
+  text-decoration: none;
 }
 
 .navbar-items a:hover{
-    color: var(--ciam-dark);
+  color: var(--ciam-dark);
 }
 
+/* Contenedor del botón + submenu */
 .adopcion-wrap { 
-    position: relative;
-    perspective: 600px; 
-}
-.submenu[hidden] { 
-    display: none; 
-}
-.submenu { 
-    position: absolute; 
-    right: 0; /* etc estilos */ 
-    background-color: #FFFFFF;
-    
+  position: relative;
+  /* Evitar contextos de apilamiento raros si no usas 3D */
+  /* perspective: 600px; */
+  overflow: visible;
 }
 
-/* Quitar viñetas y sangrías */
-.nav-bar ul,
-.submenu {
-    list-style-type: none;   /* o list-style-type: none; */
-    width: 200px;
-    padding-left: 0;
-   
+/* Submenú accesible */
+.submenu[hidden] { 
+  display: none; 
+}
+
+.submenu { 
+  position: absolute; 
+  right: 0;
+  top: calc(100% + 8px);
+  background-color: #FFFFFF;
+  width: 200px;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+
+  /* Asegura que quede por encima del Hero y de cualquier texto del Hero */
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  border: 1px solid var(--gray-normal);
+  border-radius: 6px;
 }
 
 .submenu-li{
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--gray-normal);
-    padding: 8px 12px;
-    align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-normal);
+  padding: 8px 12px;
+}
+
+.submenu-li:last-child{
+  border-bottom: 0;
 }
 
 .submenu-li a{
-    color: var(--blue-normal);
+  color: var(--blue-normal);
+  text-decoration: none;
+  font-size: var(--body-font-size);
 }
 
-
-
+/* Animación de icono del botón */
 .adopcion-wrap button svg {
   transition: transform 200ms ease;
   transform-origin: center;
@@ -77,4 +106,98 @@
 
 .adopcion-wrap button[aria-expanded="true"] svg {
   transform: rotateX(180deg);
+}
+
+/* Vector divisorio (por si lo usas) */
+.vector-divider img{
+  display: block;
+}
+
+/* --------------------------- */
+/*        BREAKPOINTS          */
+/* --------------------------- */
+
+/* <= 1200px: reduce padding lateral manteniendo layout */
+@media (max-width: 1200px) {
+  .nav-bar {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+/* <= 992px: aún más compacto */
+@media (max-width: 992px) {
+  .nav-bar {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .navbar-items {
+    gap: calc(var(--space-100) - 4px);
+  }
+}
+
+/* <= 768px: columna, separadores fuera, links envuelven
+   El submenú se vuelve "bloque" bajo el botón */
+@media (max-width: 768px) {
+  .nav-bar {
+    height: auto;            /* deja crecer por contenido */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    flex-direction: column;  /* logo arriba, links abajo */
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .navbar-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-items {
+    width: 100%;
+    min-height: unset;
+    height: auto;
+    padding: 4px 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;         /* permitir salto de línea */
+    row-gap: 8px;
+    column-gap: 8px;
+  }
+
+  .navbar-items a {
+    padding: 8px 10px;
+  }
+
+  .vector-divider {
+    display: none;           /* oculta divisores en móvil */
+  }
+
+  /* Submenú como bloque apilado bajo el botón */
+  .submenu {
+    position: static;        /* ya no absoluto */
+    width: 100%;
+    margin-top: 4px;
+    box-shadow: none;        /* visual más simple en móvil */
+    border-radius: 6px;
+    border: 1px solid var(--gray-normal);
+  }
+
+  .submenu-li {
+    padding: 10px 12px;
+  }
+}
+
+/* <= 480px: aún más aire y toques de ergonomía */
+@media (max-width: 480px) {
+  .navbar-items {
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+
+  .navbar-items a {
+    padding: 10px 12px;      /* área táctil mayor */
+  }
 }
