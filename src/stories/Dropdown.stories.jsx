@@ -1,8 +1,10 @@
 import React from 'react';
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../components/molecules/Dropdown';
+import '../App.css'
+import '../components/molecules/Dropdown.css'
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Molecules/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {
