@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.css';
-import InputText from '../atomos/InputText';
+import InputText from '../atoms/InputText';
 import IconButton from './IconButton';
 
 function SearchBar({ placeholder = 'Search' }) {

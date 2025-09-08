@@ -1,9 +1,9 @@
 // src/stories/SearchBar.stories.jsx
 import React from 'react';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/molecules/SearchBar';
 
 export default {
-  title: 'Components/SearchBar',
+  title: 'Molecules/SearchBar',
   component: SearchBar,
   tags: ['autodocs'],
   parameters: {
