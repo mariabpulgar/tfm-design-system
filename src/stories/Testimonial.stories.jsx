@@ -1,10 +1,10 @@
 // src/stories/Testimonial.stories.jsx
 import React from 'react';
-import Testimonial from '../components/Testimonial';
+import Testimonial from '../components/molecules/Testimonial';
 import Rectangle979 from '../assets/Rectangle979.svg';
 
 export default {
-  title: 'Components/Testimonial',
+  title: 'Molecules/Testimonial',
   component: Testimonial,
   tags: ['autodocs'],
   parameters: {
