@@ -121,6 +121,8 @@ const StatusLabel = ({ variant = 'default', text, ...props }) => {
         style={{
           color: current.textColor,
         }}
+        aria-label={text || current.defaultText}
+        role="status"
       >
         {text || current.defaultText}
       </span>
