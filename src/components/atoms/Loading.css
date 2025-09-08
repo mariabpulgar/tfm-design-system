@@ -1,3 +1,4 @@
+/* === TUS ESTILOS EXISTENTES (NO MODIFICAR) === */
 .loading-container {
   --size: 8px;   /* diámetro del círculo */
   --x: 16px;      /* 1x */
@@ -60,4 +61,43 @@
   75%       { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* 1º mov (ciclo 3): ↑→ */
   91.666%   { transform: translate(calc(1 * var(--x)), calc(-1 * var(--y))); } /* se mantiene arriba */
   100%      { transform: translate(calc(2 * var(--x)), 0); }                   /* 4º mov: baja a 2x */
+}
+
+/* === ESTILOS ADICIONALES SOLO PARA ACCESIBILIDAD === */
+
+/* Wrapper para el componente completo */
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Texto del loading */
+.loading-text {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  font-family: inherit;
+}
+
+/* Clase para texto solo accesible por lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .loading-circle {
+    animation: none;
+    opacity: 0.6;
+  }
 }
