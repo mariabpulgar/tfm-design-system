@@ -1,13 +1,14 @@
-import Divider from '../components/atomos/Divider';
+import Divider from '../components/atoms/Divider';
+import '../App.css';
 
 export default {
-  title: 'Components/Divider',
+  title: 'Atoms/Divider',
   component: Divider,
   parameters: {
     layout: 'padded',
     docs: {
       description: {
-        component: 'El componente Divider proporciona tres variantes para separar contenido visualmente: línea completa, con texto centrado, y con texto en formato chip.',
+        component: 'El componente Divider proporciona tres variantes para separar contenido visualmente: línea completa, con texto centrado, y con texto en formato chip. Incluye mejoras de accesibilidad para lectores de pantalla.',
       },
     },
   },
@@ -34,6 +35,21 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
+      },
+    },
+    role: {
+      control: { type: 'text' },
+      description: 'Rol ARIA para el elemento',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'separator' },
+      },
+    },
+    'aria-label': {
+      control: { type: 'text' },
+      description: 'Etiqueta ARIA personalizada para lectores de pantalla',
+      table: {
+        type: { summary: 'string' },
       },
     },
   },
@@ -64,7 +80,7 @@ FullWidth.args = {
 FullWidth.parameters = {
   docs: {
     description: {
-      story: 'Divider simple que ocupa todo el ancho disponible. Ideal para separar secciones de contenido.',
+      story: 'Divider simple que ocupa todo el ancho disponible. Ideal para separar secciones de contenido. Es marcado como decorativo para lectores de pantalla.',
     },
   },
 };
@@ -78,7 +94,7 @@ Center.args = {
 Center.parameters = {
   docs: {
     description: {
-      story: 'Divider con texto centrado en mayúsculas. Perfecto para separar opciones o secciones con etiqueta.',
+      story: 'Divider con texto centrado en mayúsculas. Perfecto para separar opciones o secciones con etiqueta. Los lectores de pantalla anunciarán "Separador: OR".',
     },
   },
 };
@@ -92,7 +108,38 @@ Chip.args = {
 Chip.parameters = {
   docs: {
     description: {
-      story: 'Divider con texto en formato chip con background. Ideal para títulos de sección más prominentes.',
+      story: 'Divider con texto en formato chip con background. Ideal para títulos de sección más prominentes. Los lectores de pantalla anunciarán "Separador de sección: Personal data".',
+    },
+  },
+};
+
+// Nueva historia: Divider con aria-label personalizado
+export const CustomAriaLabel = Template.bind({});
+CustomAriaLabel.tags = ['autodocs'];
+CustomAriaLabel.args = {
+  variant: 'center',
+  text: 'OR',
+  'aria-label': 'Separador entre opciones de inicio de sesión',
+};
+CustomAriaLabel.parameters = {
+  docs: {
+    description: {
+      story: 'Ejemplo de divider con aria-label personalizado para proporcionar contexto más específico a los lectores de pantalla.',
+    },
+  },
+};
+
+// Historia de demostración con contexto
+export const WithContext = TemplateWithContext.bind({});
+WithContext.tags = ['autodocs'];
+WithContext.args = {
+  variant: 'chip',
+  text: 'Account Settings',
+};
+WithContext.parameters = {
+  docs: {
+    description: {
+      story: 'Divider mostrado en contexto con contenido antes y después para demostrar su función separadora.',
     },
   },
 };
