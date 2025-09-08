@@ -3,68 +3,34 @@ import PropTypes from "prop-types";
 import IconButton from "./IconButton";
 import "./Pagination.css";
 
-/** Util: rango inclusivo */
-const range = (start, end) => {
-  const out = [];
-  for (let i = start; i <= end; i++) out.push(i);
-  return out;
-};
-
-/** Versión simplificada y robusta para evitar duplicados */
-function usePageItems({ totalPages, page, siblingCount, boundaryCount }) {
+/** Genera exactamente 3 páginas visibles basado en la página actual */
+function useThreePageItems({ totalPages, page }) {
   if (totalPages <= 0) return [];
-  if (totalPages <= 1) return [1];
+  if (totalPages === 1) return [1];
+  if (totalPages === 2) return [1, 2];
+  if (totalPages === 3) return [1, 2, 3];
 
-  const items = [];
-  
-  // Si hay pocas páginas, mostrar todas
-  if (totalPages <= 2 * (boundaryCount + siblingCount) + 3) {
-    return range(1, totalPages);
+  // Para más de 3 páginas, siempre mostrar exactamente 3
+  let start, middle, end;
+
+  if (page === 1) {
+    // Si estamos en la primera página: [1, 2, 3]
+    start = 1;
+    middle = 2;
+    end = 3;
+  } else if (page === totalPages) {
+    // Si estamos en la última página: [n-2, n-1, n]
+    start = totalPages - 2;
+    middle = totalPages - 1;
+    end = totalPages;
+  } else {
+    // En cualquier otra página: [page-1, page, page+1]
+    start = page - 1;
+    middle = page;
+    end = page + 1;
   }
 
-  // Páginas del inicio
-  const leftBoundary = Math.min(boundaryCount, totalPages);
-  for (let i = 1; i <= leftBoundary; i++) {
-    items.push(i);
-  }
-
-  // Páginas alrededor de la actual
-  const leftSibling = Math.max(page - siblingCount, 1);
-  const rightSibling = Math.min(page + siblingCount, totalPages);
-
-  // Elipsis izquierda
-  if (leftSibling > leftBoundary + 2) {
-    items.push("start-ellipsis");
-  } else if (leftSibling === leftBoundary + 2) {
-    items.push(leftBoundary + 1);
-  }
-
-  // Páginas siblings (evitando solapamiento)
-  const startSibling = Math.max(leftSibling, leftBoundary + 1);
-  const endSibling = Math.min(rightSibling, totalPages - boundaryCount);
-  
-  for (let i = startSibling; i <= endSibling; i++) {
-    if (!items.includes(i)) {
-      items.push(i);
-    }
-  }
-
-  // Elipsis derecha
-  const rightBoundary = totalPages - boundaryCount + 1;
-  if (rightSibling < rightBoundary - 2) {
-    items.push("end-ellipsis");
-  } else if (rightSibling === rightBoundary - 2) {
-    items.push(rightBoundary - 1);
-  }
-
-  // Páginas del final
-  for (let i = rightBoundary; i <= totalPages; i++) {
-    if (!items.includes(i)) {
-      items.push(i);
-    }
-  }
-
-  return items;
+  return [start, middle, end];
 }
 
 export default function Pagination({
@@ -72,9 +38,7 @@ export default function Pagination({
   page = 1,
   onChange,
   size = "medium",            
-  siblingCount = 2,           // # de vecinos a cada lado
-  boundaryCount = 1,          // # de páginas al inicio/fin
-  showPrevNext = false,       
+  showPrevNext = true,       // Cambio el default a true ya que es esencial para esta lógica
   prevIcon = "dropLeftIcon",     
   nextIcon = "dropRightIcon",    
   arrowVariant = "pagination",
@@ -84,7 +48,7 @@ export default function Pagination({
   disabled = false,
   className = "",
 }) {
-  const items = usePageItems({ totalPages, page, siblingCount, boundaryCount });
+  const items = useThreePageItems({ totalPages, page });
 
   const goTo = (p) => {
     if (disabled) return;
@@ -108,30 +72,19 @@ export default function Pagination({
           </li>
         )}
 
-        {items.map((it, idx) => {
-          if (it === "start-ellipsis" || it === "end-ellipsis") {
-            return (
-              <li key={`${it}-${idx}`} className="pagination-ellipsis" aria-hidden="true" role="presentation">
-                …
-              </li>
-            );
-          }
-          // Es un número de página
-          const p = it;
-          return (
-            <li key={p} role="listitem">
-              <IconButton
-                variant="pagination"
-                number={p}
-                size={size}
-                active={p === page}
-                disabled={disabled}
-                onClick={() => goTo(p)}
-                aria-label={`Ir a la página ${p}`}
-              />
-            </li>
-          );
-        })}
+        {items.map((pageNumber) => (
+          <li key={pageNumber} role="listitem">
+            <IconButton
+              variant="pagination"
+              number={pageNumber}
+              size={size}
+              active={pageNumber === page}
+              disabled={disabled}
+              onClick={() => goTo(pageNumber)}
+              aria-label={`Ir a la página ${pageNumber}`}
+            />
+          </li>
+        ))}
 
         {showPrevNext && (
           <li role="listitem">
@@ -155,8 +108,6 @@ Pagination.propTypes = {
   page: PropTypes.number,
   onChange: PropTypes.func,
   size: PropTypes.oneOf(["small", "medium", "large", "extraLarge", "display"]),
-  siblingCount: PropTypes.number,
-  boundaryCount: PropTypes.number,
   showPrevNext: PropTypes.bool,
   prevIcon: PropTypes.string,
   nextIcon: PropTypes.string,

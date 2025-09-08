@@ -1,10 +1,10 @@
 import React from "react";
-import Pagination from "../components/Pagination";
-import "../components/IconButton.css";
-import "../components/Pagination.css";
+import Pagination from "../components/molecules/Pagination";
+import "../components/molecules/IconButton.css";
+import "../components/molecules/Pagination.css";
 
 export default {
-  title: "Components/Pagination",
+  title: "Molecules/Pagination",
   component: Pagination,
   tags: ['autodocs'], // ← ESTO ES LO CLAVE
   parameters: {
