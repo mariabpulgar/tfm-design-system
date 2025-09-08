@@ -1,10 +1,11 @@
 import React from 'react';
-import Tooltip from '../components/Tooltip';
-import '../components/Tooltip.css';
-import { iconNames } from '../components/IconSelector';
+import Tooltip from '../components/molecules/Tooltip';
+import '../components/molecules/Tooltip.css';
+import '../App.css'
+import { iconNames } from '../components/atoms/IconSelector';
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Molecules/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   parameters: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Tooltip.css';
-import IconSelector from '../atomos/IconSelector';
+import IconSelector from '../atoms/IconSelector';
 
 const Tooltip = ({
   content,
