@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Breadcrumbs from '../components/molecules/Breadcrumbs';
+import '../App.css';
+import '../components/molecules/Breadcrumbs.css';
 
 export default {
   title: 'Molecules/Breadcrumbs',

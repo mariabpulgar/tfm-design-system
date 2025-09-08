@@ -1,5 +1,5 @@
 import React from 'react';
-import IconSelector from '../atomos/IconSelector';
+import IconSelector from '../atoms/IconSelector';
 import './Breadcrumbs.css';
 
 export default function Breadcrumbs({
