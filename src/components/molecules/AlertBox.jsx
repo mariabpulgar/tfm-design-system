@@ -2,104 +2,115 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AlertBox.css';
 import IconSelector from '../atoms/IconSelector';
-import IconButton from '../atoms/IconButton';
+import IconButton from '../molecules/IconButton';
 
-//configuracion de las variantes de acuerdo a las clases: error, alert, success, information
-
+// Configuración de las variantes
 const VARIANT_CONFIG = {
-    error: {
-        containerClass: 'alert-error-box',
-        iconName: 'infoIcon',
-        role: 'alert',
-        ariaLive: 'assertive',
-        iconColor: 'var(--error-dark-hover)',
-    },
-    warning: {
-        containerClass: 'alert-warning-box',
-        iconName: 'warningIcon',
-        role: 'alert',
-        ariaLive: 'assertive',
-        iconColor: 'var(--yellow-dark)',
-    },
-    success: {
-        containerClass: 'alert-success-box',
-        iconName: 'checkIcon',
-        role: 'status',
-        ariaLive: 'polite',
-        iconColor: 'var(--success-dark)',
-    },
-    info: {
-        containerClass: 'alert-information-box',
-        iconName: 'notificationIcon',
-        role: 'status',
-        ariaLive: 'polite',
-        iconColor: 'var(--ciam-dark)',
-    },
+  error: {
+    iconName: 'warningIcon',
+    role: 'alert',
+    ariaLive: 'assertive',
+  },
+  warning: {
+    iconName: 'warningIcon',
+    role: 'alert',
+    ariaLive: 'assertive',
+  },
+  success: {
+    iconName: 'checkIcon',
+    role: 'status',
+    ariaLive: 'polite',
+  },
+  info: {
+    iconName: 'infoIcon',
+    role: 'status',
+    ariaLive: 'polite',
+  },
 };
 
 function AlertBox({
-    variant = 'info',
-    title,
-    message,
-    dismissible = true,
-    onClose,
-    className = '',
-    iconName: iconNameOverride,
-    iconColor: iconColorOverride,
-    ...props
+  variant = 'info',
+  title,
+  message,
+  dismissible = true,
+  onClose,
+  className = '',
+  iconName: iconNameOverride,
+  iconColor: iconColorOverride,
+  ...props
 }) {
-    const [open, setOpen] = useState(true);
-    
-    if (!open) return null;
+  const [isVisible, setIsVisible] = useState(true);
 
-    const cfg = VARIANT_CONFIG[variant] || VARIANT_CONFIG.info;
+  if (!isVisible) return null;
 
-    const handleClose = (e) => {
-        setOpen(false);
-        if (onClose) onClose(e);
-    };
+  const config = VARIANT_CONFIG[variant] || VARIANT_CONFIG.info;
 
-    return (
-        <div 
-            className={`alert-box ${cfg.containerClass} ${className}`.trim()}
-            role={cfg.role}
-            aria-live={cfg.ariaLive}
-            {...props}
-        >
-            <div className="icon-and-text">
-                <IconSelector
-                    color={iconColorOverride || cfg.iconColor}
-                    name={iconNameOverride || cfg.iconName}
-                    size="display"
-                />
-                <div className="alert-text">
-                    {title && <h6>{title}</h6>}
-                    {message && <p>{message}</p>}
-                </div>
-            </div>
-            
-            {dismissible && (
-                <IconButton
-                    iconName="closeIcon"
-                    size="medium"
-                    variant="default"
-                    ariaLabel="Close alert"
-                    onClick={handleClose}
-                />
-            )}
+  const handleClose = (e) => {
+    setIsVisible(false);
+    if (onClose) onClose(e);
+  };
+
+  return (
+    <div 
+      className={`alert-box alert-box--${variant} ${className}`.trim()}
+      role={config.role}
+      aria-live={config.ariaLive}
+      {...props}
+    >
+      <div className="alert-box__content">
+        <div className="alert-box__icon">
+          <IconSelector
+            name={iconNameOverride || config.iconName}
+            size="display"
+            color={iconColorOverride || `var(--alert-${variant}-icon)`}
+          />
         </div>
-    );
+        
+        <div className="alert-box__text">
+          {title && <div className="alert-box__title">{title}</div>}
+          {message && <div className="alert-box__message">{message}</div>}
+        </div>
+      </div>
+
+      {dismissible && (
+        <div className="alert-box__close">
+          <IconButton
+            iconName="closeIcon"
+            variant="default"
+            size="large"
+            onClick={handleClose}
+            ariaLabel="Cerrar alerta"
+          />
+        </div>
+      )}
+    </div>
+  );
 }
 
 AlertBox.propTypes = {
-    variant: PropTypes.oneOf(['error', 'warning', 'success', 'info']),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    dismissible: PropTypes.bool,
-    onClose: PropTypes.func,
-    className: PropTypes.string,
-    iconName: PropTypes.string,   // override opcional
-    iconColor: PropTypes.string,  // override opcional
+  /** Variante de la alerta que define el color y comportamiento */
+  variant: PropTypes.oneOf(['error', 'warning', 'success', 'info']),
+  
+  /** Título principal de la alerta */
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  
+  /** Mensaje descriptivo de la alerta */
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  
+  /** Si la alerta puede ser cerrada por el usuario */
+  dismissible: PropTypes.bool,
+  
+  /** Función que se ejecuta cuando se cierra la alerta */
+  onClose: PropTypes.func,
+  
+  /** Clases CSS adicionales */
+  className: PropTypes.string,
+  
+  /** Sobrescribe el icono por defecto de la variante */
+  iconName: PropTypes.string,
+  
+  /** Sobrescribe el color del icono */
+  iconColor: PropTypes.string,
 };
 
 export default AlertBox;
