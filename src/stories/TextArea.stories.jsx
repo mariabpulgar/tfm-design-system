@@ -1,5 +1,5 @@
 import React from 'react';
-import TextArea from '../components/TextArea';
+import TextArea from '../components/atoms/TextArea';
 
 export default {
   title: 'Components/TextArea',

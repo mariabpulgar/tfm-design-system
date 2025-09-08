@@ -5,7 +5,8 @@
   gap: var(--space-200);
   margin-top: var(--space-800);
   margin-bottom: var(--space-800);
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
 }
 
 .textarea-label {
