@@ -110,6 +110,8 @@ export default function Avatar({
       // En modo background, aseguramos accesibilidad como imagen
       role={mode === "bg" && canShowBackground ? "img" : undefined}
       aria-label={mode === "bg" && canShowBackground ? altText : undefined}
+      // CORRECCIÓN 1: Hacer el avatar focusable cuando no hay contenido focusable interno
+      tabIndex={canShowImageTag ? undefined : 0}
       {...props}
     >
       {canShowImageTag ? (
@@ -124,11 +126,12 @@ export default function Avatar({
       ) : loading ? (
         <span className="avatar__skeleton" aria-hidden="true" />
       ) : showInitials ? (
-        <span className="avatar__initials" role="img" aria-label={altText}>
+        // CORRECCIÓN 2: Cambiar role="img" por aria-hidden y mover la semántica al contenedor padre
+        <span className="avatar__initials" aria-hidden="true">
           {initialsText}
         </span>
       ) : showIcon ? (
-        <DefaultUserIcon className="avatar__icon" role="img" aria-label={altText} />
+        <DefaultUserIcon className="avatar__icon" aria-hidden="true" />
       ) : null}
     </div>
   );

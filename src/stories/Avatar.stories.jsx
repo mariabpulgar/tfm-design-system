@@ -51,14 +51,7 @@ Default.args = {
   mode: "img",
 };
 
-export const WithImageImgTag = Template.bind({});
-WithImageImgTag.args = {
-  src: "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=400&q=80",
-  name: "Ana Álvarez",
-  alt: "Foto de Ana Álvarez",
-  size: "l",
-  mode: "img",
-};
+
 
 export const WithImageBackground = Template.bind({});
 WithImageBackground.args = {
