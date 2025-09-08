@@ -1,9 +1,10 @@
 import React from 'react';
-import SimpleCard from '../components/SimpleCard';
+import SimpleCard from '../components/molecules/SimpleCard';
 import '../App.css'; // Importa los estilos de App.jsx
+import '../components/molecules/SimpleCard.css'
 
 const meta = {
-  title: 'Components/SimpleCard',
+  title: 'Molecules/SimpleCard',
   component: SimpleCard,
   decorators: [
     (Story) => (
