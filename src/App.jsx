@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css'
-import Accordion from './components/Accordion';
-import Chip from './components/Chip'
-import Button from './components/Button';
-import NavBar from './components/NavBar';
+import Hero from './components/Hero'
 
 
 function App() {
   return (
     <div>
-        <NavBar></NavBar>
+        <Hero></Hero>
     </div>    
   );
 }

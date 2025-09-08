@@ -1,0 +1,72 @@
+/* HERO 100% ancho y 400px de alto */
+.hero-section{
+  --pad-x: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 400px;
+  padding: 0 var(--pad-x);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Texto a la izquierda */
+.hero-container-text {
+  max-width: 620px;
+  z-index: 3;
+  position: relative;
+}
+
+/* Contenedor de la imagen: tamaño + bleed a la derecha */
+.hero-container-media{
+  height: 100%;
+  /* añade var(--pad-x) para que el fondo/imagen sangren hasta el borde;
+     +8px extra por seguridad ante redondeos */
+  width: calc(clamp(360px, 70vw, 1320px) + var(--pad-x) + 8px);
+  margin-right: calc(-1 * (var(--pad-x) + 8px));
+  flex: 0 0 auto;
+  position: relative;
+  /* sin background aquí; la elipse ahora es la máscara del <img> */
+}
+
+/* Imagen: cubre el área y se recorta con la elipse, centrada al medio de la foto */
+.hero-container-media img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Máscara (WebKit + estándar) */
+  -webkit-mask-image: url('../assets/ellipse5.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;   /* centro del <img> */
+  -webkit-mask-size: cover;         /* escala proporcional para cubrir */
+
+  mask-image: url('../assets/ellipse5.svg');
+  mask-repeat: no-repeat;
+  mask-position: 50% 50%;           /* centro del <img> */
+  mask-size: cover;                  /* escala proporcional para cubrir */
+}
+
+/* Títulos */
+.hero-title-h1{
+  width: 507px;
+  margin: 0 0 var(--space-400) 0;
+  color: var(--blue-normal);
+}
+.hero-title-h5{
+  color: var(--blue-normal);
+  margin: 0 0 var(--space-200) 0;
+}
+.hero-container-text button{
+  width: 180px;
+}
+
+/* (Opcional) Fallback muy básico si no hay soporte de mask */
+@supports not ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
+  .hero-container-media img{
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
