@@ -1,8 +1,9 @@
 import React from 'react';
 import TextArea from '../components/atoms/TextArea';
+import '../App.css';
 
 export default {
-  title: 'Components/TextArea',
+  title: 'Atoms/TextArea',
   component: TextArea,
   parameters: {
     layout: 'centered',

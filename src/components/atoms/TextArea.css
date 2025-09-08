@@ -7,6 +7,7 @@
   margin-bottom: var(--space-800);
   width: 100%;
   max-width: 380px;
+ 
 }
 
 .textarea-label {
@@ -34,8 +35,9 @@
   line-height: 1.4;
 }
 
-.textarea-input:focus {
-  border: 1px solid var(--ciam-normal);
+.textarea-input:focus, 
+.textarea-input:hover {
+  border: 1px solid var(--ciam-normal)!important;
   outline: none;
 }
 
@@ -67,8 +69,9 @@
 
 /* Placeholder styling */
 .textarea-input::placeholder {
-  color: var(--gray-normal, #999);
+  color: var(--gray-dark-hover);
   opacity: 1;
+
 }
 
 /* Hover states */
