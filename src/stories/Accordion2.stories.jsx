@@ -1,11 +1,9 @@
-// src/stories/Accordion2.stories.jsx
-// Nota: Asegúrate de tener @storybook/addon-essentials en .storybook/main.(js|cjs|mjs)
-// addons: ['@storybook/addon-essentials', ...]
 
-// Importa el componente y, si lo necesitas, tus estilos globales o del componente
+
 import Accordion2 from '../components/Accordion2.jsx';
 import '../App.css';
 import '../components/Accordion.css';
+
 
 const meta = {
   title: 'Molecules/Accordion2',
@@ -24,6 +22,7 @@ const meta = {
       },
     },
   },
+
 
   // Controles de historia (no tocan la API del componente; afectan el contenedor)
   argTypes: {
@@ -65,6 +64,7 @@ const meta = {
 };
 export default meta;
 
+
 /**
  * Plantilla de render que envuelve el componente para poder controlar
  * ancho/padding/borde desde los args de Storybook sin modificar Accordion2.
@@ -84,6 +84,7 @@ const Wrapper = ({ containerMaxWidth, showBorder, padding, children }) => (
     {children}
   </div>
 );
+
 
 /** Default */
 export const Default = {
@@ -107,6 +108,7 @@ export const Default = {
   },
 };
 
+
 /** Narrow (simula móvil estrecho) */
 export const Narrow = {
   render: (args) => (
@@ -128,6 +130,7 @@ export const Narrow = {
     },
   },
 };
+
 
 /** WithBorder (para ver límites del wrapper) */
 export const WithBorder = {
@@ -151,6 +154,7 @@ export const WithBorder = {
   },
 };
 
+
 /** Wide (máximo recomendado en diseño actual) */
 export const Wide = {
   render: (args) => (
@@ -172,3 +176,5 @@ export const Wide = {
     },
   },
 };
+
+
