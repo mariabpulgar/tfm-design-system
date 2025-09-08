@@ -1,4 +1,5 @@
 import Badge from '../components/molecules/Badge';
+import '../components/molecules/Badge.css'
 
 export default {
   title: 'Molecules/Badge',
