@@ -9,6 +9,12 @@
   border-radius: var(--radius-100);
   border: none;
   cursor: pointer;
+  /* Área de toque mínima asegurada */
+  min-width: 44px;
+  min-height: 44px;
+  /* Focus outline mejorado */
+  outline: none;
+  position: relative;
 }
 
 .icon-button-container-small {
@@ -20,6 +26,28 @@
   border-radius: var(--radius-100);
   border: none;
   cursor: pointer;
+  /* Área de toque mínima para small también */
+  min-width: 32px;
+  min-height: 32px;
+  /* Focus outline mejorado */
+  outline: none;
+  position: relative;
+}
+
+/* Estados de focus visibles para todos los tamaños */
+.icon-button-container-large:focus-visible,
+.icon-button-container-medium:focus-visible,
+.icon-button-container-small:focus-visible {
+  outline: 2px solid var(--ciam-normal);
+  outline-offset: 2px;
+}
+
+/* Focus para botones disabled */
+.icon-button-container-large:disabled:focus-visible,
+.icon-button-container-medium:disabled:focus-visible,
+.icon-button-container-small:disabled:focus-visible {
+  outline: 2px solid var(--gray-normal-hover);
+  outline-offset: 2px;
 }
 
 .icon-button-default {
@@ -27,12 +55,12 @@
   color: var(--gray-dark-active);
 }
 
-.icon-button-default:hover {
+.icon-button-default:hover:not(:disabled) {
   background-color: var(--gray-normal);
   color: var(--gray-dark-active);
 }
 
-.icon-button-default:active {
+.icon-button-default:active:not(:disabled) {
   background-color: var(--gray-normal-hover);
   color: var(--gray-light);
 }
@@ -56,17 +84,23 @@
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: var(--ciam-normal-hover);
 }
 
-.btn-primary:active {
+.btn-primary:active:not(:disabled) {
   background-color: var(--ciam-normal-active);
 }
 
 .btn-primary:disabled {
   background-color: var(--ciam-light-active);
   cursor: not-allowed;
+}
+
+/* Focus específico para primary */
+.btn-primary:focus-visible {
+  outline: 2px solid var(--gray-light);
+  outline-offset: 2px;
 }
 
 .btn-secondary {
@@ -77,11 +111,11 @@
   cursor: pointer;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   background-color: var(--blue-dark-active);
 }
 
-.btn-secondary:active {
+.btn-secondary:active:not(:disabled) {
   background-color: var(--blue-dark-hover);
 }
 
@@ -89,6 +123,12 @@
   background-color: var(--blue-light);
   color: var(--blue-light-active);
   cursor: not-allowed;
+}
+
+/* Focus específico para secondary */
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--gray-light);
+  outline-offset: 2px;
 }
 
 .btn-tertiary {
@@ -99,11 +139,11 @@
   cursor: pointer;
 }
 
-.btn-tertiary:hover {
+.btn-tertiary:hover:not(:disabled) {
   background-color: var(--magenta-light-hover);
 }
 
-.btn-tertiary:active {
+.btn-tertiary:active:not(:disabled) {
   background-color: var(--magenta-normal);
   color: var(--gray-light);
 }
@@ -115,18 +155,25 @@
   cursor: not-allowed;
 }
 
+/* Focus específico para tertiary */
+.btn-tertiary:focus-visible {
+  outline: 2px solid var(--magenta-normal);
+  outline-offset: 2px;
+}
+
 .btn-error {
   border-radius: var(--radius-100);
   background: var(--error-normal);
   color: var(--gray-light);
   cursor: pointer;
+  border: none;
 }
 
-.btn-error:hover {
+.btn-error:hover:not(:disabled) {
   background-color: var(--error-normal-hover);
 }
 
-.btn-error:active {
+.btn-error:active:not(:disabled) {
   background-color: var(--error-normal-active);
 }
 
@@ -137,6 +184,12 @@
   cursor: not-allowed;
 }
 
+/* Focus específico para error */
+.btn-error:focus-visible {
+  outline: 2px solid var(--gray-light);
+  outline-offset: 2px;
+}
+
 .btn-text {
   border: none;
   background-color: transparent;
@@ -144,17 +197,23 @@
   cursor: pointer;
 }
 
-.btn-text:hover {
+.btn-text:hover:not(:disabled) {
   color: var(--ciam-dark);
 }
 
-.btn-text:active {
+.btn-text:active:not(:disabled) {
   color: var(--ciam-dark-active);
 }
 
 .btn-text:disabled {
   color: var(--gray-normal-hover);
   cursor: not-allowed;
+}
+
+/* Focus específico para text */
+.btn-text:focus-visible {
+  outline: 2px solid var(--ciam-normal);
+  outline-offset: 2px;
 }
 
 .btn-pagination {
@@ -176,6 +235,12 @@
   border: var(--border-width-025) solid var(--gray-normal);
 }
 
+/* Hover para pagination */
+.btn-pagination:hover:not(:disabled):not(.icon-button-active) {
+  background-color: var(--gray-normal);
+  border-color: var(--gray-dark-active);
+}
+
 /* Estado activo */
 .btn-pagination.icon-button-active {
   background-color: var(--ciam-normal);
@@ -191,6 +256,17 @@
   cursor: not-allowed;
 }
 
+/* Focus específico para pagination */
+.btn-pagination:focus-visible {
+  outline: 2px solid var(--ciam-normal);
+  outline-offset: 2px;
+}
+
+.btn-pagination.icon-button-active:focus-visible {
+  outline: 2px solid var(--gray-light);
+  outline-offset: 2px;
+}
+
 /* Span del número */
 .icon-button-number {
   display: block;
@@ -199,21 +275,37 @@
   width: 100%;
 }
 
- .icon-button-container-small.btn-pagination {
-   width: 28px;
-   height: 28px;
-   font-size: 12px;
-   padding: 0 !important;
- }
- .icon-button-container-medium.btn-pagination {
-   width: 36px;
-   height: 36px;
-   font-size: 14px;
-   padding: 0 !important;
- }
- .icon-button-container-large.btn-pagination {
-   width: 44px;
-   height: 44px;
-   font-size: 16px;
-   padding: 0 !important;
- }
+/* Tamaños específicos para pagination con áreas de toque adecuadas */
+.icon-button-container-small.btn-pagination {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  font-size: 12px;
+  padding: 0 !important;
+}
+
+.icon-button-container-medium.btn-pagination {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 14px;
+  padding: 0 !important;
+}
+
+.icon-button-container-large.btn-pagination {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 16px;
+  padding: 0 !important;
+}
+
+
+
+/* Mejora para indicador de página actual */
+.btn-pagination[aria-current="page"] {
+  font-weight: 700;
+}

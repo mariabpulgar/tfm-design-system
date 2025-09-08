@@ -1,11 +1,12 @@
 // src/stories/IconButton.stories.jsx
 import React from 'react';
-import IconButton from '../components/IconButton';
-import '../components/SearchBar.css'; // <-- asegura .btn-* en Storybook
-import '../components/IconButton.css';
+import IconButton from '../components/molecules/IconButton';
+import '../components/molecules/SearchBar.css';
+import '../App.css'
+import '../components/molecules/IconButton.css';
 
 export default {
-  title: 'Components/IconButton',
+  title: 'Molecules/IconButton',
   component: IconButton,
   tags: ['autodocs'],
   parameters: {
@@ -14,7 +15,7 @@ export default {
     docs: {
       description: {
         component:
-          'Botón icónico que compone clases de tamaño (`icon-button-container-*`) y variantes visuales (`.btn-*` o `icon-button-default`).',
+          'Botón icónico accesible con área de toque adecuada (min 44x44px), soporte completo de teclado (Enter/Espacio), estados visibles y aria-labels descriptivos.',
       },
     },
   },
@@ -35,34 +36,43 @@ export default {
       ],
       description: 'Nombre del ícono a mostrar.',
     },
-
-    number: { 
+    
+    number: {
       control: { type: 'number', min: 1, max: 99, step: 1 },
       description: 'Número para la variante de paginación.',
-    },  // <-- pagination nuevo
+    },
+    
+    ariaLabel: {
+      control: 'text',
+      description: 'Etiqueta accesible personalizada. Si no se proporciona, se genera automáticamente.',
+    },
     
     size: {
       control: 'inline-radio',
       options: ['small', 'medium', 'large', 'extraLarge', 'display'],
-      description: 'Tamaño del botón.',
+      description: 'Tamaño del botón. Todos garantizan área de toque mínima.',
       table: { defaultValue: { summary: 'medium' } },
     },
+    
     variant: {
       control: 'inline-radio',
       options: ['default', 'primary', 'secondary', 'tertiary', 'error', 'text', 'pagination'],
-      description:
-        'Variante visual (incluye `.btn-pagination` para números).',
+      description: 'Variante visual con estados hover/focus/active visibles.',
       table: { defaultValue: { summary: 'default' } },
     },
+    
     disabled: {
       control: 'boolean',
-      description: 'Desactiva el botón.',
+      description: 'Desactiva el botón y lo remueve del tab order.',
     },
+    
     active: {
       control: 'boolean',
-      description: 'Estado visual activo (si tu CSS lo utiliza).',
+      description: 'Estado visual activo con soporte aria-pressed.',
     },
+    
     onClick: { action: 'clicked' },
+    
     children: {
       control: 'text',
       description: 'Texto opcional dentro del botón.',
@@ -75,7 +85,8 @@ export default {
     disabled: false,
     active: false,
     children: '',
-    number: undefined, // <-- pagination nuevo
+    number: undefined,
+    ariaLabel: '',
   },
 };
 
@@ -83,6 +94,13 @@ export default {
 export const SoloIcono = {
   args: {
     children: '',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón con solo ícono. El aria-label se genera automáticamente como "Cerrar".',
+      },
+    },
   },
 };
 
@@ -92,6 +110,29 @@ export const ConTexto = {
     children: 'Acción',
     iconName: 'plusIcon',
     variant: 'primary',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón con texto. El aria-label será "Acción".',
+      },
+    },
+  },
+};
+
+/** Aria-label personalizado */
+export const AriaLabelPersonalizado = {
+  args: {
+    iconName: 'closeIcon',
+    variant: 'error',
+    ariaLabel: 'Cerrar diálogo de confirmación',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón con aria-label personalizado para mayor especificidad.',
+      },
+    },
   },
 };
 
@@ -133,12 +174,19 @@ export const Texto = {
   },
 };
 
-/** Tamaños */
+/** Tamaños con área de toque */
 export const Small = {
   args: {
     size: 'small',
     variant: 'primary',
     iconName: 'checkedIcon',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tamaño small (32x32px mínimo) mantiene área de toque accesible.',
+      },
+    },
   },
 };
 
@@ -173,6 +221,13 @@ export const Deshabilitado = {
     disabled: true,
     variant: 'primary',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Estado disabled con cursor not-allowed y removido del tab order.',
+      },
+    },
+  },
 };
 
 export const Activo = {
@@ -180,12 +235,36 @@ export const Activo = {
     active: true,
     variant: 'secondary',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Estado activo con aria-pressed="true".',
+      },
+    },
+  },
 };
 
+/** Paginación */
 export const Paginacion = {
   args: {
     variant: 'pagination',
     number: 1,
     active: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Botón de paginación con aria-current="page" cuando está activo.',
+      },
+    },
+  },
 };
+
+export const PaginacionInactiva = {
+  args: {
+    variant: 'pagination',
+    number: 2,
+    active: false,
+  },
+};
+
