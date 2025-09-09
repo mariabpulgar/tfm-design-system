@@ -1,15 +1,49 @@
-.carrusel-testimonial-container, .testimonials { 
-    display:flex; 
-    align-items:center;
-    gap: var(--space-1000); 
+/* CarruselTestimonial.css */
+
+.carrusel-testimonial-container, 
+.testimonials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1000);
 }
 
-.left-button,.right-button { 
-    display:flex; 
-    align-items:center; 
-    justify-content:center; 
-    min-width:40px; 
-    z-index:2; 
+.left-button,
+.right-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  z-index: 2;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  .carrusel-testimonial-container, 
+  .testimonials {
+    gap: var(--space-800, 24px);
+  }
+}
 
+@media (max-width: 767px) {
+  .carrusel-testimonial-container {
+    gap: var(--space-600, 16px);
+  }
+  
+  .testimonials {
+    gap: var(--space-600, 16px);
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .left-button,
+  .right-button {
+    min-width: 32px;
+    flex-shrink: 0;
+  }
+}
+
+/* Touch interactions for mobile */
+.testimonials {
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
