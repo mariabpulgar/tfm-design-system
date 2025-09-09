@@ -200,7 +200,7 @@ ${fmt('type', a.type)}
 
 // Historia por defecto
 export const Default = {
-  name: 'Default (iconos a ambos lados)',
+  name: 'Default',
   args: { text: 'Default Button' },
 };
 
@@ -218,6 +218,8 @@ export const Variants = {
   parameters: { docs: { description: { story: 'Todas las variantes disponibles del botón.' } } },
 };
 
+Variants.storyName = "Variantes";
+
 // Tamaños (sin iconos para no distraer)
 export const Sizes = {
   render: (args) => (
@@ -229,6 +231,8 @@ export const Sizes = {
   ),
   parameters: { docs: { description: { story: 'Diferentes tamaños disponibles para el botón.' } } },
 };
+
+Sizes.storyName = "Tamaños";
 
 // Control con iconSide (método shorthand)
 export const IconSideControl = {
@@ -251,6 +255,8 @@ export const IconSideControl = {
   },
 };
 
+IconSideControl.storyName = "Control de icono";
+
 // Control con iconName e iconPosition
 export const IconNamePosition = {
   name: 'iconName + iconPosition',
@@ -264,6 +270,8 @@ export const IconNamePosition = {
     docs: { description: { story: 'Usando `iconName` con `iconPosition` para colocar un mismo icono en diferentes posiciones.' } },
   },
 };
+
+IconNamePosition.storyName = "Posición de icono";
 
 // Control individual de iconos
 export const IndividualIconControl = {
@@ -281,9 +289,11 @@ export const IndividualIconControl = {
   },
 };
 
+IndividualIconControl.storyName = "Control individual de icono";
+
 // Historias BLINDADAS: solo texto + icono izquierdo / derecho
 export const TextWithLeftIconOnly = {
-  name: 'Solo texto + icono izquierdo (blindado)',
+  name: 'Con ícono izquierdo',
   args: {
     text: 'Icono izquierdo',
     isGroup: false,
@@ -322,14 +332,14 @@ export const TextWithLeftIconOnly = {
 };
 
 export const TextWithRightIconOnly = {
-  name: 'Solo texto + icono derecho (blindado)',
+  name: 'Con ícono derecho',
   args: {
     text: 'Icono derecho',
     isGroup: false,
     iconSide: 'right',
     showLeftIcon: false,
     showRightIcon: true,
-    rightIconName: 'dropDownIcon', // asegúrate que exista en IconSelector
+    rightIconName: 'dropDownIcon',
     iconSize: 'medium',
     iconColor: 'currentColor',
     type: 'button',
@@ -362,7 +372,7 @@ export const TextWithRightIconOnly = {
 
 // En ButtonGroup
 export const InGroup = {
-  name: 'En ButtonGroup (sin iconos)',
+  name: 'En grupo',
   args: {
     text: 'En grupo',
     isGroup: true,
@@ -383,6 +393,8 @@ export const States = {
   parameters: { docs: { description: { story: 'Estados normal y deshabilitado del botón.' } } },
 };
 
+States.storyName = "Estados";
+
 // Tamaños de iconos
 export const IconSizes = {
   render: (args) => (
@@ -394,6 +406,8 @@ export const IconSizes = {
   ),
   parameters: { docs: { description: { story: 'Diferentes tamaños de iconos disponibles.' } } },
 };
+
+IconSizes.storyName = "Tamaño de ícono";
 
 // Ejemplos específicos para debugging
 export const DebuggingExamples = {
@@ -417,9 +431,10 @@ export const DebuggingExamples = {
   parameters: { docs: { description: { story: 'Verificaciones de cada método de control de iconos.' } } },
 };
 
+
 // Playground interactivo
 export const Playground = {
-  name: 'Playground Completo',
+  name: 'Pruebas completo',
   args: {
     variant: 'btn-primary',
     size: 'medium',

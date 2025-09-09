@@ -62,12 +62,15 @@ FullWidth.args = {
   variant: 'fullWidth',
 };
 FullWidth.parameters = {
+  name: 'Múltiples casillas',
   docs: {
     description: {
       story: 'Divider simple que ocupa todo el ancho disponible. Ideal para separar secciones de contenido.',
     },
   },
 };
+
+FullWidth.storyName = "Ancho completo";
 
 export const Center = Template.bind({});
 Center.tags = ['autodocs'];
@@ -83,6 +86,8 @@ Center.parameters = {
   },
 };
 
+Center.storyName = "Centrado";
+
 export const Chip = Template.bind({});
 Chip.tags = ['autodocs'];
 Chip.args = {
@@ -96,3 +101,5 @@ Chip.parameters = {
     },
   },
 };
+
+Chip.storyName = "Chip";

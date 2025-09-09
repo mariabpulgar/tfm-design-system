@@ -27,8 +27,12 @@ ZeroProgress.args = {
   progress: 0,
 };
 
+ZeroProgress.storyName = "Progreso inicial";
+
 export const FullProgress = Template.bind({});
 FullProgress.tabs = ['autodocs'];
 FullProgress.args = {
   progress: 100,
 };
+
+FullProgress.storyName = "Progreso completado";

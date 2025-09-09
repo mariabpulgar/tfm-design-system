@@ -7,14 +7,16 @@ export default {
   title: "Components/Forms",
   component: Forms,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered" 
+  },
 };
 
 export const Contact = {
+  name: 'Contacto',
   args: {
     type: "contact",
     onSubmit: (values) => console.log("Contact:", values),
-    // puedes sobreescribir estos en Controls si quieres
     schema: undefined,
     title: undefined,
     subtitle: undefined,
@@ -59,13 +61,14 @@ export default function Example() {
 };
 
 export const Adoption = {
+  name: 'Adopción',
   args: {
     type: "adoption",
     onSubmit: (v) => console.log("Adoption:", v),
     schema: undefined,
-    title: "Adoption",
-    subtitle: "Fill the form and meet your new best friend.",
-    submitText: "Send",
+    title: "Adopción",
+    subtitle: "Llena el formulario y conoce a tu nuevo mejor amigo.",
+    submitText: "Enviar",
     initialValues: {
       fullName: "John Smith",
       age: "29",
@@ -111,6 +114,7 @@ export default function Example() {
 };
 
 export const Volunteer = {
+  name: 'Voluntariado',
   args: {
     type: "volunteer",
     onSubmit: (v) => console.log("Volunteer:", v),
@@ -162,11 +166,12 @@ export default function Example() {
 };
 
 export const Donation = {
+  name: 'Donación',
   args: {
     type: "donation",
     onSubmit: (v) => console.log("Donation:", v),
     schema: undefined,
-    title: "Donation",
+    title: "Donación",
     subtitle: "Your support helps us rescue and care for animals.",
     submitText: "Donate",
     initialValues: {

@@ -30,6 +30,7 @@ export const Default = {
 };
 
 export const CustomTitle = {
+  name: 'Etiqueta personalizada',
   args: {
     title: 'Etiqueta personalizada',
   },

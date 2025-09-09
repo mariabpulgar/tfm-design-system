@@ -46,6 +46,8 @@ Checked.args = {
   checked: true,
 };
 
+Checked.storyName = "Seleccionado";
+
 export const Disabled = ControlableLabelTemplate.bind({});
 Disabled.tags = ['autodocs'];
 Disabled.args = {
@@ -54,3 +56,5 @@ Disabled.args = {
   label: 'Opción deshabilitada',
   disabled: true,
 };
+
+Disabled.storyName = "Deshabilitado";

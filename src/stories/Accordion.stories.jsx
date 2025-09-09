@@ -50,7 +50,7 @@ Default.parameters = {
   },
 };
 
-export const CustomContent = Template.bind({});
+/* export const CustomContent = Template.bind({});
 CustomContent.args = {
   items: [
     {
@@ -185,4 +185,4 @@ Interactive.parameters = {
         "Historia pensada para testing manual (apertura/cierre, foco, y comportamiento de un-solo-item-abierto).",
     },
   },
-};
+}; */

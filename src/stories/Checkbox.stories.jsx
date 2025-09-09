@@ -131,6 +131,7 @@ export const Default = {
 
 // Checkbox marcado
 export const Checked = {
+  name: 'Seleccionado',
   args: {
     id: 'checked-checkbox',
     label: 'Checkbox marcado',
@@ -141,6 +142,7 @@ export const Checked = {
 
 // Checkbox deshabilitado
 export const Disabled = {
+  name: 'Deshabilitado',
   args: {
     id: 'disabled-checkbox',
     label: 'Checkbox deshabilitado',
@@ -151,6 +153,7 @@ export const Disabled = {
 
 // Checkbox deshabilitado y marcado
 export const DisabledChecked = {
+  name: 'Deshabilitado y marcado',
   args: {
     id: 'disabled-checked-checkbox',
     label: 'Checkbox deshabilitado y marcado',
@@ -161,6 +164,7 @@ export const DisabledChecked = {
 
 // Checkbox sin etiqueta
 export const WithoutLabel = {
+  name: 'Sin etiqueta',
   args: {
     id: 'no-label-checkbox',
     checked: false,
@@ -170,6 +174,7 @@ export const WithoutLabel = {
 
 // Checkbox con etiqueta larga
 export const LongLabel = {
+  name: 'Etiqueta larga',
   args: {
     id: 'long-label-checkbox',
     label: 'Este es un checkbox con una etiqueta muy larga que puede ocupar varias líneas para probar cómo se ve el componente',
@@ -180,6 +185,7 @@ export const LongLabel = {
 
 export const Interactive = {
   render: (args) => <InteractiveCheckbox {...args} />,
+  name: 'Interactivo',
   args: {
     id: 'interactive-checkbox',
     label: 'Checkbox interactivo',
@@ -189,6 +195,7 @@ export const Interactive = {
 
 export const MultipleCheckboxes = {
   render: () => <MultipleCheckboxesComponent />,
+  name: 'Múltiples casillas',
   parameters: {
     docs: {
       description: {
@@ -200,6 +207,7 @@ export const MultipleCheckboxes = {
 
 export const AllStates = {
   render: () => <AllStatesComponent />,
+  name: 'Todos los estados',
   parameters: {
     docs: {
       description: {

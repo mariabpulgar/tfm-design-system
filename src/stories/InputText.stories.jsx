@@ -57,6 +57,7 @@ Default.args = {
   name: 'defaultInput'
 };
 
+
 // Historia con valor inicial
 export const WithValue = Template.bind({});
 WithValue.args = {
@@ -67,6 +68,8 @@ WithValue.args = {
   id: 'email-input',
   name: 'emailInput'
 };
+
+WithValue.storyName = "Con valor";
 
 // Historia con error
 export const WithError = Template.bind({});
@@ -79,6 +82,8 @@ WithError.args = {
   name: 'passwordInput'
 };
 
+WithError.storyName = "Con error";
+
 // Historia deshabilitado
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -90,6 +95,8 @@ Disabled.args = {
   name: 'disabledInput'
 };
 
+Disabled.storyName = "Deshabilitado";
+
 // Historia con longitud máxima
 export const WithMaxLength = Template.bind({});
 WithMaxLength.args = {
@@ -99,6 +106,8 @@ WithMaxLength.args = {
   id: 'maxlength-input',
   name: 'maxLengthInput'
 };
+
+WithMaxLength.storyName = "Con límite de caracteres";
 
 // Historia de teléfono
 export const PhoneInput = Template.bind({});
@@ -110,6 +119,8 @@ PhoneInput.args = {
   name: 'phoneInput'
 };
 
+PhoneInput.storyName = "Campo de número telefónico";
+
 // Historia sin label
 export const WithoutLabel = Template.bind({});
 WithoutLabel.args = {
@@ -117,6 +128,8 @@ WithoutLabel.args = {
   id: 'no-label-input',
   name: 'noLabelInput'
 };
+
+WithoutLabel.storyName = "Con etiqueta";
 
 // Historia con todos los estados
 export const AllStates = () => {
@@ -178,6 +191,8 @@ export const AllStates = () => {
   );
 };
 
+AllStates.storyName = "Todos los estados";  
+
 // Playground interactivo
 export const Playground = Template.bind({});
 Playground.args = {
@@ -191,3 +206,5 @@ Playground.args = {
   id: 'playground-input',
   name: 'playgroundInput'
 };
+
+Playground.storyName = "Pruebas";  

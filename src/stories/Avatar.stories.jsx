@@ -5,7 +5,18 @@ export default {
   title: "Components/Avatar",
   component: Avatar,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: 'centered',
+    controls: { expanded: true },
+    docs: {
+      description: {
+        component:
+          "Muestra un avatar con imagen, iniciales o ícono de respaldo. " +
+          "Soporta tamaños del sistema de diseño, estado de carga (skeleton) y dos modos de renderizado: " +
+          "<img> (`img`) o fondo con cover (`bg`). Incluye generación automática de iniciales a partir de `name`.",
+      },
+    },
+  },
   argTypes: {
     src: { control: "text", description: "URL de la imagen" },
     name: { control: "text", description: "Nombre para generar iniciales" },
@@ -60,6 +71,8 @@ WithImageImgTag.args = {
   mode: "img",
 };
 
+WithImageImgTag.storyName = "Avatar con Imagen";
+
 export const WithImageBackground = Template.bind({});
 WithImageBackground.args = {
   src: "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=400&q=80",
@@ -69,11 +82,18 @@ WithImageBackground.args = {
   mode: "bg",
 };
 
+WithImageBackground.storyName = "Avatar con fondo";
+
+
 export const Loading = Template.bind({});
 Loading.args = { size: "m", loading: true };
 
+Loading.storyName = "Avatar en carga";
+
 export const IconFallback = Template.bind({});
 IconFallback.args = { size: "m", fallback: "icon", name: "Usuario" };
+
+IconFallback.storyName = "Avatar con icono";
 
 export const AllSizes = () => (
   <div style={{ display: "flex", gap: 16, alignItems: "flex-end", flexWrap: "wrap" }}>
@@ -86,3 +106,5 @@ export const AllSizes = () => (
   </div>
 );
 AllSizes.parameters = { controls: { disable: true } };
+
+AllSizes.storyName = "Todos los tamaños";

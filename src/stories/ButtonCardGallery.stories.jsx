@@ -28,7 +28,7 @@ export default {
     onButtonClick: { action: "clicked" },
   },
   args: {
-    title: "Tittle",
+    title: "Título",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     buttonText: "Button",

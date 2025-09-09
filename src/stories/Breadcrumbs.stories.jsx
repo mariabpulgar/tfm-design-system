@@ -61,6 +61,8 @@ NoHome.args = {
   showHome: false,
 };
 
+NoHome.storyName = "Sin icono de home";
+
 export const WithIconsPerItem = Template.bind({});
 WithIconsPerItem.args = {
   ...Default.args,
@@ -71,7 +73,9 @@ WithIconsPerItem.args = {
   ],
 };
 
-export const Controlled = (args) => {
+WithIconsPerItem.storyName = "Con icono por item";
+
+/* export const Controlled = (args) => {
   const [idx, setIdx] = useState(args.currentIndex ?? 0);
 
   return (
@@ -93,4 +97,4 @@ Controlled.args = {
   currentIndex: 0,
   showHome: true,
   separatorIcon: 'dropRightIcon',
-};
+}; */

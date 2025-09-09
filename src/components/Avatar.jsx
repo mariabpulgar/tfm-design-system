@@ -1,19 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import "./Avatar.css";
 
-/**
- * Props principales:
- *  - src?: string
- *  - name?: string
- *  - alt?: string
- *  - size: 'xxs'|'xs'|'s'|'m'|'l'|'xl'|'xxl' | number
- *  - loading?: boolean
- *  - fallback?: 'initials' | 'icon'
- *  - initials?: 'auto' | string
- *  - initialsCount?: 1 | 2
- *  - mode?: 'img' | 'bg'   // 'bg' pinta la imagen con background cover
- *  - className?: string
- */
 export default function Avatar({
   src,
   name,

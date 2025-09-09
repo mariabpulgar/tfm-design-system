@@ -12,8 +12,9 @@ const meta = {
 export default meta;
 
 export const Basico = {
+  name: 'Básico',
   args: {
-    title: "Tittle page",
+    title: "Título de página",
     navLinks: [
       { label: "Link item", href: "#" },
       { label: "Link item", href: "#" },
@@ -34,6 +35,6 @@ export const Basico = {
       alt: "Logo",
     },
     year: 2025,
-    backToTop: { label: "Back to top", href: "#top", icon: "topIcon" },
+    backToTop: { label: "Ir arriba", href: "#top", icon: "topIcon" },
   },
 };

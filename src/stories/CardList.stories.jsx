@@ -69,7 +69,7 @@ const meta = {
 export default meta;
 
 export const ButtonCardsVertical = {
-  name: 'ButtonCard • Vertical',
+  name: 'Card vertical con botón',
   args: {
     cardType: 'button',
     orientation: 'vertical',
@@ -79,7 +79,7 @@ export const ButtonCardsVertical = {
 };
 
 export const ButtonCardsHorizontal = {
-  name: 'ButtonCard • Horizontal',
+  name: 'Card Horizontal con botón',
   args: {
     cardType: 'button',
     orientation: 'horizontal',
@@ -89,7 +89,7 @@ export const ButtonCardsHorizontal = {
 };
 
 export const SimpleCardsVertical = {
-  name: 'SimpleCard • Vertical',
+  name: 'Card Vertical',
   args: {
     cardType: 'simple',
     orientation: 'vertical',
@@ -98,7 +98,7 @@ export const SimpleCardsVertical = {
 };
 
 export const SimpleCardsHorizontal = {
-  name: 'SimpleCard • Horizontal',
+  name: 'Card Horizontal',
   args: {
     cardType: 'simple',
     orientation: 'horizontal',
@@ -107,7 +107,7 @@ export const SimpleCardsHorizontal = {
 };
 
 export const WithFallbackData = {
-  name: 'Fallback interno',
+  name: 'Por defecto (interno)',
   args: {
     cardType: 'button',
     orientation: 'vertical',

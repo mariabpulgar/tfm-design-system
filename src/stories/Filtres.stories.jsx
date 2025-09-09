@@ -5,42 +5,49 @@ export default {
   title: 'Components/Filtres',
   component: Filtres,
   tags: ['autodocs'],
+      parameters: {
+    docs: {
+      description: {
+        component: 'Componente de filtros que agrupa varios menús desplegables (dropdowns) para refinar resultados según distintas categorías. Permite al usuario aplicar, limpiar o combinar criterios de búsqueda de manera sencilla.',
+      },
+    },
+  },
 };
 
 const SECTIONS = [
   {
     key: 'animal',
-    title: 'Animal type',
+    title: 'Tipo de mascota',
     items: [
-      { id: 'dog', label: 'Dog' },
-      { id: 'cat', label: 'Cat' },
-      { id: 'other', label: 'Other' },
+      { id: 'dog', label: 'Perro' },
+      { id: 'cat', label: 'Gato' },
+      { id: 'other', label: 'Otro' },
     ],
   },
   {
     key: 'size',
-    title: 'Size',
+    title: 'Tamaño',
     items: [
-      { id: 's', label: 'Small' },
-      { id: 'm', label: 'Medium' },
-      { id: 'l', label: 'Large' },
+      { id: 's', label: 'Pequeño' },
+      { id: 'm', label: 'Medio' },
+      { id: 'l', label: 'Grande' },
     ],
   },
   {
     key: 'health',
-    title: 'Health status',
+    title: 'Estado de salud',
     items: [
-      { id: 'vaccinated', label: 'Vaccinated' },
-      { id: 'spayed', label: 'Spayed/Neutered' },
-      { id: 'special', label: 'Special needs' },
+      { id: 'vaccinated', label: 'Vacunado' },
+      { id: 'spayed', label: 'Esterilizado/a' },
+      { id: 'special', label: 'Necesidades especiales' },
     ],
   },
   {
     key: 'gender',
-    title: 'Gender',
+    title: 'Género',
     items: [
-      { id: 'male', label: 'Male' },
-      { id: 'female', label: 'Female' },
+      { id: 'male', label: 'Macho' },
+      { id: 'female', label: 'Hembra' },
     ],
   },
 ];

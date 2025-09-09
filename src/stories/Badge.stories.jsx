@@ -7,7 +7,7 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A notification badge component that displays counts or indicators on icons. Supports numeric counts with overflow handling, dot indicators, and conditional visibility.',
+        component: 'Componente de notificación (badge) que muestra conteos o indicadores sobre iconos.',
       },
     },
   },
@@ -22,7 +22,7 @@ export default {
     },
     max: {
       control: { type: 'number', min: 1, max: 999 },
-      description: 'Maximum number to display before showing "+"',
+      description: 'Valor máximo a mostrar antes de usar “+” (p. ej., 99 ⇒ “99+”)',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: '99' },
@@ -30,7 +30,7 @@ export default {
     },
     showZero: {
       control: 'boolean',
-      description: 'Whether to show the badge when count is 0',
+      description: 'Mostrar el badge cuando el conteo es 0',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -38,7 +38,7 @@ export default {
     },
     dot: {
       control: 'boolean',
-      description: 'Show as a dot indicator without displaying the count',
+      description: 'Mostrar como indicador de punto (dot) sin conteo',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -46,7 +46,7 @@ export default {
     },
     showIcon: {
       control: 'boolean',
-      description: 'Whether to display the notification icon',
+      description: 'Mostrar el ícono de notificación',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -54,10 +54,30 @@ export default {
     },
     className: {
       control: 'text',
-      description: 'Additional CSS classes to apply',
+      description: 'Clases CSS adicionales a aplicar',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '""' },
+      },
+    },
+  },
+};
+
+// Playground
+export const Playground = {
+  name: 'Pruebas',
+  tags: ['autodocs'],
+  args: {
+    count: 5,
+    max: 99,
+    showZero: false,
+    dot: false,
+    showIcon: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Espacio interactivo para probar diferentes combinaciones de props.',
       },
     },
   },
@@ -74,6 +94,7 @@ export const Default = {
 
 // With Icon
 export const WithIcon = {
+  name: 'Badge con icono',
   tags: ['autodocs'],
   args: {
     count: 10,
@@ -82,7 +103,7 @@ export const WithIcon = {
   parameters: {
     docs: {
       description: {
-        story: 'Badge displayed with the notification icon.',
+        story: 'Badge mostrado con el ícono de notificación.',
       },
     },
   },
@@ -90,6 +111,7 @@ export const WithIcon = {
 
 // Without Icon
 export const WithoutIcon = {
+  name: 'Badge sin icono',
   tags: ['autodocs'],
   args: {
     count: 3,
@@ -98,7 +120,7 @@ export const WithoutIcon = {
   parameters: {
     docs: {
       description: {
-        story: 'Badge displayed without the notification icon - useful for applying to other elements.',
+        story: 'Badge mostrado sin el ícono de notificación; útil para aplicarlo sobre otros elementos.',
       },
     },
   },
@@ -106,6 +128,7 @@ export const WithoutIcon = {
 
 // High Count (with overflow)
 export const HighCount = {
+  name: 'Badge con contador alto',
   tags: ['autodocs'],
   args: {
     count: 150,
@@ -114,7 +137,7 @@ export const HighCount = {
   parameters: {
     docs: {
       description: {
-        story: 'When count exceeds the max value (99), it displays "99+".',
+        story: 'Cuando el conteo supera el valor máximo (max=99), se muestra “99+”.',
       },
     },
   },
@@ -122,6 +145,7 @@ export const HighCount = {
 
 // Custom Max Value
 export const CustomMax = {
+  name: 'Badge máximo personalizado',
   tags: ['autodocs'],
   args: {
     count: 25,
@@ -131,7 +155,7 @@ export const CustomMax = {
   parameters: {
     docs: {
       description: {
-        story: 'Custom maximum value before showing overflow indicator.',
+        story: 'Valor máximo personalizado antes de mostrar el indicador de desbordamiento.',
       },
     },
   },
@@ -139,6 +163,7 @@ export const CustomMax = {
 
 // Dot Indicator
 export const DotIndicator = {
+  name: 'Badge contador de punto',
   tags: ['autodocs'],
   args: {
     dot: true,
@@ -147,7 +172,7 @@ export const DotIndicator = {
   parameters: {
     docs: {
       description: {
-        story: 'Dot indicator without count - useful for showing "has notifications" without specific numbers.',
+        story: 'Indicador tipo punto (dot) sin conteo; útil para mostrar “hay notificaciones” sin números.',
       },
     },
   },
@@ -155,6 +180,7 @@ export const DotIndicator = {
 
 // Zero Count (Hidden)
 export const ZeroCountHidden = {
+  name: 'Badge contador cero oculto',
   tags: ['autodocs'],
   args: {
     count: 0,
@@ -164,7 +190,7 @@ export const ZeroCountHidden = {
   parameters: {
     docs: {
       description: {
-        story: 'By default, badge is hidden when count is 0.',
+        story: 'De forma predeterminada, el badge se oculta cuando el conteo es 0.',
       },
     },
   },
@@ -172,6 +198,7 @@ export const ZeroCountHidden = {
 
 // Zero Count (Shown)
 export const ZeroCountShown = {
+  name: 'Badge contador cero',
   tags: ['autodocs'],
   args: {
     count: 0,
@@ -181,7 +208,7 @@ export const ZeroCountShown = {
   parameters: {
     docs: {
       description: {
-        story: 'Badge can be configured to show even when count is 0.',
+        story: 'El badge puede configurarse para mostrarse incluso cuando el conteo es 0.',
       },
     },
   },
@@ -189,6 +216,7 @@ export const ZeroCountShown = {
 
 // Edge Cases
 export const EdgeCases = {
+  name: 'Badge con casos extremos',
   tags: ['autodocs'],
   render: () => (
     <div style={{ display: 'flex', gap: '40px', alignItems: 'flex-start' }}>
@@ -213,26 +241,7 @@ export const EdgeCases = {
   parameters: {
     docs: {
       description: {
-        story: 'Various edge cases and boundary values.',
-      },
-    },
-  },
-};
-
-// Interactive Playground
-export const Playground = {
-  tags: ['autodocs'],
-  args: {
-    count: 5,
-    max: 99,
-    showZero: false,
-    dot: false,
-    showIcon: true,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Interactive playground to test different prop combinations.',
+        story: 'Varios casos límite y valores de borde.',
       },
     },
   },

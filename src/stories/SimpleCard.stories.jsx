@@ -74,6 +74,7 @@ export const Default = {
 
 // Horizontal variant
 export const Horizontal = {
+  name: 'Horizontal',
   args: {
     variant: 'horizontal',
     title: 'Horizontal Card',
@@ -83,6 +84,7 @@ export const Horizontal = {
 
 // Vertical variant
 export const Vertical = {
+  name: 'Vertical',
   args: {
     variant: 'vertical',
     title: 'Vertical Card',
@@ -92,6 +94,7 @@ export const Vertical = {
 
 // Short content examples
 export const HorizontalShort = {
+  name: 'Horizontal texto corto',
   args: {
     variant: 'horizontal',
     title: 'Short',
@@ -100,6 +103,7 @@ export const HorizontalShort = {
 };
 
 export const VerticalShort = {
+  name: 'Vertical texto corto',
   args: {
     variant: 'vertical',
     title: 'Short',
@@ -109,6 +113,7 @@ export const VerticalShort = {
 
 // Long content examples
 export const HorizontalLong = {
+  name: 'Horizontal texto largo',
   args: {
     variant: 'horizontal',
     title: 'This is a Very Long Title That Might Wrap',
@@ -117,6 +122,7 @@ export const HorizontalLong = {
 };
 
 export const VerticalLong = {
+  name: 'Vertical texto largo',
   args: {
     variant: 'vertical',
     title: 'This is a Very Long Title That Might Wrap',
@@ -141,3 +147,5 @@ export const AllVariants = {
     </div>
   ),
 };
+
+AllVariants.storyName = "Todas las variantes";

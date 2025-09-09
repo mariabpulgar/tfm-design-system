@@ -157,6 +157,7 @@ export const Default = {
 
 // Variaciones para mostrar diferentes configuraciones
 export const SmallSize = {
+  name: 'Tamaño pequeño',
   args: {
     size: "small",
     totalPages: 8,
@@ -172,6 +173,7 @@ export const SmallSize = {
 };
 
 export const LargeSize = {
+  name: 'Tamaño grande',
   args: {
     size: "large",
     totalPages: 6,
@@ -187,6 +189,7 @@ export const LargeSize = {
 };
 
 export const WithoutArrows = {
+  name: 'Sin flechas',
   args: {
     showPrevNext: false,
     totalPages: 7,
@@ -202,6 +205,7 @@ export const WithoutArrows = {
 };
 
 export const ManyPages = {
+  name: 'Varias páginas',
   args: {
     totalPages: 50,
     page: 25,
@@ -218,6 +222,7 @@ export const ManyPages = {
 };
 
 export const Disabled = {
+  name: 'Deshabilitado',
   args: {
     disabled: true,
     totalPages: 5,

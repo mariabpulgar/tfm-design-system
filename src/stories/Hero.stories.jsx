@@ -91,39 +91,39 @@ export default function Page() {
   },
 };
 
-export const LongText = {
-  name: 'Títulos largos',
-  args: {
-    smallTitle:
-      'Subtítulo muy largo para pruebas de truncado y saltos de línea en distintos breakpoints',
-    mainTitle:
-      'Este es un título principal bastante extenso para validar el comportamiento responsivo del contenedor de texto.',
-    buttonText: 'Ver más',
-    imageSrc: perrito,
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: `
-import React from 'react';
-import Hero from './Hero';
-import perrito from '../assets/perrito.jpg';
+// export const LongText = {
+//   name: 'Títulos largos',
+//   args: {
+//     smallTitle:
+//       'Subtítulo muy largo para pruebas de truncado y saltos de línea en distintos breakpoints',
+//     mainTitle:
+//       'Este es un título principal bastante extenso para validar el comportamiento responsivo del contenedor de texto.',
+//     buttonText: 'Ver más',
+//     imageSrc: perrito,
+//   },
+//   parameters: {
+//     docs: {
+//       source: {
+//         code: `
+// import React from 'react';
+// import Hero from './Hero';
+// import perrito from '../assets/perrito.jpg';
 
-export default function Page() {
-  return (
-    <Hero
-      smallTitle="Subtítulo muy largo para pruebas de truncado y saltos de línea en distintos breakpoints"
-      mainTitle="Este es un título principal bastante extenso para validar el comportamiento responsivo del contenedor de texto."
-      buttonText="Ver más"
-      imageSrc={perrito}
-    />
-  );
-}
-        `.trim(),
-      },
-    },
-  },
-};
+// export default function Page() {
+//   return (
+//     <Hero
+//       smallTitle="Subtítulo muy largo para pruebas de truncado y saltos de línea en distintos breakpoints"
+//       mainTitle="Este es un título principal bastante extenso para validar el comportamiento responsivo del contenedor de texto."
+//       buttonText="Ver más"
+//       imageSrc={perrito}
+//     />
+//   );
+// }
+//         `.trim(),
+//       },
+//     },
+//   },
+// };
 
 export const Playground = {
   name: 'Playground (controles)',

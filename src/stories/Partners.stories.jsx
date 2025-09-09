@@ -32,6 +32,7 @@ export default meta;
 
 /** Historia base: 3 partners */
 export const Basic = {
+  name: 'Básico',
   args: {
     partners: [
       { src: LogoA, alt: 'Partner A' },
@@ -50,6 +51,7 @@ export const Basic = {
 
 /** Más elementos para probar overflow/espaciado */
 export const ManyPartners = {
+  name: 'Varios patrocinadores',
   args: {
     partners: [
       { src: LogoA, alt: 'Partner A' },
@@ -72,6 +74,7 @@ export const ManyPartners = {
 
 /** Estado vacío (sin datos) */
 export const Empty = {
+  name: 'Vacío',
   args: {
     partners: [],
   },

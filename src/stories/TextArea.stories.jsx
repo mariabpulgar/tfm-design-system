@@ -66,6 +66,7 @@ export const Default = {
 
 // Con etiqueta
 export const WithLabel = {
+  name: 'Con etiqueta',
   args: {
     label: 'Comentarios',
     placeholder: 'Comparte tus comentarios...',
@@ -75,6 +76,7 @@ export const WithLabel = {
 
 // Con valor inicial
 export const WithValue = {
+  name: 'Con valor',
   args: {
     label: 'Descripción',
     value: 'Este es un texto de ejemplo que muestra cómo se ve el componente con contenido inicial. Puedes editarlo y ver cómo responde el componente.',
@@ -85,6 +87,7 @@ export const WithValue = {
 
 // Estado de error
 export const WithError = {
+  name: 'Con error',
   args: {
     label: 'Mensaje obligatorio',
     value: '',
@@ -96,6 +99,7 @@ export const WithError = {
 
 // Deshabilitado
 export const Disabled = {
+  name: 'Deshabilitado',
   args: {
     label: 'Campo deshabilitado',
     value: 'Este contenido no se puede editar porque el campo está deshabilitado.',
@@ -109,6 +113,7 @@ export const Disabled = {
 
 // Tamaño grande
 export const LargeSize = {
+  name: 'Descripción detallada',
   args: {
     label: 'Descripción detallada',
     placeholder: 'Proporciona una descripción detallada...',
@@ -118,6 +123,7 @@ export const LargeSize = {
 
 // Tamaño compacto
 export const CompactSize = {
+  name: 'Nota breve',
   args: {
     label: 'Nota breve',
     placeholder: 'Nota rápida...',

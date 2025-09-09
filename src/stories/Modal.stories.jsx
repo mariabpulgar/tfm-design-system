@@ -78,6 +78,8 @@ export const Interactive = {
   },
 };
 
+Interactive.storyName = "Interactivo"; 
+
 // Modal siempre abierto para testing
 export const AlwaysOpen = {
   args: { 
@@ -107,6 +109,8 @@ export const AlwaysOpen = {
   }
 };
 
+AlwaysOpen.storyName = "Abierto"; 
+
 // Modal cerrado (muestra solo el trigger button si lo hubiera)
 export const Closed = {
   args: { 
@@ -120,6 +124,8 @@ export const Closed = {
     }
   }
 };
+
+Closed.storyName = "Cerrado"; 
 
 // Modal con contenido personalizado
 export const CustomContent = {
@@ -147,6 +153,8 @@ export const CustomContent = {
   }
 };
 
+CustomContent.storyName = "Contenido personalizado";
+
 // Modal sin posibilidad de cerrar con ESC
 export const NoEscapeClose = {
   args: {
@@ -171,6 +179,8 @@ export const NoEscapeClose = {
   }
 };
 
+NoEscapeClose.storyName = "Cerrar con escape";
+
 // Modal sin posibilidad de cerrar haciendo clic fuera
 export const NoBackdropClose = {
   args: {
@@ -194,3 +204,5 @@ export const NoBackdropClose = {
     );
   }
 };
+
+NoBackdropClose.storyName = "Cierre por fondo deshabilitado";

@@ -5,6 +5,13 @@ export default {
   title: 'Components/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
+    parameters: {
+    docs: {
+      description: {
+        component: 'Menú desplegable que muestra una lista de opciones al hacer clic o pulsar sobre un botón. Permite al usuario seleccionar una opción de forma compacta, ahorrando espacio en la interfaz.',
+      },
+    },
+  },
   argTypes: {
     title: {
       control: 'text',
@@ -52,3 +59,5 @@ WithCheckboxes.args = {
   ],
   defaultSelected: ['opt-2'],
 };
+
+WithCheckboxes.storyName = "Dropdown con checkboxes";

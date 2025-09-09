@@ -11,7 +11,7 @@ export default {
     docs: {
       description: {
         component:
-          'Componente de alerta con variantes `error`, `warning`, `success` e `info`. Incluye ícono por defecto según variante, soporte para overrides (`iconName`, `iconColor`) y opción de cierre (`dismissible`).',
+          'Componente de alerta con variantes `error`, `advertencia`, `éxito` e `info`. Incluye ícono por defecto según variante, soporte para overrides (`iconName`, `iconColor`) y opción de cierre (`dismissible`).',
       },
     },
   },
@@ -48,11 +48,12 @@ export default {
 
 /** Story principal con controles */
 export const Playground = {
+  name: 'Pruebas',
   args: {
     variant: 'info',
-    title: 'Information',
+    title: 'Información',
     message:
-      'This is an informational alert. Toggle dismissible to show/hide the close button.',
+      'Este es un aviso informativo. Activa la opción dismissible para mostrar u ocultar el botón de cierre.',
     dismissible: true,
     iconName: undefined,
     iconColor: undefined,
@@ -61,49 +62,53 @@ export const Playground = {
 
 /** Ejemplos por variante (snapshot friendly) */
 export const Info = {
+  name: 'Información',
   args: {
     variant: 'info',
-    title: 'Information',
-    message: 'A new update is available for download.',
+    title: 'Información',
+    message: 'Este es un aviso informativo. Activa la opción dismissible para mostrar u ocultar el botón de cierre.',
     dismissible: true,
   },
 };
 
 export const Success = {
+  name: 'Éxito',
   args: {
     variant: 'success',
-    title: 'Success',
-    message: 'Your profile has been updated successfully.',
+    title: 'Éxito',
+    message: 'Tu perfil se ha actualizado correctamente.',
     dismissible: false,
   },
 };
 
 export const Warning = {
+  name: 'Advertencia',
   args: {
     variant: 'warning',
-    title: 'Warning',
-    message: 'Please double-check your input and try again.',
+    title: 'Advertencia',
+    message: 'Por favor, revisa tu entrada y vuelve a intentarlo.',
     dismissible: true,
   },
 };
 
 export const Error = {
+  name: 'Error',
   args: {
     variant: 'error',
     title: 'Error',
-    message: 'Something went wrong while saving your changes.',
+    message: 'Ocurrió un problema al guardar tus cambios.',
     dismissible: true,
   },
 };
 
 /** Override de ícono y color (para mostrar controles avanzados) */
-export const WithIconOverride = {
+/* export const SobreEscritura = {
   args: {
     variant: 'warning',
-    title: 'Custom Icon',
-    message: 'Using a custom icon and color via overrides.',
+    title: 'Ícono personalizado',
+    message: 'Usando un ícono y color personalizados mediante overrides.',
     dismissible: true,
     iconName: 'infoIcon',
     iconColor: 'var(--yellow-dark)',
   },
-};
+}; */

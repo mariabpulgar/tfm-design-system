@@ -40,7 +40,7 @@ export default {
       table: { defaultValue: { summary: 'Button' } },
     },
     buttonVariant: {
-      control: 'text', // o { type: 'select', options: ['btn-primary','btn-secondary','btn-tertiary'] } si tienes esas variantes
+      control: 'text', // o { type: 'select', options: ['btn-primary','btn-secondary','btn-tertiary'] }
       description: 'Variante del botón (ej. "btn-primary").',
       table: { defaultValue: { summary: 'btn-primary' } },
     },
@@ -57,7 +57,7 @@ export default {
       table: { defaultValue: { summary: 'button' } },
     },
     imageSrc: {
-      control: 'text', // si prefieres subir archivos, cambia a 'file' con loader
+      control: 'text',
       description:
         'Fuente de la imagen. Por defecto usa el asset importado (rectangle).',
     },
