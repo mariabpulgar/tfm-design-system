@@ -1,7 +1,92 @@
-.hero-section{
+/* Estilos existentes */
+.hero-section {
     background-color: var(--ciam-light-hover);
 }
 
-.simple-card-vertical{
+.adoption-section {
+    margin-top: var(--space-2000);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1200);
+}
+
+.animales-adoptables-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.simple-card-vertical {
     min-height: 327px;
+}
+
+/* Estilos específicos para hacer que las cards verticales se muestren en horizontal */
+.animales-adoptables-container .card-list-container {
+    margin-bottom: 40px; /* Espaciado entre cada CardList */
+    width: 100%;
+}
+
+.animales-adoptables-container .card-list-grid {
+    display: flex;
+    flex-direction: row; /* Fuerza horizontal */
+    gap: var(--space-600);
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.animales-adoptables-container .card-list-grid-vertical {
+    display: flex !important; /* Sobrescribe el grid */
+    flex-direction: row !important;
+    gap: var(--space-600) !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding: 20px 0 !important;
+}
+
+/* Asegurar que cada card ocupe 1/3 del espacio */
+.animales-adoptables-container .simple-card-vertical {
+    flex: 1;
+    max-width: calc(33.333% - 16px);
+    min-height: 327px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsivo para adopciones */
+@media (max-width: 900px) {
+    .animales-adoptables-container .simple-card-vertical {
+        max-width: calc(50% - 12px);
+    }
+}
+
+@media (max-width: 600px) {
+    .animales-adoptables-container .card-list-grid,
+    .animales-adoptables-container .card-list-grid-vertical {
+        flex-direction: column !important;
+    }
+    
+    .animales-adoptables-container .simple-card-vertical {
+        max-width: 100%;
+    }
+    
+    .adoption-section {
+        flex-direction: column;
+    }
+}
+
+/* Estilos para el mensaje sin resultados */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary, #666);
+}
+
+.no-results p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.no-results p:first-child {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-primary, #333);
 }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../organisms/NavBar';
 import Hero from '../organisms/Hero';
-import Filtres from '../organisms/Filtres'; // Ajusta esta ruta
-import CardList from '../organisms/CardList'; // Ajusta esta ruta
-import heroAdopciones from '../../assets/hero-adopciones.jpg';
+import Filtres from '../organisms/Filtres';
+import CardList from '../organisms/CardList';
+import Footer from '../organisms/Footer.jsx';
 import { animalesAdoptables } from '../../data/animales-adoptables.js';
-
+import heroAdopciones from '../../assets/hero-adopciones.jpg';
 import './Adoptions.css';
 
 function Adoptions() {
@@ -78,6 +78,15 @@ function Adoptions() {
         }));
     };
 
+    // Función para dividir los animales en grupos de 3
+    const chunkAnimals = (animals, chunkSize = 3) => {
+        const chunks = [];
+        for (let i = 0; i < animals.length; i += chunkSize) {
+            chunks.push(animals.slice(i, i + chunkSize));
+        }
+        return chunks;
+    };
+
     // Configuración de las secciones de filtros
     const filterSections = [
         {
@@ -130,6 +139,9 @@ function Adoptions() {
         }
     ];
 
+    // Dividir los animales filtrados en grupos de 3
+    const animalChunks = chunkAnimals(filteredAnimals, 3);
+
     return (
         <div className="adopciones-container">
             <NavBar
@@ -155,13 +167,16 @@ function Adoptions() {
                 </div>
                 
                 <div className="animales-adoptables-container">
-                    {filteredAnimals.length > 0 ? (
-                        <CardList
-                            cardType="button"
-                            orientation="vertical"
-                            buttonText="Conocer más"
-                            items={formatAnimalsForCardList(filteredAnimals)}
-                        />
+                    {animalChunks.length > 0 ? (
+                        animalChunks.map((chunk, index) => (
+                            <CardList
+                                key={`animal-group-${index}`}
+                                cardType="button"
+                                orientation="vertical"
+                                buttonText="Conocer más"
+                                items={formatAnimalsForCardList(chunk)}
+                            />
+                        ))
                     ) : (
                         <div className="no-results">
                             <p>No se encontraron animales que coincidan con los filtros seleccionados.</p>
@@ -170,6 +185,65 @@ function Adoptions() {
                     )}
                 </div>
             </div>
+            <Footer
+                backToTop={{
+                    href: '#top',
+                    icon: 'topIcon',
+                    label: 'Volver arriba'
+                }}
+                logo={{
+                    alt: 'Logo',
+                    src: '/src/assets/Logo_FACP_Blanco_v2.svg'
+                }}
+                navLinks={[
+                    {
+                    href: '#',
+                    label: 'Quienes somos'
+                    },
+                    {
+                    href: '#',
+                    label: 'Adopciones'
+                    },
+                    {
+                    href: '#',
+                    label: 'Donaciones'
+                    }
+                ]}
+                socials={[
+                    {
+                    href: '#',
+                    label: 'Instagram',
+                    name: 'instagramAIcon'
+                    },
+                    {
+                    href: '#',
+                    label: 'WhatsApp',
+                    name: 'whatsappAIcon'
+                    },
+                    {
+                    href: '#',
+                    label: 'Facebook',
+                    name: 'facebookAIcon'
+                    },
+                    {
+                    href: '#',
+                    label: 'TikTok',
+                    name: 'tiktokAIcon'
+                    }
+                ]}
+                title="Tittle page"
+                utilityLinks={[
+                    {
+                    href: '#',
+                    label: 'Contáctanos'
+                    },
+                    {
+                    href: '#',
+                    label: 'Sugerencias'
+                    }
+                ]}
+                year={2025}
+            />
         </div>
     );
 }
