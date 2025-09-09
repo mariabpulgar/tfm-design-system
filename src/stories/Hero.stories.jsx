@@ -10,11 +10,16 @@ export default {
   parameters: {
     layout: 'fullscreen',
     docs: {
+      // 🔑 Cambios para que en Autodocs se vea igual que en Canvas
+      inlineStories: false,
+      story: { height: '400px' },
       description: {
         component:
           'Sección de Hero con título, subtítulo, botón y contenedor de imagen con máscara SVG. ' +
-          'La máscara se aplica en el propio componente mediante import del SVG y estilos inline.',
+          '⚠️ Nota: En la vista de **Docs** (autodocs) la máscara SVG puede no mostrarse por limitaciones del renderizado, ' +
+          'pero en las historias (Canvas) funciona correctamente.',
       },
+      source: { state: 'open' },
     },
   },
   decorators: [
