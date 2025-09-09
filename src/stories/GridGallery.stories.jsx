@@ -1,9 +1,8 @@
 // src/stories/GridGallery.stories.jsx
 import React, { useState } from "react";
-import GridGallery from "../components/GridGallery";
-
-// Importa el CSS del layout si NO lo cargas globalmente en preview
-import "../components/GridGallery.css";
+import GridGallery from "../components/organisms/GridGallery";
+import "../App.css";
+import "../components/organisms/GridGallery.css";
 
 // Assets
 import perrito from "../assets/perrito.jpg";
@@ -29,7 +28,7 @@ const IMAGES = [
 ];
 
 export default {
-  title: "Components/GridGallery",
+  title: "Organisms/GridGallery",
   component: GridGallery,
   tags: ["autodocs"],
   parameters: {
