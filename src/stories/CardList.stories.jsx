@@ -30,7 +30,7 @@ const demoSimpleItemsMany = [
 ];
 
 const meta = {
-  title: 'Components/CardList',
+  title: 'Organisms/CardList',
   component: CardList,
   tags: ['autodocs'],
   parameters: {
