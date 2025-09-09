@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Image from "../atomos/Image";
-import Button from "../moleculas/Button";
+import Image from "../atoms/Image";
+import Button from "../molecules/Button";
 import "./Gallery.css";
 import line3 from '../../assets/line3.jpg'
 

@@ -1,6 +1,6 @@
 // src/stories/Gallery.stories.jsx
 import React from "react";
-import Gallery from "../components/Gallery";
+import Gallery from "../components/organisms/Gallery";
 
 // Importa tus imágenes
 import perrito from "../assets/perrito.jpg";
@@ -8,7 +8,7 @@ import elipse from "../assets/elipse.png";
 import loguito from "../assets/Logo_FACP_Color.svg";
 
 export default {
-  title: "Components/Gallery",
+  title: "Organisms/Gallery",
   component: Gallery,
   tags: ["autodocs"],
   parameters: {
