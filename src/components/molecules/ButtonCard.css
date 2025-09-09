@@ -18,10 +18,12 @@
 
 .card-image-horizontal {
     width: 150px;
+    height: 100%;
     flex-shrink: 0;
     align-self: stretch;
     border-radius: var(--radius-100);
 }
+
 
 .card-text-container {
     display: flex;
@@ -113,7 +115,6 @@
     .card-image-horizontal {
         width: 100%;
         max-width: 200px;
-        height: 150px;
         object-fit: cover;
         align-self: center;
     }

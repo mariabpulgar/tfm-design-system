@@ -193,3 +193,7 @@
     margin-top: var(--space-2000);
     width: 100%;
 }
+
+.img-buttonCard-horizontal{
+    height: 100%;
+}

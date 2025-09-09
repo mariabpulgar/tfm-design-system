@@ -4,7 +4,8 @@ import NavBar from '../organisms/NavBar';
 import Hero from '../organisms/Hero';
 import Image from '../atoms/Image';
 import CarruselTestimonial from '../organisms/CarruselTestimonial';
-import Testimonial from '../molecules/Testimonial'; // 
+import Testimonial from '../molecules/Testimonial'; 
+import CardList from '../organisms/CardList';
 import Forms from '../organisms/Forms';
 import GridGallery from '../organisms/GridGallery';
 import Map from '../organisms/Map';
@@ -95,43 +96,33 @@ function Home() {
     Cada gesto suma para darles a los animales la vida que merecen.</h5>
         </div>
         <div className="home-container-3-button-cards">
-                {/* <ButtonCardList
-                    className=""
-                    emptyMessage="No hay elementos para mostrar."
-                    items={[
-                    {
-                        buttonSize: 'large',
-                        buttonText: 'Más información',
-                        buttonType: 'button',
-                        buttonVariant: 'btn-primary',
-                        description: 'Dale un hogar seguro y amoroso a un animal que lo espera. La adopción es el primer paso hacia una nueva vida.',
-                        imageAlt: 'Adopciones',
-                        imageSrc: adoptar,
-                        title: 'Adopciones'
-                    },
-                    {
-                        buttonSize: 'large',
-                        buttonText: 'Más información',
-                        buttonType: 'button',
-                        buttonVariant: 'btn-primary',
-                        description: 'Con tu aporte económico o en especie (alimento, medicinas, insumos) garantizamos el cuidado y bienestar de los rescatados.',
-                        imageAlt: 'Donaciones',
-                        imageSrc: donar,
-                        title: 'Donaciones'
-                    },
-                    {
-                        buttonSize: 'large',
-                        buttonText: 'Más información',
-                        buttonType: 'button',
-                        buttonVariant: 'btn-primary',
-                        description: 'Únete a nuestro equipo y ayuda en jornadas de rescate, cuidado y adopción. Tu tiempo también salva vidas.',
-                        imageAlt: 'Voluntariado',
-                        imageSrc: voluntario,
-                        title: 'Voluntariado'
-                    }
-                    ]}
-                    orientation="horizontal"
-                /> */}
+          <CardList
+            cardType="button"
+            orientation="horizontal"
+            buttonText="Más información"
+            className=""
+            emptyMessage="No hay elementos para mostrar."
+            items={[
+              {
+                title: "Adopciones",
+                description: "Dale un hogar seguro y amoroso a un animal que lo espera. La adopción es el primer paso hacia una nueva vida.",
+                imageSrc: adoptar,
+                imageAlt: "Adopciones"
+              },
+              {
+                title: "Donaciones", 
+                description: "Con tu aporte económico o en especie (alimento, medicinas, insumos) garantizamos el cuidado y bienestar de los rescatados.",
+                imageSrc: donar,
+                imageAlt: "Donaciones"
+              },
+              {
+                title: "Voluntariado",
+                description: "Únete a nuestro equipo y ayuda en jornadas de rescate, cuidado y adopción. Tu tiempo también salva vidas.",
+                imageSrc: voluntario,
+                imageAlt: "Voluntariado"
+              }
+            ]}
+          />
         </div>
       </div>
 

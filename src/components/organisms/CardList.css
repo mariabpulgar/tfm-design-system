@@ -5,7 +5,7 @@
   align-items: center;
   margin: 0 auto;
   /* padding responsive: top/bottom crecen con el ancho */
-  padding: clamp(32px, 6vw, 106px) clamp(16px, 6vw, 81px);
+  /* padding: clamp(32px, 6vw, 106px) clamp(16px, 6vw, 81px); */
   box-sizing: border-box;
   width: 100%;
   gap: var(--space-400);
@@ -27,12 +27,26 @@
   margin-inline: auto;
 }
 
-/* Grid para cards horizontales (2 por fila) */
+/* Grid para cards horizontales (3 por fila) */
 .card-list-grid-horizontal {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 🔑 siempre 2 por fila */
+  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* cada card min 280px */
   gap: var(--space-400);
-  width: 100%;
   padding: 20px;
   margin-inline: auto;
+}
+
+
+/* Responsivo: 2 por fila en tablet */
+@media (max-width: 900px) {
+  .card-list-grid-horizontal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsivo: 1 por fila en mobile */
+@media (max-width: 600px) {
+  .card-list-grid-horizontal {
+    grid-template-columns: 1fr;
+  }
 }
