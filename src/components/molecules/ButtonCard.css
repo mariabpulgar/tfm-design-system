@@ -1,7 +1,8 @@
+/* Desktop - Horizontal Cards */
 .simple-card-horizontal {
     display: flex;
     width: 400px;
-    min-height: 140px;            /* 👈 altura mínima */
+    min-height: 140px;
     padding: 10px;
     gap: var(--space-400);
     flex-shrink: 0;
@@ -21,13 +22,15 @@
     align-self: stretch;
     border-radius: var(--radius-100);
 }
-.card-text-container{
+
+.card-text-container {
     display: flex;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
     gap: var(--space-400);
 }
+
 .card-text {
     display: flex;
     flex-direction: column;
@@ -51,14 +54,11 @@
     margin-top: var(--space-200);
 }
 
-
-
-/* Vertical */
-
+/* Vertical Cards */
 .simple-card-vertical {
     width: 202px;
     display: inline-flex;
-    min-height: 296px;            /* 👈 altura mínima */
+    min-height: 296px;
     padding: 10px 10px 16px 10px;
     flex-direction: column;
     justify-content: center;
@@ -83,4 +83,89 @@
 
 .button-card.simple-card-vertical .card-text button {
     width: 100%;
+}
+
+/* ===== MEDIA QUERIES PARA RESPONSIVE ===== */
+
+/* Tablets (768px y menores) */
+@media (max-width: 768px) {
+    .simple-card-horizontal {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .card-image-horizontal {
+        width: 120px;
+    }
+}
+
+/* Mobile (480px y menores) - Cambia a layout vertical */
+@media (max-width: 480px) {
+    .simple-card-horizontal {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        min-height: auto;
+        padding: 16px;
+        align-items: center;
+    }
+    
+    .card-image-horizontal {
+        width: 100%;
+        max-width: 200px;
+        height: 150px;
+        object-fit: cover;
+        align-self: center;
+    }
+    
+    .card-text-container {
+        width: 100%;
+        text-align: center;
+        gap: var(--space-300);
+    }
+    
+    .card-text {
+        align-items: center;
+        text-align: center;
+        gap: var(--space-200);
+    }
+    
+    .card-text button {
+        width: 100%;
+        margin-top: var(--space-300);
+    }
+    
+    /* Ajustar cards verticales también */
+    .simple-card-vertical {
+        width: 100%;
+        max-width: 280px;
+        min-height: auto;
+    }
+    
+    .simple-card-vertical img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+}
+
+/* Mobile pequeño (320px y menores) */
+@media (max-width: 320px) {
+    .simple-card-horizontal,
+    .simple-card-vertical {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+    
+    .simple-card-horizontal {
+        padding: 12px;
+    }
+    
+    .card-image-horizontal {
+        height: 120px;
+    }
+    
+    .simple-card-vertical img {
+        height: 150px;
+    }
 }
