@@ -1,10 +1,10 @@
-// Hero.stories.jsx
+// src/stories/Hero.stories.jsx
 import React from 'react';
-import Hero from '../components/Hero';
+import Hero from '../components/organisms/Hero';
 import perrito from '../assets/perrito.jpg'; // ajusta la ruta según tu proyecto
 
 export default {
-  title: 'Components/Hero',
+  title: 'Organisms/Hero',
   component: Hero,
   tags: ['autodocs'],
   parameters: {
@@ -12,20 +12,46 @@ export default {
     docs: {
       description: {
         component:
-          'Sección de Hero con título, subtítulo, botón y contenedor de imagen con máscara SVG.',
+          'Sección de Hero con título, subtítulo, botón y contenedor de imagen con máscara SVG. ' +
+          'La máscara se aplica en el propio componente mediante import del SVG y estilos inline.',
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          background: '#FFF',
+          padding: '0 20px',
+        }}
+      >
+        {/* Replica el ancho/alto de .hero-section para asegurar visibilidad de la máscara */}
+        <div style={{ width: '100%', maxWidth: 1512, minHeight: 400 }}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
   argTypes: {
-    smallTitle: { control: 'text' },
-    mainTitle: { control: 'text' },
-    buttonText: { control: 'text' },
-    imageSrc: { control: 'text' },
-    onButtonClick: { action: 'onButtonClick' },
+    smallTitle: { control: 'text', description: 'Texto pequeño (H5).' },
+    mainTitle: { control: 'text', description: 'Título principal (H1).' },
+    buttonText: { control: 'text', description: 'Texto del botón CTA.' },
+    imageSrc: {
+      control: 'text',
+      description:
+        'URL/asset de la imagen. Si está vacío, se muestra el placeholder con máscara y botón de play.',
+    },
+    onButtonClick: {
+      action: 'onButtonClick',
+      description: 'Handler del clic del botón.',
+    },
   },
 };
 
-// ✅ Por defecto CON IMAGEN (no aparece el placeholder)
+// ✅ Por defecto CON IMAGEN (muestra la máscara aplicada a la imagen)
 export const Default = {
   name: 'Default (con imagen)',
   args: {
@@ -34,7 +60,6 @@ export const Default = {
     buttonText: 'Button',
     imageSrc: perrito,
   },
-  // ⬇️ Esto es lo que verás en "View code": snippet de uso real
   parameters: {
     docs: {
       source: {

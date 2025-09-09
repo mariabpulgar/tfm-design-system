@@ -1,22 +1,21 @@
-.hero-container{
+/* Hero.css - Completamente Responsive */
+.hero-container {
   display: flex;
   justify-content: center;
   background: #FFF;
   width: 100%;
+  padding: 0 20px; /* Padding base para mobile */
 }
 
-/* HERO 100% ancho y altura ajustable */
+/* HERO - Desktop First */
 .hero-section {
-  /* --pad-x: 80px; */
-  width: 1512px;
+  width: 100%;
+  max-width: 1512px;
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 140px;
-  /* padding: 0 var(--pad-x); */
-
-  /* Asegura que el Hero quede por debajo de la NavBar/Submenu */
   position: relative;
   z-index: 1;
 }
@@ -24,8 +23,8 @@
 /* Texto a la izquierda */
 .hero-container-text {
   width: 520px;
+  max-width: 100%;
   position: relative;
-  /* Baja el z-index para no tapar el submenu */
   z-index: 1;
   flex: 0 0 auto;
 }
@@ -35,34 +34,31 @@
   flex: 0 0 auto;
   position: relative;
   height: 400px;
-  /* No uses overflow:hidden aquí, la máscara ya recorta la imagen */
 }
 
-/* Imagen: se recorta con la elipse SVG */
-.hero-container-media img {
+/* Imagen con máscara */
+.hero-container-media img.hero-image-with-mask {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-
-  /* Máscara con tu elipse SVG existente */
-  -webkit-mask-image: url('../assets/ellipse5.svg');
+  
+  -webkit-mask-image: url('/ellipse5.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   -webkit-mask-size: cover;
-
-  mask-image: url('../assets/ellipse5.svg');
+  
+  mask-image: url('/ellipse5.svg');
   mask-repeat: no-repeat;
   mask-position: 50% 50%;
   mask-size: cover;
-
-  /* Garantiza que esté debajo del submenu */
+  
   position: relative;
   z-index: 1;
 }
 
-/* Placeholder cuando no hay imagen: aplica misma máscara */
+/* Placeholder */
 .placeholder-image {
   width: 100%;
   height: 100%;
@@ -70,22 +66,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  -webkit-mask-image: url('../assets/ellipse5.svg');
+  
+  -webkit-mask-image: url('/ellipse5.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 50% 50%;
   -webkit-mask-size: cover;
-
-  mask-image: url('../assets/ellipse5.svg');
+  
+  mask-image: url('/ellipse5.svg');
   mask-repeat: no-repeat;
   mask-position: 50% 50%;
   mask-size: cover;
-
+  
   position: relative;
   z-index: 1;
 }
 
-/* Botón de play para el placeholder */
+/* Botón de play */
 .play-button {
   width: 64px;
   height: 64px;
@@ -98,6 +94,7 @@
   transition: all 0.2s ease;
   color: #374151;
 }
+
 .play-button:hover {
   background-color: white;
   transform: scale(1.1);
@@ -107,13 +104,16 @@
 .hero-title-h5 {
   color: var(--blue-normal, #4338ca);
   margin: 0 0 var(--space-200, 16px) 0;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .hero-title-h1 {
-  width: 507px;
-  height: 110px;
   color: var(--blue-normal, #4338ca);
   margin: 0 0 var(--space-400, 32px) 0;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 /* Estilo del botón */
@@ -122,53 +122,215 @@
   min-width: 160px;
 }
 
-/* Fallback si no hay soporte de mask */
+/* Fallback para navegadores sin soporte de mask */
 @supports not ((mask-image: url("")) or (-webkit-mask-image: url(""))) {
-  .hero-container-media img {
+  .hero-container-media img.hero-image-with-mask,
+  .placeholder-image {
     border-radius: 50%;
     overflow: hidden;
   }
 }
 
-/* Responsive */
-@media (max-width: 968px) {
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+   =============================== */
+
+/* Tablet Landscape (1024px y menos) */
+@media (max-width: 1024px) {
   .hero-section {
-    --pad-x: 40px;
-    min-height: 450px;
-    padding: 40px var(--pad-x);
+    max-width: 1024px;
+    padding-left: 80px;
+    height: 380px;
   }
-  .hero-container-media {
-    width: calc(clamp(300px, 45vw, 500px) + var(--pad-x) + 8px);
-    height: auto;
-    min-height: 350px;
+  
+  .hero-container-text {
+    width: 460px;
+  }
+  
+  .hero-title-h1 {
+    font-size: 2.25rem;
   }
 }
 
+/* Tablet Portrait (968px y menos) */
+@media (max-width: 968px) {
+  .hero-container {
+    padding: 0 40px;
+  }
+  
+  .hero-section {
+    padding-left: 0;
+    padding: 40px 0;
+    min-height: 500px;
+    height: auto;
+    gap: 40px;
+  }
+  
+  .hero-container-text {
+    width: 100%;
+    max-width: 460px;
+  }
+  
+  .hero-container-media {
+    width: 45%;
+    min-width: 300px;
+    height: 350px;
+  }
+  
+  .hero-title-h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Landscape y Tablet pequeño (768px y menos) */
 @media (max-width: 768px) {
+  .hero-container {
+    padding: 0 24px;
+  }
+  
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding: 40px var(--pad-x);
+    padding: 40px 0;
     min-height: auto;
+    gap: 32px;
   }
+  
   .hero-container-text {
+    width: 100%;
     max-width: 100%;
-    margin-bottom: 40px;
+    order: 1;
   }
+  
   .hero-container-media {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: 350px;
-    margin-right: 0;
-    min-height: auto;
+    margin: 0 auto;
+    order: 2;
+  }
+  
+  .hero-title-h5 {
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero-title-h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+  
+  .hero-container-text button {
+    min-width: 140px;
   }
 }
 
+/* Mobile Portrait (480px y menos) */
 @media (max-width: 480px) {
-  .hero-section {
-    --pad-x: 20px;
+  .hero-container {
+    padding: 0 16px;
   }
+  
+  .hero-section {
+    padding: 32px 0;
+    gap: 24px;
+  }
+  
   .hero-container-media {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     height: 280px;
+  }
+  
+  .hero-title-h5 {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+  
+  .hero-title-h1 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  .hero-container-text button {
+    min-width: 120px;
+    padding: 12px 20px;
+    font-size: 0.875rem;
+  }
+  
+  .play-button {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .play-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Mobile muy pequeño (360px y menos) */
+@media (max-width: 360px) {
+  .hero-container {
+    padding: 0 12px;
+  }
+  
+  .hero-section {
+    padding: 24px 0;
+    gap: 20px;
+  }
+  
+  .hero-container-media {
+    max-width: 240px;
+    height: 240px;
+  }
+  
+  .hero-title-h1 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+  
+  .hero-container-text button {
+    min-width: 100px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation en mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    flex-direction: row;
+    min-height: auto;
+    height: auto;
+    padding: 20px 0;
+    gap: 20px;
+  }
+  
+  .hero-container-text {
+    order: 1;
+    text-align: left;
+  }
+  
+  .hero-container-media {
+    width: 40%;
+    max-width: 200px;
+    height: 200px;
+    order: 2;
+  }
+  
+  .hero-title-h1 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+}
+
+/* Fix para muy alta resolución */
+@media (min-width: 1920px) {
+  .hero-section {
+    max-width: 1800px;
+    padding-left: 200px;
   }
 }
