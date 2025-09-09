@@ -1,8 +1,8 @@
 import React from 'react';
-import Filtres from '../components/Filtres';
+import Filtres from '../components/organisms/Filtres';
 
 export default {
-  title: 'Components/Filtres',
+  title: 'Organisms/Filtres',
   component: Filtres,
   tags: ['autodocs'],
 };

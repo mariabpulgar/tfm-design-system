@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Dropdown from '../moleculas/Dropdown';
-import IconButton from '../moleculas/IconButton';
+import Dropdown from '../molecules/Dropdown';
+import IconButton from '../molecules/IconButton';
 import './Filtres.css';
 
 
