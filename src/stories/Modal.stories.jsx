@@ -1,8 +1,9 @@
 import React from 'react';
-import Modal from '../components/Modal';
+import Modal from '../components/organisms/Modal';
+import '../App.css'
 
 export default {
-  title: 'Components/Modal',
+  title: 'Organisms/Modal',
   component: Modal,
   tags: ['autodocs'],
   parameters: { 

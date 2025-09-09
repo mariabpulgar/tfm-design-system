@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.css';
-import IconSelector from '../atomos/IconSelector';
-import Button from '../moleculas/Button';
-import IconButton from '../moleculas/IconButton';
+import IconSelector from '../atoms/IconSelector';
+import Button from '../molecules/Button';
+import IconButton from '../molecules/IconButton';
 
 function Modal({
   open = false,
