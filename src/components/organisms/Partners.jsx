@@ -1,6 +1,6 @@
 import React from 'react'
 import './Partners.css'
-import Image from '../atomos/Image'
+import Image from '../atoms/Image'
 
 function Partners({ partners = [] }) {
   return (

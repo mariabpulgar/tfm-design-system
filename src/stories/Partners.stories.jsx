@@ -1,5 +1,5 @@
 // Partners.stories.jsx
-import Partners from '../components/Partners';
+import Partners from '../components/organisms/Partners';
 
 // Ejemplos de imágenes (ajusta las rutas/extensiones a tu proyecto)
 import LogoA from '../assets/Rectangle979.svg';
@@ -8,7 +8,7 @@ import LogoC from '../assets/Rectangle979.svg';
 import LogoD from '../assets/Rectangle979.svg';
 
 const meta = {
-  title: 'Components/Partners',
+  title: 'Organisms/Partners',
   component: Partners,
   tags: ['autodocs'],
   parameters: {
