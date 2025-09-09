@@ -7,12 +7,14 @@
     display: flex;
     justify-content: center;
     gap: var(--space-1200);
-    margin-top: var(--space-2000);
+    margin: var(--space-2000) var(--space-2000);
 }
 
 .animales-adoptables-container {
     display: flex;
     flex-direction: column;
+    max-width: 666px;
+    width: 100%;
 }
 
 
