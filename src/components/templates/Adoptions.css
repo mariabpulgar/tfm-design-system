@@ -1,4 +1,7 @@
 .hero-section{
     background-color: var(--ciam-light-hover);
-    width: 100%;
+}
+
+.simple-card-vertical{
+    min-height: 327px;
 }
