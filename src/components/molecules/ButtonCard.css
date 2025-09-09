@@ -3,7 +3,6 @@
     width: 400px;
     min-height: 140px;            /* 👈 altura mínima */
     padding: 10px;
-    align-items: center;
     gap: var(--space-400);
     flex-shrink: 0;
     border-radius: var(--radius-300);
@@ -27,6 +26,7 @@
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
+    gap: var(--space-400);
 }
 .card-text {
     display: flex;

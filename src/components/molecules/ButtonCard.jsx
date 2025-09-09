@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Image from '../atoms/Image';
+import '../../App.css'
 import './ButtonCard.css';
 import rectangle from '../../assets/Rectangle979.svg';
 
