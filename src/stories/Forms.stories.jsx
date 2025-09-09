@@ -1,10 +1,10 @@
 // Forms.stories.jsx
 import React from "react";
-import Forms from "../components/Forms";
+import Forms from "../components/organisms/Forms";
 import '../App.css'
 
 export default {
-  title: "Components/Forms",
+  title: "Organisms/Forms",
   component: Forms,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
