@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
+import Footer from "../components/organisms/Footer";
 import logoImg from "../assets/Logo_FACP_Blanco_v2.svg";
 
 const meta = {
-  title: "Layout/Footer",
+  title: "Organisms/Footer",
   tags: ['autodocs'],
   component: Footer,
   parameters: {
