@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from '../components/NavBar.jsx';
+import NavBar from '../components/organisms/NavBar.jsx';
 
 // Forzamos URL de los SVG para evitar conflictos con SVGR/loader.
 import logoUrl from '../assets/Rectangle982.svg?url';
 import dividerUrl from '../assets/Vector148.svg?url';
 
 export default {
-  title: 'Components/NavBar',
+  title: 'Organisms/NavBar',
   component: NavBar,
   tags: ['autodocs'], // habilita Autodocs en Docs tab
   parameters: {
