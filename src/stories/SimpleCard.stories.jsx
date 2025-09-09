@@ -91,39 +91,9 @@ export const Vertical = {
   },
 };
 
-// Short content examples
-export const HorizontalShort = {
-  args: {
-    variant: 'horizontal',
-    title: 'Short',
-    description: 'Brief text.',
-  },
-};
 
-export const VerticalShort = {
-  args: {
-    variant: 'vertical',
-    title: 'Short',
-    description: 'Brief text.',
-  },
-};
 
-// Long content examples
-export const HorizontalLong = {
-  args: {
-    variant: 'horizontal',
-    title: 'This is a Very Long Title That Might Wrap',
-    description: 'This is a much longer description that will definitely wrap to multiple lines and show how the card handles longer content in horizontal layout.',
-  },
-};
 
-export const VerticalLong = {
-  args: {
-    variant: 'vertical',
-    title: 'This is a Very Long Title That Might Wrap',
-    description: 'This is a much longer description that will definitely wrap to multiple lines and show how the card handles longer content in vertical layout.',
-  },
-};
 
 // All variants showcase
 export const AllVariants = {
