@@ -98,3 +98,20 @@
     margin-top: var(--space-800, 40px);
     padding: var(--space-600, 24px) 0;
 }
+
+/* Controlar el tamaño de las imágenes en las tarjetas */
+.animales-adoptables-container .simple-card-vertical img,
+.animales-adoptables-container .img-style {
+    width: 100%;
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Mantiene proporción sin deformar */
+    object-position: center; /* Centra la imagen */
+}
+
+/* Alternativa más específica si las clases anteriores no funcionan */
+.animales-adoptables-container [class*="card"] img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+}

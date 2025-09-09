@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import IconSelector from '../atoms/IconSelector';
 import Checkbox from '../atoms/Checkbox';
 import './Dropdown.css';
 
 const Dropdown = ({ title, items, inline = false, mode = 'single', defaultSelected = [], onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null); // guarda la opción seleccionada
+  const [selected, setSelected] = useState(null);
   const [selectedSet, setSelectedSet] = useState(() => new Set(defaultSelected));
+  const hasMounted = useRef(false);
+  
+  // Solo notificar cambios después del montaje inicial
+  useEffect(() => {
+    hasMounted.current = true;
+  }, []);
+
   const keyFor = (item, index) => item.id ?? item.label ?? String(index);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -16,23 +23,27 @@ const Dropdown = ({ title, items, inline = false, mode = 'single', defaultSelect
   };
 
   const handleToggleMultiple = (item, index) => (e) => {
-  const k = keyFor(item, index);
-  const next = new Set(selectedSet);
-  if (e.target.checked) next.add(k);
-  else next.delete(k);
-  setSelectedSet(next);
-  onChange?.(Array.from(next));
-};
+    const k = keyFor(item, index);
+    const next = new Set(selectedSet);
+    if (e.target.checked) next.add(k);
+    else next.delete(k);
+    setSelectedSet(next);
+    
+    // Solo llamar onChange si el componente ya se montó completamente
+    if (hasMounted.current) {
+      onChange?.(Array.from(next));
+    }
+  };
 
-const multipleSummary = () => {
-  const selectedKeys = Array.from(selectedSet);
-  const map = items.map((item, i) => ({ key: keyFor(item, i), label: item.label }));
-  const labels = selectedKeys.map(k => (map.find(m => m.key === k)?.label || k));
-  const count = labels.length;
-  if (count === 0) return title;
-  if (count <= 3) return labels.join(', ');
-  return `${labels.slice(0, 2).join(', ')}, +${count - 2}`;
-};
+  const multipleSummary = () => {
+    const selectedKeys = Array.from(selectedSet);
+    const map = items.map((item, i) => ({ key: keyFor(item, i), label: item.label }));
+    const labels = selectedKeys.map(k => (map.find(m => m.key === k)?.label || k));
+    const count = labels.length;
+    if (count === 0) return title;
+    if (count <= 3) return labels.join(', ');
+    return `${labels.slice(0, 2).join(', ')}, +${count - 2}`;
+  };
 
   return (
     <div className={`dropdown ${inline ? 'dropdown--inline' : ''}`}>

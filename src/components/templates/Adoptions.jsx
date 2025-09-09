@@ -1,5 +1,5 @@
 // src/components/templates/Adoptions.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import NavBar from '../organisms/NavBar';
 import Hero from '../organisms/Hero';
@@ -7,10 +7,7 @@ import Filtres from '../organisms/Filtres';
 import CardList from '../organisms/CardList';
 import Pagination from '../molecules/Pagination';
 import Footer from '../organisms/Footer.jsx';
-
-import { animalesAdoptables } from '../../data/animales-adoptables.js';
-
-// Assets (IMPORTS reales, evita "/src/..." en runtime)
+import { animalesAdoptables } from '../../data/animalesAdoptables.js';
 import heroAdopciones from '../../assets/hero-adopciones.jpg';
 import rect982 from '../../assets/Rectangle982.svg';
 import logoBlanco from '../../assets/Logo_FACP_Blanco_v2.svg';
@@ -29,19 +26,39 @@ function Adoptions() {
   const [currentPage, setCurrentPage] = useState(1);
   const animalsPerPage = 9;
 
-  // Cambios de filtro
-  const handleFilterChange = (filters) => {
-    setSelectedFilters(filters);
-    setCurrentPage(1);
-    filterAnimals(filters);
+  // 🔧 Helper: resolver rutas relativas del dataset (../assets/...) desde este archivo
+  const resolveImage = (path) => {
+    if (!path) return undefined;
+
+    // Si ya es absoluta/URL o empieza en / (por ejemplo, assets en /public), no tocar
+    if (path.startsWith('http') || path.startsWith('/')) return path;
+
+    // El dataset usa rutas relativas desde src/data (../assets/...)
+    // Este archivo vive en src/components/templates → necesitamos ../../assets/...
+    const normalized = path.replace(/^\.\.\//, '../../');
+
+    try {
+      return new URL(normalized, import.meta.url).href;
+    } catch (e) {
+      console.warn('No se pudo resolver la imagen:', path, e);
+      return path; // fallback
+    }
   };
 
-  // Lógica de filtrado
+  // Lógica de filtrado separada
   const filterAnimals = (filters) => {
+    console.log('Filtros aplicados:', filters);
     let filtered = allAnimals;
 
     if (filters.animal?.length) {
-      filtered = filtered.filter((a) => filters.animal.includes(a.animal));
+      console.log('Filtrando por animal:', filters.animal);
+      filtered = filtered.filter((a) => {
+        const match = filters.animal.includes(a.animal);
+        if (match) {
+          console.log(`✅ Animal incluido: ${a.title} (${a.animal}) - imageSrc: ${a.imageSrc}`);
+        }
+        return match;
+      });
     }
     if (filters.size?.length) {
       filtered = filtered.filter((a) => filters.size.includes(a.size));
@@ -58,17 +75,37 @@ function Adoptions() {
       );
     }
 
+    console.log('Animales filtrados final:', filtered.map(a => `${a.title} (${a.animal}) - ${a.imageSrc}`));
     setFilteredAnimals(filtered);
   };
 
+  // useEffect para aplicar filtros cuando cambien
+  useEffect(() => {
+    filterAnimals(selectedFilters);
+  }, [selectedFilters, allAnimals]);
+
+  // Cambios de filtro - SOLO actualiza el estado, no filtra inmediatamente
+  const handleFilterChange = (filters) => {
+    setSelectedFilters(filters);
+    setCurrentPage(1);
+    // NO llamar filterAnimals aquí - se ejecutará por useEffect
+  };
+
   // Adaptar items para CardList
-  const formatAnimalsForCardList = (animals) =>
-    animals.map((a) => ({
-      title: a.title,
-      description: a.description,
-      imageSrc: a.imageSrc,
-      imageAlt: a.imageAlt,
-    }));
+  const formatAnimalsForCardList = (animals) => {
+    const formatted = animals.map((a) => {
+      console.log(`Formateando animal: ${a.title}, imageSrc: ${a.imageSrc}, animal type: ${a.animal}`);
+      return {
+        id: a.id,
+        title: a.title,
+        description: a.description,
+        imageSrc: resolveImage(a.imageSrc), // ✅ clave para que se vea la imagen
+        imageAlt: a.imageAlt || a.title,
+      };
+    });
+    console.log('Animales formateados:', formatted);
+    return formatted;
+  };
 
   // Agrupar en filas de 3
   const chunkAnimals = (animals, chunkSize = 3) => {
@@ -165,11 +202,10 @@ function Adoptions() {
               {animalChunks.map((chunk, index) => (
                 <CardList
                   key={`animal-group-${index}`}
-                  cardType="button"                // Usa la variante con botón
+                  cardType="button"
                   orientation="vertical"
                   buttonText="Conocer más"
                   items={formatAnimalsForCardList(chunk)}
-                  // Prop drilling: controla el botón interno (ButtonCard -> Button)
                   buttonProps={{
                     showLeftIcon: false,
                     showRightIcon: false,

@@ -11,11 +11,31 @@ function CardList({
   buttonText = 'Ver más',      // usado por ButtonCard (puede ser sobreescrito por item.buttonText)
   items,
   emptyMessage = 'Sin elementos para mostrar.',
+  className = '',
 }) {
+  // Fallback con imageSrc/imageAlt (para Storybook o casos sin datos)
   const fallback = [
-    { title: 'Título de la card 1', description: 'Descripción corta 1.', imageSrc: '/src/assets/Rectangle979.svg', imageAlt: 'placeholder' },
-    { title: 'Título de la card 2', description: 'Descripción corta 2.', imageSrc: '/src/assets/Rectangle979.svg', imageAlt: 'placeholder' },
-    { title: 'Título de la card 3', description: 'Descripción corta 3.', imageSrc: '/src/assets/Rectangle979.svg', imageAlt: 'placeholder' },
+    {
+      id: 'fallback-1',
+      title: 'Título de la card 1',
+      description: 'Descripción corta 1.',
+      imageSrc: '/src/assets/Rectangle979.svg',
+      imageAlt: 'placeholder'
+    },
+    {
+      id: 'fallback-2',
+      title: 'Título de la card 2',
+      description: 'Descripción corta 2.',
+      imageSrc: '/src/assets/Rectangle979.svg',
+      imageAlt: 'placeholder'
+    },
+    {
+      id: 'fallback-3',
+      title: 'Título de la card 3',
+      description: 'Descripción corta 3.',
+      imageSrc: '/src/assets/Rectangle979.svg',
+      imageAlt: 'placeholder'
+    },
   ];
 
   const data = Array.isArray(items) && items.length ? items : fallback;
@@ -24,30 +44,36 @@ function CardList({
     return <div className="card-list-empty">{emptyMessage}</div>;
   }
 
-  // 👇 Cambia la clase del grid según la orientación
+  // Cambia la clase del grid según la orientación
   const gridClass =
     orientation === 'horizontal' ? 'card-list-grid-horizontal' : 'card-list-grid';
 
   return (
-    <div className="card-list-container" data-orientation={orientation}>
+    <div
+      className={`card-list-container ${className}`.trim()}
+      data-orientation={orientation}
+    >
       <div className={gridClass}>
         {data.map((item, idx) => {
+          const key = item.id ?? idx;
+
+          // Props comunes que incluyen imagen
           const commonProps = {
             title: item.title,
             description: item.description,
-            imageSrc: item.imageSrc,
-            imageAlt: item.imageAlt,
-            orientation, // pasa la orientación a cada card
+            imageSrc: item.imageSrc,   // ✅ soporte de imagen
+            imageAlt: item.imageAlt,   // ✅ alt opcional
+            orientation,               // pasa la orientación a cada card si lo usan
           };
 
           if (cardType === 'simple') {
-            return <SimpleCard key={idx} {...commonProps} />;
+            return <SimpleCard key={key} {...commonProps} />;
           }
 
           // Variante ButtonCard (usar valores globales con posibilidad de override por item)
           return (
             <ButtonCard
-              key={idx}
+              key={key}
               {...commonProps}
               buttonText={item.buttonText ?? buttonText}
               buttonVariant={item.buttonVariant ?? 'btn-primary'}
@@ -68,10 +94,11 @@ CardList.propTypes = {
   buttonText: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      imageSrc: PropTypes.string,
-      imageAlt: PropTypes.string,
+      description: PropTypes.string,   // la dejamos opcional por flexibilidad
+      imageSrc: PropTypes.string,      // ✅ ahora soportado
+      imageAlt: PropTypes.string,      // ✅ ahora soportado
       // overrides opcionales para ButtonCard:
       buttonText: PropTypes.string,
       buttonVariant: PropTypes.string,
@@ -81,6 +108,7 @@ CardList.propTypes = {
     })
   ),
   emptyMessage: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default CardList;
