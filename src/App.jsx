@@ -7,6 +7,7 @@ import StatusLabel from './components/molecules/StatusLabel';
 import ButtonCard from './components/molecules/ButtonCard';
 import Accordion2 from './components/organisms/Accordion2';
 import CardList from './components/organisms/CardList';
+import Adopciones from './components/templates/Adopciones';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
   return (
     <div>
 
-      <Home></Home>
+      <Adopciones></Adopciones>
 
     </div>    
   );

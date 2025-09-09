@@ -1,4 +1,4 @@
-// Hero.jsx - Versión con importación directa del SVG
+// Hero.jsx - Versión con botón opcional y orden de títulos configurable
 import React from 'react'
 import Button from '../molecules/Button'
 import ellipse5 from '../../assets/ellipse5.svg'
@@ -9,36 +9,60 @@ function Hero({
     smallTitle = "Lorem ipsum",
     mainTitle = "dolor sit amet, consectetur adipiscing elit",
     buttonText = "Button",
+    showButton = true, // Nueva prop para mostrar/ocultar botón
+    titleOrder = "normal", // Nueva prop para orden de títulos: "normal" | "reversed"
     onButtonClick = () => {}
 }) {
     console.log('Hero imageSrc:', imageSrc);
     console.log('Ellipse5 mask imported:', ellipse5);
     
+    // Función para renderizar los títulos en el orden correcto
+    const renderTitles = () => {
+        const smallTitleElement = (
+            <h5 className="hero-title-h5" key="small-title">
+                {smallTitle}
+            </h5>
+        );
+        
+        const mainTitleElement = (
+            <h1 className="hero-title-h1" key="main-title">
+                {mainTitle}
+            </h1>
+        );
+        
+        if (titleOrder === 'reversed') {
+            return [mainTitleElement, smallTitleElement];
+        }
+        
+        return [smallTitleElement, mainTitleElement];
+    };
+    
     return(
         <div className="hero-container">
             <div className="hero-section">
                 <div className="hero-container-text">
-                    <h5 className="hero-title-h5">{smallTitle}</h5>
-                    <h1 className="hero-title-h1">{mainTitle}</h1>
-                    <Button
-                        iconColor="currentColor"
-                        iconPosition="left"
-                        iconSize="medium"
-                        leftIconName="dropLeftIcon"
-                        onClick={onButtonClick}
-                        rightIconName="dropRightIcon"
-                        showLeftIcon
-                        showRightIcon
-                        size="large"
-                        text={buttonText}
-                        type="button"
-                        variant="btn-primary"
-                    />
+                    {renderTitles()}
+                    {showButton && (
+                        <Button
+                            iconColor="currentColor"
+                            iconPosition="left"
+                            iconSize="medium"
+                            leftIconName="dropLeftIcon"
+                            onClick={onButtonClick}
+                            rightIconName="dropRightIcon"
+                            showLeftIcon
+                            showRightIcon
+                            size="large"
+                            text={buttonText}
+                            type="button"
+                            variant="btn-primary"
+                        />
+                    )}
                 </div>
                 <div className="hero-container-media">
                     {imageSrc ? (
                         <img 
-                            src={imageSrc} 
+                            src={imageSrc}
                             alt="hero-image"
                             className="hero-image-with-mask"
                             style={{
