@@ -6,6 +6,7 @@ import {useState} from 'react';
 import StatusLabel from './components/molecules/StatusLabel';
 import ButtonCard from './components/molecules/ButtonCard';
 import Accordion2 from './components/organisms/Accordion2';
+import CardList from './components/organisms/CardList';
 
 
 function App() {
@@ -37,6 +38,16 @@ function App() {
             }
           ]}
         />
+      <CardList
+        cardType="button"
+        orientation="vertical"
+        buttonText="Ver más"
+        items={[
+          { title: "Producto Premium", description: "Descripción premium.", imageSrc: "/src/assets/Rectangle979.svg", imageAlt: "Producto premium" },
+          { title: "Servicio Profesional", description: "Descripción servicio.", imageSrc: "/src/assets/Rectangle979.svg", imageAlt: "Servicio profesional" },
+          { title: "Solución Integral", description: "Descripción solución.", imageSrc: "/src/assets/Rectangle979.svg", imageAlt: "Solución integral" }
+        ]}
+      />
 
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

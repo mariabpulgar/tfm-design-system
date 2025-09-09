@@ -24,16 +24,20 @@ function CardList({
     return <div className="card-list-empty">{emptyMessage}</div>;
   }
 
+  // 👇 Cambia la clase del grid según la orientación
+  const gridClass =
+    orientation === 'horizontal' ? 'card-list-grid-horizontal' : 'card-list-grid';
+
   return (
-    <div className="card-list-container">
-      <div className="card-list-grid">
+    <div className="card-list-container" data-orientation={orientation}>
+      <div className={gridClass}>
         {data.map((item, idx) => {
           const commonProps = {
             title: item.title,
             description: item.description,
             imageSrc: item.imageSrc,
             imageAlt: item.imageAlt,
-            orientation,
+            orientation, // pasa la orientación a cada card
           };
 
           if (cardType === 'simple') {

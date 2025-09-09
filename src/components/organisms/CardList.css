@@ -10,18 +10,23 @@
   width: 100%;
 }
 
-/* Grid */
-.card-list-grid {
-  /* 👇 variable para controlar el ancho mínimo de cada card */
-  --col-min: 320px;
-
+/* Grid para cards verticales */
+.card-list-grid-vertical {
+  --col-min: 145px;
   display: grid;
-  gap: var(--space-400, 24px);
-  /* auto-fit coloca tantas columnas como quepan respetando --col-min */
+  gap: var(--space-400);
   grid-template-columns: repeat(auto-fit, minmax(var(--col-min), 1fr));
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+  margin-inline: auto;
+}
 
-  /* Tope para que nunca pasemos de 3 columnas (320*3 + gaps ≈ 1,080px) */
-  max-width: 1200px;
+/* Grid para cards horizontales (2 por fila) */
+.card-list-grid-horizontal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 🔑 siempre 2 por fila */
+  gap: var(--space-400);
   width: 100%;
   padding: 20px;
   margin-inline: auto;
