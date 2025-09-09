@@ -3,7 +3,7 @@
 // addons: ['@storybook/addon-essentials', ...]
 
 // Importa el componente y, si lo necesitas, tus estilos globales o del componente
-import Accordion2 from '../components/Accordion2.jsx';
+// import Accordion2 from '../components/Accordion2.jsx';
 import '../App.css';
 import '../components/Accordion.css';
 
