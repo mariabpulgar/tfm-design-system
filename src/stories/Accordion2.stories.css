@@ -1,0 +1,63 @@
+/* Estilos específicos para Storybook - sobrescribe conflictos */
+
+/* Fuerza el layout correcto del botón en Storybook */
+.sb-show-main .accordion-header,
+.docs-story .accordion-header,
+#storybook-root .accordion-header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Asegura que el contenido interno del botón esté alineado */
+.sb-show-main .accordion-header > *,
+.docs-story .accordion-header > *,
+#storybook-root .accordion-header > * {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Si el Button tiene wrapper interno */
+.sb-show-main .accordion-header .button-content,
+.sb-show-main .accordion-header .btn-content,
+.docs-story .accordion-header .button-content,
+.docs-story .accordion-header .btn-content,
+#storybook-root .accordion-header .button-content,
+#storybook-root .accordion-header .btn-content {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  flex-direction: row !important;
+}
+
+/* Previene que los iconos se vuelvan block */
+.sb-show-main .accordion-header svg,
+.sb-show-main .accordion-header i,
+.sb-show-main .accordion-header span[class*="icon"],
+.docs-story .accordion-header svg,
+.docs-story .accordion-header i,
+.docs-story .accordion-header span[class*="icon"],
+#storybook-root .accordion-header svg,
+#storybook-root .accordion-header i,
+#storybook-root .accordion-header span[class*="icon"] {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+}
+
+/* Resetea cualquier estilo de Storybook que pueda interferir */
+.sb-show-main .accordion-item,
+.docs-story .accordion-item,
+#storybook-root .accordion-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Previene overflow issues en Storybook */
+.sb-show-main .accordion-container,
+.docs-story .accordion-container,
+#storybook-root .accordion-container {
+  overflow: visible !important;
+}

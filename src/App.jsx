@@ -5,6 +5,7 @@ import Home from './components/templates/home';
 import {useState} from 'react';
 import StatusLabel from './components/molecules/StatusLabel';
 import ButtonCard from './components/molecules/ButtonCard';
+import Accordion2 from './components/organisms/Accordion2';
 
 
 function App() {
@@ -17,6 +18,26 @@ function App() {
 
   return (
     <div>
+
+        <Accordion2
+          className=""
+          defaultOpenIndex={null}
+          items={[
+            {
+              content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, nullam tempor duis potenti litora justo.',
+              title: 'Item 1'
+            },
+            {
+              content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, nullam tempor duis potenti litora justo.',
+              title: 'Item 2'
+            },
+            {
+              content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, nullam tempor duis potenti litora justo.',
+              title: 'Item 3'
+            }
+          ]}
+        />
+
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <StatusLabel />
