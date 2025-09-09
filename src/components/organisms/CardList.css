@@ -8,12 +8,12 @@
   /* padding: clamp(32px, 6vw, 106px) clamp(16px, 6vw, 81px); */
   box-sizing: border-box;
   width: 100%;
-  gap: var(--space-400);
+  gap: var(--space-600);
 
 }
 .card-list-grid{
   display: flex;
-  gap: var(--space-400);
+  gap: var(--space-600);
 }
 /* Grid para cards verticales */
 .card-list-grid-vertical {
@@ -31,7 +31,7 @@
 .card-list-grid-horizontal {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr)); /* cada card min 280px */
-  gap: var(--space-400);
+  gap: var(--space-600);
   padding: 20px;
   margin-inline: auto;
 }

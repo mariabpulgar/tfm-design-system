@@ -4,10 +4,10 @@
 }
 
 .adoption-section {
-    margin-top: var(--space-2000);
     display: flex;
     justify-content: center;
     gap: var(--space-1200);
+    margin-top: var(--space-2000);
 }
 
 .animales-adoptables-container {
@@ -15,13 +15,11 @@
     flex-direction: column;
 }
 
-.simple-card-vertical {
-    min-height: 327px;
-}
+
 
 /* Estilos específicos para hacer que las cards verticales se muestren en horizontal */
 .animales-adoptables-container .card-list-container {
-    margin-bottom: 40px; /* Espaciado entre cada CardList */
+    margin-bottom: var(--space-1000); /* Espaciado entre cada CardList */
     width: 100%;
 }
 
@@ -89,4 +87,12 @@
     font-weight: 600;
     font-size: 18px;
     color: var(--text-primary, #333);
+}
+
+/* Estilos para la paginación */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-800, 40px);
+    padding: var(--space-600, 24px) 0;
 }

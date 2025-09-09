@@ -3,6 +3,7 @@ import NavBar from '../organisms/NavBar';
 import Hero from '../organisms/Hero';
 import Filtres from '../organisms/Filtres';
 import CardList from '../organisms/CardList';
+import Pagination from '../molecules/Pagination';
 import Footer from '../organisms/Footer.jsx';
 import { animalesAdoptables } from '../../data/animales-adoptables.js';
 import heroAdopciones from '../../assets/hero-adopciones.jpg';
@@ -18,9 +19,14 @@ function Adoptions() {
     // Estado para los animales filtrados
     const [filteredAnimals, setFilteredAnimals] = useState(allAnimals);
 
+    // Estado para la paginación
+    const [currentPage, setCurrentPage] = useState(1);
+    const animalsPerPage = 9;
+
     // Función que se ejecutará cuando cambien los filtros
     const handleFilterChange = (filters) => {
         setSelectedFilters(filters);
+        setCurrentPage(1); // Reiniciar a la primera página cuando cambien los filtros
         filterAnimals(filters);
     };
 
@@ -78,7 +84,7 @@ function Adoptions() {
         }));
     };
 
-    // Función para dividir los animales en grupos de 3
+    // Función para dividir los animales en grupos de 3 (para las filas)
     const chunkAnimals = (animals, chunkSize = 3) => {
         const chunks = [];
         for (let i = 0; i < animals.length; i += chunkSize) {
@@ -86,6 +92,20 @@ function Adoptions() {
         }
         return chunks;
     };
+
+    // Función para manejar el cambio de página
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    // Calcular paginación
+    const totalPages = Math.ceil(filteredAnimals.length / animalsPerPage);
+    const startIndex = (currentPage - 1) * animalsPerPage;
+    const endIndex = startIndex + animalsPerPage;
+    const currentAnimals = filteredAnimals.slice(startIndex, endIndex);
+
+    // Dividir los animales de la página actual en grupos de 3
+    const animalChunks = chunkAnimals(currentAnimals, 3);
 
     // Configuración de las secciones de filtros
     const filterSections = [
@@ -139,9 +159,6 @@ function Adoptions() {
         }
     ];
 
-    // Dividir los animales filtrados en grupos de 3
-    const animalChunks = chunkAnimals(filteredAnimals, 3);
-
     return (
         <div className="adopciones-container">
             <NavBar
@@ -168,15 +185,32 @@ function Adoptions() {
                 
                 <div className="animales-adoptables-container">
                     {animalChunks.length > 0 ? (
-                        animalChunks.map((chunk, index) => (
-                            <CardList
-                                key={`animal-group-${index}`}
-                                cardType="button"
-                                orientation="vertical"
-                                buttonText="Conocer más"
-                                items={formatAnimalsForCardList(chunk)}
-                            />
-                        ))
+                        <>
+                            {animalChunks.map((chunk, index) => (
+                                <CardList
+                                    key={`animal-group-${index}`}
+                                    cardType="button"
+                                    orientation="vertical"
+                                    buttonText="Conocer más"
+                                    items={formatAnimalsForCardList(chunk)}
+                                />
+                            ))}
+                            
+                            {totalPages > 1 && (
+                                <div className="pagination-container">
+                                    <Pagination
+                                        arrowVariant="pagination"
+                                        boundaryCount={1}
+                                        onChange={handlePageChange}
+                                        page={currentPage}
+                                        showPrevNext
+                                        siblingCount={1}
+                                        size="medium"
+                                        totalPages={totalPages}
+                                    />
+                                </div>
+                            )}
+                        </>
                     ) : (
                         <div className="no-results">
                             <p>No se encontraron animales que coincidan con los filtros seleccionados.</p>
