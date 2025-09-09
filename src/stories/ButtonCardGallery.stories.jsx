@@ -1,9 +1,10 @@
 import React from "react";
-import ButtonCardGallery from "../components/ButtonCardGallery";
+import ButtonCardGallery from "../components/organisms/ButtonCardGallery";
 import rectangle from "../assets/Rectangle979.svg";
+import '../App.css'
 
 export default {
-  title: "Components/ButtonCardGallery",
+  title: "Organisms/ButtonCardGallery",
   component: ButtonCardGallery,
   tags: ["autodocs"],
   parameters: {
