@@ -13,93 +13,93 @@ const numberRE = /^\d+([.,]\d+)?$/;
 // ===== Contact =====
 const FORMS = {
   contact: {
-    title: 'Contact',
-    subtitle: 'Get in touch with us by filling out this short form.',
-    submitText: 'Send',
+    title: 'Contacto',
+    subtitle: 'Ponte en contacto con nosotros llenando este breve formulario.',
+    submitText: 'Enviar',
     fields: [
-      { name: 'fullName', label: 'Nombre completo *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 12 },
-      { name: 'email',    label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',    label: 'Teléfono',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'subject',  label: 'Asunto *',   placeholder: 'e.g. Preguntas para donación', type: 'text', required: true, col: 12 },
-      { name: 'message',  label: 'Mensaje *',   placeholder: 'Escribe tu mensaje aquí...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
+      { name: 'fullName', label: 'Nombre completo *', placeholder: 'ej. Jane Doe', type: 'text', required: true, col: 12 },
+      { name: 'email',    label: 'Email *',     placeholder: 'ej. jane@example.com', type: 'email', required: true, col: 6 },
+      { name: 'phone',    label: 'Teléfono',       placeholder: 'ej. +57 123 456 7890', type: 'tel', col: 6 },
+      { name: 'subject',  label: 'Asunto *',   placeholder: 'ej. Preguntas para donación', type: 'text', required: true, col: 12 },
+      { name: 'message',  label: 'Mensaje *',   placeholder: 'Escribe tu mensaje aquí...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Por favor ingresa una descripción' },
     ],
   },
 
   // === Adoption ===
   adoption: {
-    title: 'Adoption',
-    subtitle: 'Ready to adopt? Fill out the form and meet your new best friend.',
-    submitText: 'Send',
+    title: 'Adopción',
+    subtitle: '¿Listo para adoptar? Llena el formulario y conoce a tu nuevo mejor amigo.',
+    submitText: 'Enviar',
     fields: [
-      { name: 'fullName',  label: 'Nombre completo *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 6 },
-      { name: 'age',       label: 'Edad *',       placeholder: 'e.g. 30',       type: 'text', required: true, numeric: true, col: 6 },
-      { name: 'email',     label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',     label: 'Teléfono',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'city',      label: 'Ciudad *',      placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'fullName',  label: 'Nombre completo *', placeholder: 'ej. Jane Doe', type: 'text', required: true, col: 6 },
+      { name: 'age',       label: 'Edad *',       placeholder: 'ej. 30',       type: 'text', required: true, numeric: true, col: 6 },
+      { name: 'email',     label: 'Email *',     placeholder: 'ej. jane@example.com', type: 'email', required: true, col: 6 },
+      { name: 'phone',     label: 'Teléfono',       placeholder: 'ej. +57 123 456 7890', type: 'tel', col: 6 },
+      { name: 'city',      label: 'Ciudad *',      placeholder: 'Elegir', type: 'select', required: true, col: 12,
         options: [
           { id: 'med', label: 'Medellín' },
           { id: 'bog', label: 'Bogotá' },
           { id: 'cali', label: 'Cartagena' },
         ]
       },
-      { name: 'living',    label: 'Tipo de vivienda *', placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'living',    label: 'Tipo de vivienda *', placeholder: 'Elegir', type: 'select', required: true, col: 12,
         options: [
           { id: 'house', label: 'Apartamento' },
           { id: 'apt',   label: 'Casa con patio' },
           { id: 'farm',  label: 'Finca o lugar abierto' },
         ]
       },
-      { name: 'message',   label: 'Why do you want to adopt? *', placeholder: 'Type your message here...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
+      { name: 'message',   label: '¿Por qué quieres adoptar? *', placeholder: 'Escribe tu mensaje aquí...', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Por favor ingresa una descripción' },
     ],
   },
 
   // === Volunteer ===
   volunteer: {
-    title: 'Volunteer',
-    subtitle: "Join our team! Tell us how you'd like to help.",
-    submitText: 'Send',
+    title: 'Voluntariado',
+    subtitle: '¡Únete a nuestro equipo! Cuéntanos cómo te gustaría ayudar.',
+    submitText: 'Enviar',
     fields: [
-      { name: 'fullName',  label: 'Full name *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 6 },
-      { name: 'age',       label: 'Age *',       placeholder: 'e.g. 30',       type: 'text', required: true, numeric: true, col: 6 },
-      { name: 'email',     label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',     label: 'Phone',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'city',      label: 'City *',      placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'fullName',  label: 'Nombre completo *', placeholder: 'ej. Jane Doe', type: 'text', required: true, col: 6 },
+      { name: 'age',       label: 'Edad *',       placeholder: 'ej. 30',       type: 'text', required: true, numeric: true, col: 6 },
+      { name: 'email',     label: 'Email *',     placeholder: 'ej. jane@example.com', type: 'email', required: true, col: 6 },
+      { name: 'phone',     label: 'Teléfono',       placeholder: 'ej. +57 123 456 7890', type: 'tel', col: 6 },
+      { name: 'city',      label: 'Ciudad *',      placeholder: 'Elegir', type: 'select', required: true, col: 12,
         options: [
           { id: 'med', label: 'Medellín' },
           { id: 'bog', label: 'Bogotá' },
           { id: 'cali', label: 'Cali' },
         ]
       },
-      { name: 'availability', label: 'Availability *', placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'availability', label: 'Disponibilidad *', placeholder: 'Elegir', type: 'select', required: true, col: 12,
         options: [
-          { id: 'wknds', label: 'Weekends' },
-          { id: 'wkdays', label: 'Weekdays' },
+          { id: 'wknds', label: 'Fines de semana' },
+          { id: 'wkdays', label: 'Entre semana' },
           { id: 'flex', label: 'Flexible' },
         ]
       },
-      { name: 'experience',   label: 'Experience with animals? *', placeholder: "e.g. I've helped at shelters before", type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
+      { name: 'experience',   label: '¿Experiencia con animales? *', placeholder: 'ej. He ayudado en refugios antes', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Por favor ingresa una descripción' },
     ],
   },
 
   // === Donation ===
   donation: {
-    title: 'Donation',
-    subtitle: 'Your support helps us rescue, feed, and care for animals in need.',
-    submitText: 'Send',
+    title: 'Donación',
+    subtitle: 'Tu apoyo nos ayuda a rescatar, alimentar y cuidar animales en necesidad.',
+    submitText: 'Enviar',
     fields: [
-      { name: 'fullName',  label: 'Full name *', placeholder: 'e.g. Jane Doe', type: 'text', required: true, col: 6 },
-      { name: 'age',       label: 'Age *',       placeholder: 'e.g. 30',       type: 'text', required: true, numeric: true, col: 6 },
-      { name: 'email',     label: 'Email *',     placeholder: 'e.g. jane@example.com', type: 'email', required: true, col: 6 },
-      { name: 'phone',     label: 'Phone',       placeholder: 'e.g. +1 123 456 7890', type: 'tel', col: 6 },
-      { name: 'amount',    label: 'Donation amount', placeholder: 'e.g. 50.000', type: 'text', numeric: true, col: 12 },
-      { name: 'payment',   label: 'Payment method *', placeholder: 'Choose', type: 'select', required: true, col: 12,
+      { name: 'fullName',  label: 'Nombre completo *', placeholder: 'ej. Jane Doe', type: 'text', required: true, col: 6 },
+      { name: 'age',       label: 'Edad *',       placeholder: 'ej. 30',       type: 'text', required: true, numeric: true, col: 6 },
+      { name: 'email',     label: 'Email *',     placeholder: 'ej. jane@example.com', type: 'email', required: true, col: 6 },
+      { name: 'phone',     label: 'Teléfono',       placeholder: 'ej. +57 123 456 7890', type: 'tel', col: 6 },
+      { name: 'amount',    label: 'Monto de donación', placeholder: 'ej. 50.000', type: 'text', numeric: true, col: 12 },
+      { name: 'payment',   label: 'Método de pago *', placeholder: 'Elegir', type: 'select', required: true, col: 12,
         options: [
-          { id: 'card',  label: 'Credit/Debit Card' },
+          { id: 'card',  label: 'Tarjeta de Crédito/Débito' },
           { id: 'paypal',label: 'PayPal' },
-          { id: 'cash',  label: 'Cash' },
+          { id: 'cash',  label: 'Efectivo' },
         ]
       },
-      { name: 'message',   label: 'Additional Message *', placeholder: "e.g. I've helped at shelters before", type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Please enter a guide description' },
+      { name: 'message',   label: 'Mensaje adicional *', placeholder: 'ej. Me gusta ayudar a los animales', type: 'textarea', required: true, col: 12, max: DEFAULT_MAX, hint: 'Por favor ingresa una descripción' },
     ],
   },
 };
@@ -114,12 +114,12 @@ const Forms = ({
   initialValues = {},
 }) => {
   const spec = useMemo(() => {
-    const base = schema ?? FORMS[type] ?? { title: '', subtitle: '', submitText: 'Submit', fields: [] };
+    const base = schema ?? FORMS[type] ?? { title: '', subtitle: '', submitText: 'Enviar', fields: [] };
     return {
       ...base,
       title: title ?? base.title,
       subtitle: subtitle ?? base.subtitle,
-      submitText: submitText ?? base.submitText ?? 'Submit',
+      submitText: submitText ?? base.submitText ?? 'Enviar',
     };
   }, [type, schema, title, subtitle, submitText]);
 
@@ -144,14 +144,14 @@ const Forms = ({
       const val = (typeof raw === 'string' ? raw : String(raw)).trim();
 
       if (f.required && !val) {
-        e[f.name] = 'Required';
+        e[f.name] = 'Requerido';
         continue;
       }
 
-      if (f.type === 'email' && val && !emailRE.test(val)) e[f.name] = 'Invalid email';
-      if (f.numeric && val && !numberRE.test(val)) e[f.name] = 'Invalid number';
-      if (f.max && val.length > f.max) e[f.name] = `Max ${f.max} characters`;
-      if (f.min && val.length < f.min) e[f.name] = `Min ${f.min} characters`;
+      if (f.type === 'email' && val && !emailRE.test(val)) e[f.name] = 'Email inválido';
+      if (f.numeric && val && !numberRE.test(val)) e[f.name] = 'Número inválido';
+      if (f.max && val.length > f.max) e[f.name] = `Máximo ${f.max} caracteres`;
+      if (f.min && val.length < f.min) e[f.name] = `Mínimo ${f.min} caracteres`;
     }
     return e;
   };
@@ -219,7 +219,7 @@ const Forms = ({
 
                   <Dropdown
                     inline
-                    title={label || f.placeholder || 'Choose'}
+                    title={label || f.placeholder || 'Elegir'}
                     items={f.options || []}
                     onChange={(item) => set(f.name)(item?.id ?? item?.label ?? '')}
                   />
@@ -252,7 +252,7 @@ const Forms = ({
             variant="btn-primary"
             size="large"
             type="submit"
-            text={spec.submitText || 'Submit'}
+            text={spec.submitText || 'Enviar'}
             showLeftIcon={false}
             showRightIcon={false}
             className="btn--block"
