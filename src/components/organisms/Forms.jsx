@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import InputText from '../atoms/InputText';
+import TextArea from '../atoms/TextArea'; // Importar tu componente TextArea
 import Button from '../molecules/Button';
 import Dropdown from '../molecules/Dropdown'; 
 import './Forms.css';
@@ -183,25 +184,24 @@ const Forms = ({
         <div className="forms-grid">
           {spec.fields.map((f) => {
             const col = Math.min(Math.max(f.col ?? 12, 1), 12);
-            const hasError = Boolean(errors[f.name]);
 
-            // ---- Textarea ----
+            // ---- Textarea usando tu componente personalizado ----
             if (f.type === 'textarea') {
               const val = values[f.name] ?? '';
               return (
-                <div key={f.name} style={{ gridColumn: `span ${col}` }} className="input-group forms-input">
-                  {f.label && <label htmlFor={f.name} className="input-label">{f.label}</label>}
-                  <textarea
+                <div key={f.name} style={{ gridColumn: `span ${col}` }} className="forms-input">
+                  <TextArea
                     id={f.name}
                     name={f.name}
-                    className={`input-text forms-textarea ${hasError ? 'error' : ''}`}
+                    label={f.label}
                     placeholder={f.placeholder}
                     value={val}
                     onChange={set(f.name)}
+                    error={errors[f.name]}
                     maxLength={f.max}
                     rows={6}
+                    className="forms-textarea"
                   />
-                  {hasError && <span className="input-error-message visible">{errors[f.name]}</span>}
                   <div className="forms-helper">
                     {f.hint && <span className="forms-hint">{f.hint}</span>}
                     {f.max && <span className="forms-counter">{val.length}/{f.max}</span>}
@@ -224,7 +224,7 @@ const Forms = ({
                     onChange={(item) => set(f.name)(item?.id ?? item?.label ?? '')}
                   />
 
-                  {hasError && <span className="input-error-message visible">{errors[f.name]}</span>}
+                  {errors[f.name] && <span className="input-error-message visible">{errors[f.name]}</span>}
                 </div>
               );
             }
