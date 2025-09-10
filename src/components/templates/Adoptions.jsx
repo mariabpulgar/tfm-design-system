@@ -15,8 +15,10 @@ import rect982 from '../../assets/Rectangle982.svg';
 import logoBlanco from '../../assets/Logo_FACP_Blanco_v2.svg';
 import elipse from '../../assets/elipse.png';
 import logoColor from '../../assets/Logo_FACP_Color.svg';
-
 import './Adoptions.css';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 function Adoptions() {
   // Filtros seleccionados
@@ -102,6 +104,7 @@ function Adoptions() {
     setSelectedAnimal({ ...item, galleryImages: buildGalleryImages(item) });
     setModalOpen(true);
   };
+  const navigate = useNavigate();
 
   // Paginación
   const totalPages = Math.ceil(filteredAnimals.length / animalsPerPage);
@@ -246,16 +249,17 @@ function Adoptions() {
               setSelectedAnimal(null);
             }}
             onAction={() => {
-              // Cerrar modal y redirigir (ajusta la ruta a tu gusto)
+              // Cerrar modal y redirigir con React Router
               setModalOpen(false);
               setSelectedAnimal(null);
-              window.location.href = "/adopciones";
-              // Ejemplo más específico:
-              // window.location.href = `/adopciones/${selectedAnimal.id}`;
+              navigate('/adoptionForm');
+              // si quieres algo más específico:
+              // navigate(`/adopciones/${selectedAnimal.id}`);
             }}
           />
         )}
       </ModalControlado>
+
 
       <Footer
         backToTop={{ href: '#top', icon: 'topIcon', label: 'Volver arriba' }}

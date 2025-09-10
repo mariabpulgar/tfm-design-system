@@ -4,6 +4,7 @@ import Vector148 from '../../assets/Vector148.svg?url';
 import Button from '../molecules/Button';
 import IconSelector from '../atoms/IconSelector';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 function NavBar({
   imageSrc = Rectangle982,
@@ -44,14 +45,20 @@ function NavBar({
     });
   };
 
+  // Cierra el submenú al navegar
+  const closeSubmenu = () => setIsAdopcionOpen(false);
+
   return (
     <div className="nav-bar-container">
       <div className="nav-bar" role="navigation" aria-label="Main">
         <div className="navbar-img">
-          <img src={imageSrc} alt="Logo" fetchPriority="high" />
+          <Link to="/">
+            <img src={imageSrc} alt="Logo" fetchPriority="high" />
+          </Link>
         </div>
 
         <div className="navbar-items">
+          {/* Enlaces placeholder: ajústalos cuando tengas rutas */}
           <a href="#">Quiénes somos</a>
 
           <div className="vector-divider">
@@ -91,54 +98,58 @@ function NavBar({
               hidden={!isAdopcionOpen}
             >
               <li role="none" className="submenu-li">
-                <a
+                <Link
                   ref={firstItemRef}
                   role="menuitem"
-                  href="#"
+                  to="/adopciones"
                   tabIndex={isAdopcionOpen ? 0 : -1}
+                  onClick={closeSubmenu}
                 >
                   Perritos
-                </a>
-                  <IconSelector
+                </Link>
+                <IconSelector
                   color="var(--blue-normal)"
                   name="dropRightIcon"
                   size="medium"
-                  />
-
+                />
               </li>
+
               <li role="none" className="submenu-li">
-                <a
+                <Link
                   role="menuitem"
-                  href="#"
+                  to="/adopciones"
                   tabIndex={isAdopcionOpen ? 0 : -1}
+                  onClick={closeSubmenu}
                 >
                   Gaticos
-                </a>
-                  <IconSelector
+                </Link>
+                <IconSelector
                   color="var(--blue-normal)"
                   name="dropRightIcon"
                   size="medium"
-                  />
+                />
               </li>
-              <li role="none"className="submenu-li">
-                <a
+
+              <li role="none" className="submenu-li">
+                <Link
                   role="menuitem"
-                  href="#"
+                  to="/adopciones"
                   tabIndex={isAdopcionOpen ? 0 : -1}
+                  onClick={closeSubmenu}
                 >
                   Proceso
-                </a>
-                  <IconSelector
+                </Link>
+                <IconSelector
                   color="var(--blue-normal)"
                   name="dropRightIcon"
                   size="medium"
-                  />
+                />
               </li>
             </ul>
           </div>
 
           <Button
-            text="Contacto"
+            text="Donación"
             iconSide="left"
             showLeftIcon
             showRightIcon={false}
