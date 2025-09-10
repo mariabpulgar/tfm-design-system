@@ -1,54 +1,97 @@
+/* Header con título + X */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.gallery-title {
+  margin: 0;
+  font-size: var(--h5-font-size, 18px);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--gray-darker);
+}
+
+/* Botón X nativo – estilos fuertes por si hay reset global */
+.gallery-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-dark, #333) !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.gallery-close:hover { color: var(--ciam-normal, #2F98CC) !important; }
+.gallery-close:focus-visible { outline: 2px solid var(--ciam-normal, #2F98CC); }
+
+/* Contenedor principal */
 .gallery-container{
-    display: flex;
-    width: 470px;
-    padding: var(--space-400);
-    align-items: flex-start;
-    gap: var(--space-400);
-    border-radius: var(--radius-200);
-    border: 1px solid var(--gray-normal);
-    background: #FFF;
+  display: flex;
+  width: 470px;
+  padding: var(--space-400);
+  align-items: flex-start;
+  gap: var(--space-400);
+  border-radius: var(--radius-200);
+  border: 1px solid var(--gray-normal);
+  background: #FFF;
 }
 
+/* Columna izquierda */
 .gallery-images {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
 }
 
+/* Thumbnails clicables y accesibles */
 .gallery-thumbnails {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-150);
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-150);
 }
+.gallery-thumbnails .thumbnail-wrapper {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.gallery-thumbnails .thumbnail-wrapper.active {
+  outline: 2px solid var(--ciam-normal, #2F98CC);
+  border-radius: 6px;
+}
+/* Asegura que el click va al button, no a la imagen */
+.gallery-thumbnails img { pointer-events: none; }
 
+/* Columna derecha */
 .gallery-info{
-    display: flex;
-    height: 200px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex: 1 0 0;
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
 }
-
 .gallery-info-text p, .gallery-info-text h5{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
+.gallery-info-text h5{ color: var(--gray-darker); }
+.gallery-info-text p{ color: var(--gray-dark-active); }
+.gallery-info button{ width: 100%; }
 
-.gallery-info-text h5{
-    color: var(--gray-darker);
-}
-
-.gallery-info-text p{
-    color: var(--gray-dark-active);
-}
-.gallery-info button{
-    width: 100%;
-}
-
+/* Divisor */
 .gallery-divider{
-    width: 222px;
-    height: 1px;
-    margin-top: var(--space-100);
-    margin-bottom: var(--space-100);
+  width: 100%;
+  height: 1px;
+  margin: var(--space-100) 0;
+  background: var(--gray-normal);
+  border: none;
 }

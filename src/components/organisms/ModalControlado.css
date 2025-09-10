@@ -1,0 +1,50 @@
+/* Cubierta fija que centra el modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;                    /* por encima del header/footer */
+  display: grid;                    /* centrado con grid */
+  place-items: center;              /* centro exacto */
+  padding: 16px;                    /* margen respiración en móviles */
+  background: rgba(0, 0, 0, 0.45);  /* oscurecer */
+  backdrop-filter: blur(2px);       /* blur suave al fondo */
+  -webkit-backdrop-filter: blur(2px);
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
+/* Caja del modal → ahora solo se ajusta al tamaño del contenido (Gallery) */
+.modal-container {
+  background: transparent;          /* transparente para no duplicar fondo */
+  width: auto;                      /* ancho automático al de Gallery */
+  height: auto;                     /* alto automático */
+  padding: 0;                       /* sin padding extra */
+  border: none;                     /* sin borde extra */
+  box-shadow: none;                 /* sin sombra extra */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;                /* deja que el contenido maneje scroll */
+  animation: modal-fade-in 0.25s ease;
+  contain: layout paint;
+}
+
+/* Animación de entrada */
+@keyframes modal-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Frames (ya no necesarios, pero por compatibilidad los dejamos vacíos) */
+.frame-1,
+.frame-2,
+.frame-3,
+.frame-4 {
+  display: none;
+}
+
+/* Neutraliza márgenes del contenido */
+.modal-container .gallery-container {
+  margin: 0;
+}

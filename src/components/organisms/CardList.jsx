@@ -12,6 +12,8 @@ function CardList({
   items,
   emptyMessage = 'Sin elementos para mostrar.',
   className = '',
+  // 👇 NUEVO: callback para propagar el clic del botón al padre
+  onClickItemButton,
 }) {
   // Fallback con imageSrc/imageAlt (para Storybook o casos sin datos)
   const fallback = [
@@ -61,16 +63,22 @@ function CardList({
           const commonProps = {
             title: item.title,
             description: item.description,
-            imageSrc: item.imageSrc,   // ✅ soporte de imagen
-            imageAlt: item.imageAlt,   // ✅ alt opcional
-            orientation,               // pasa la orientación a cada card si lo usan
+            imageSrc: item.imageSrc,
+            imageAlt: item.imageAlt,
+            orientation,
           };
 
           if (cardType === 'simple') {
             return <SimpleCard key={key} {...commonProps} />;
           }
 
-          // Variante ButtonCard (usar valores globales con posibilidad de override por item)
+          // 🔗 Manejo de clic: prioriza item.onButtonClick; si no, usa onClickItemButton(item)
+          const handleClick =
+            item.onButtonClick ??
+            (onClickItemButton
+              ? () => onClickItemButton(item)
+              : () => console.log('Card click:', item.title));
+
           return (
             <ButtonCard
               key={key}
@@ -79,7 +87,7 @@ function CardList({
               buttonVariant={item.buttonVariant ?? 'btn-primary'}
               buttonSize={item.buttonSize ?? 'medium'}
               buttonType={item.buttonType ?? 'button'}
-              onButtonClick={item.onButtonClick ?? (() => console.log('Card click:', item.title))}
+              onButtonClick={handleClick}
             />
           );
         })}
@@ -96,19 +104,21 @@ CardList.propTypes = {
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       title: PropTypes.string.isRequired,
-      description: PropTypes.string,   // la dejamos opcional por flexibilidad
-      imageSrc: PropTypes.string,      // ✅ ahora soportado
-      imageAlt: PropTypes.string,      // ✅ ahora soportado
+      description: PropTypes.string,
+      imageSrc: PropTypes.string,
+      imageAlt: PropTypes.string,
       // overrides opcionales para ButtonCard:
       buttonText: PropTypes.string,
       buttonVariant: PropTypes.string,
       buttonSize: PropTypes.string,
       buttonType: PropTypes.string,
-      onButtonClick: PropTypes.func,
+      onButtonClick: PropTypes.func, // se respeta si viene en el item
     })
   ),
   emptyMessage: PropTypes.string,
   className: PropTypes.string,
+  // 👇 NUEVO: callback general para los botones de las cards
+  onClickItemButton: PropTypes.func,
 };
 
 export default CardList;
