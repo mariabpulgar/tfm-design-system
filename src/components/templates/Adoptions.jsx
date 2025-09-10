@@ -7,10 +7,14 @@ import Filtres from '../organisms/Filtres';
 import CardList from '../organisms/CardList';
 import Pagination from '../molecules/Pagination';
 import Footer from '../organisms/Footer.jsx';
+import ModalControlado from '../organisms/ModalControlado.jsx';
+import Gallery from '../organisms/Gallery';
 import { animalesAdoptables } from '../../data/animalesAdoptables.js';
 import heroAdopciones from '../../assets/hero-adopciones.jpg';
 import rect982 from '../../assets/Rectangle982.svg';
 import logoBlanco from '../../assets/Logo_FACP_Blanco_v2.svg';
+import elipse from '../../assets/elipse.png';
+import logoColor from '../../assets/Logo_FACP_Color.svg';
 
 import './Adoptions.css';
 
@@ -26,86 +30,49 @@ function Adoptions() {
   const [currentPage, setCurrentPage] = useState(1);
   const animalsPerPage = 9;
 
-  // 🔧 Helper: resolver rutas relativas del dataset (../assets/...) desde este archivo
+  // Resolver rutas relativas del dataset
   const resolveImage = (path) => {
     if (!path) return undefined;
-
-    // Si ya es absoluta/URL o empieza en / (por ejemplo, assets en /public), no tocar
     if (path.startsWith('http') || path.startsWith('/')) return path;
-
-    // El dataset usa rutas relativas desde src/data (../assets/...)
-    // Este archivo vive en src/components/templates → necesitamos ../../assets/...
     const normalized = path.replace(/^\.\.\//, '../../');
-
     try {
       return new URL(normalized, import.meta.url).href;
-    } catch (e) {
-      console.warn('No se pudo resolver la imagen:', path, e);
-      return path; // fallback
+    } catch {
+      return path;
     }
   };
 
-  // Lógica de filtrado separada
+  // Filtrado
   const filterAnimals = (filters) => {
-    console.log('Filtros aplicados:', filters);
     let filtered = allAnimals;
-
-    if (filters.animal?.length) {
-      console.log('Filtrando por animal:', filters.animal);
-      filtered = filtered.filter((a) => {
-        const match = filters.animal.includes(a.animal);
-        if (match) {
-          console.log(`✅ Animal incluido: ${a.title} (${a.animal}) - imageSrc: ${a.imageSrc}`);
-        }
-        return match;
-      });
-    }
-    if (filters.size?.length) {
-      filtered = filtered.filter((a) => filters.size.includes(a.size));
-    }
-    if (filters.gender?.length) {
-      filtered = filtered.filter((a) => filters.gender.includes(a.gender));
-    }
-    if (filters.age?.length) {
-      filtered = filtered.filter((a) => filters.age.includes(a.age));
-    }
+    if (filters.animal?.length) filtered = filtered.filter((a) => filters.animal.includes(a.animal));
+    if (filters.size?.length) filtered = filtered.filter((a) => filters.size.includes(a.size));
+    if (filters.gender?.length) filtered = filtered.filter((a) => filters.gender.includes(a.gender));
+    if (filters.age?.length) filtered = filtered.filter((a) => filters.age.includes(a.age));
     if (filters.health?.length) {
-      filtered = filtered.filter((a) =>
-        filters.health.some((h) => a.health.includes(h))
-      );
+      filtered = filtered.filter((a) => filters.health.some((h) => a.health.includes(h)));
     }
-
-    console.log('Animales filtrados final:', filtered.map(a => `${a.title} (${a.animal}) - ${a.imageSrc}`));
     setFilteredAnimals(filtered);
   };
 
-  // useEffect para aplicar filtros cuando cambien
   useEffect(() => {
     filterAnimals(selectedFilters);
   }, [selectedFilters, allAnimals]);
 
-  // Cambios de filtro - SOLO actualiza el estado, no filtra inmediatamente
   const handleFilterChange = (filters) => {
     setSelectedFilters(filters);
     setCurrentPage(1);
-    // NO llamar filterAnimals aquí - se ejecutará por useEffect
   };
 
   // Adaptar items para CardList
-  const formatAnimalsForCardList = (animals) => {
-    const formatted = animals.map((a) => {
-      console.log(`Formateando animal: ${a.title}, imageSrc: ${a.imageSrc}, animal type: ${a.animal}`);
-      return {
-        id: a.id,
-        title: a.title,
-        description: a.description,
-        imageSrc: resolveImage(a.imageSrc), // ✅ clave para que se vea la imagen
-        imageAlt: a.imageAlt || a.title,
-      };
-    });
-    console.log('Animales formateados:', formatted);
-    return formatted;
-  };
+  const formatAnimalsForCardList = (animals) =>
+    animals.map((a) => ({
+      id: a.id,
+      title: a.title,
+      description: a.description,
+      imageSrc: resolveImage(a.imageSrc),
+      imageAlt: a.imageAlt || a.title,
+    }));
 
   // Agrupar en filas de 3
   const chunkAnimals = (animals, chunkSize = 3) => {
@@ -114,6 +81,26 @@ function Adoptions() {
       chunks.push(animals.slice(i, i + chunkSize));
     }
     return chunks;
+  };
+
+  // ======= Modal + animal seleccionado =======
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedAnimal, setSelectedAnimal] = useState(null);
+
+  // Imágenes para Gallery (placeholder hasta tener fotos reales)
+  const buildGalleryImages = (item) => {
+    const main = { alt: item.imageAlt || item.title, src: item.imageSrc };
+    return [
+      main,
+      { alt: 'Gráfico de elipse decorativa', src: elipse },
+      { alt: 'Logo de la Fundación Ángeles con Patas', src: logoColor },
+      main,
+    ];
+  };
+
+  const handleCardButtonClick = (item) => {
+    setSelectedAnimal({ ...item, galleryImages: buildGalleryImages(item) });
+    setModalOpen(true);
   };
 
   // Paginación
@@ -126,6 +113,8 @@ function Adoptions() {
   // Secciones de filtros
   const filterSections = [
     {
+      key: 'animal',
+      title: 'Especie',
       items: [
         { id: 'dog', label: 'Perro' },
         { id: 'cat', label: 'Gato' },
@@ -133,45 +122,43 @@ function Adoptions() {
         { id: 'rabbit', label: 'Conejo' },
         { id: 'other', label: 'Otro' },
       ],
-      key: 'animal',
-      title: 'Especie',
     },
     {
+      key: 'size',
+      title: 'Tamaño',
       items: [
         { id: 's', label: 'Pequeño' },
         { id: 'm', label: 'Mediano' },
         { id: 'l', label: 'Grande' },
       ],
-      key: 'size',
-      title: 'Tamaño',
     },
     {
+      key: 'health',
+      title: 'Estado de salud',
       items: [
         { id: 'vaccinated', label: 'Vacunado' },
         { id: 'spayed', label: 'Esterilizado' },
         { id: 'special', label: 'Necesidades especiales' },
         { id: 'healthy', label: 'Saludable' },
       ],
-      key: 'health',
-      title: 'Estado de salud',
     },
     {
+      key: 'gender',
+      title: 'Género',
       items: [
         { id: 'male', label: 'Macho' },
         { id: 'female', label: 'Hembra' },
       ],
-      key: 'gender',
-      title: 'Género',
     },
     {
+      key: 'age',
+      title: 'Edad',
       items: [
         { id: 'puppy', label: 'Cachorro' },
         { id: 'young', label: 'Joven' },
         { id: 'adult', label: 'Adulto' },
         { id: 'senior', label: 'Mayor' },
       ],
-      key: 'age',
-      title: 'Edad',
     },
   ];
 
@@ -204,12 +191,10 @@ function Adoptions() {
                   key={`animal-group-${index}`}
                   cardType="button"
                   orientation="vertical"
-                  buttonText="Conocer más"
+                  buttonText="Adóptame"
                   items={formatAnimalsForCardList(chunk)}
-                  buttonProps={{
-                    showLeftIcon: false,
-                    showRightIcon: false,
-                  }}
+                  onClickItemButton={handleCardButtonClick}
+                  buttonProps={{ showLeftIcon: false, showRightIcon: false }}
                 />
               ))}
 
@@ -236,6 +221,30 @@ function Adoptions() {
           )}
         </div>
       </div>
+
+      {/* ===== Modal que muestra SOLO la Gallery (la X vive en Gallery) ===== */}
+      <ModalControlado
+        open={modalOpen}
+        onClose={() => {
+          setModalOpen(false);
+          setSelectedAnimal(null);
+        }}
+        closeOnEsc
+        closeOnBackdrop
+      >
+        {selectedAnimal && (
+          <Gallery
+            title={`Galería de ${selectedAnimal.title}`}
+            description={`Ejemplo de galería de ${selectedAnimal.title}`}
+            images={selectedAnimal.galleryImages}
+            buttonText="Anterior"
+            onClose={() => {
+              setModalOpen(false);
+              setSelectedAnimal(null);
+            }}
+          />
+        )}
+      </ModalControlado>
 
       <Footer
         backToTop={{ href: '#top', icon: 'topIcon', label: 'Volver arriba' }}
