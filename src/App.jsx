@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {useState} from 'react';
 import Adoptions from './components/templates/Adoptions';
+import Home from './components/templates/Home';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <Adoptions></Adoptions>
+      <Home></Home>
     </div>    
   );
 };

@@ -16,6 +16,9 @@
     justify-content: center;
     gap: var(--space-1200);
     margin: var(--space-2000) var(--space-2000);
+    min-height: 900px;
+    max-height: 1217px;
+
 }
 
 .animales-adoptables-container {
