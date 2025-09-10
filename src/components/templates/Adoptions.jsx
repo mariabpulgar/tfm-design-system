@@ -19,6 +19,11 @@ import './Adoptions.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+// === Mapa de imágenes para que Vite incluya los assets del build ===
+const IMAGES = import.meta.glob('../../assets/**/*.{png,jpg,jpeg,svg,gif,webp}', {
+  eager: true,
+  import: 'default',
+});
 
 function Adoptions() {
   // Filtros seleccionados
@@ -32,16 +37,14 @@ function Adoptions() {
   const [currentPage, setCurrentPage] = useState(1);
   const animalsPerPage = 9;
 
-  // Resolver rutas relativas del dataset
+  // Resolver rutas relativas del dataset usando el mapa de Vite
   const resolveImage = (path) => {
     if (!path) return undefined;
-    if (path.startsWith('http') || path.startsWith('/')) return path;
-    const normalized = path.replace(/^\.\.\//, '../../');
-    try {
-      return new URL(normalized, import.meta.url).href;
-    } catch {
-      return path;
-    }
+    if (path.startsWith('http') || path.startsWith('/')) return path; // externas o del /public
+    // El dataset viene con "../assets/..." porque vive en src/data
+    // Este componente está en src/components/templates, por eso mapeamos a "../../assets/..."
+    const key = path.replace(/^\.\.\//, '../../');
+    return IMAGES[key] || path; // fallback al string original si no encuentra
   };
 
   // Filtrado
@@ -259,7 +262,6 @@ function Adoptions() {
           />
         )}
       </ModalControlado>
-
 
       <Footer
         backToTop={{ href: '#top', icon: 'topIcon', label: 'Volver arriba' }}
