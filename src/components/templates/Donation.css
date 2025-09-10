@@ -5,6 +5,8 @@
   gap: var(--space-1200);
   justify-content: center;
   margin-top: var(--space-1600);
+  margin-bottom: var(--space-1600);
+
 }
 
 .donacion-y-proposito .simple-card-vertical {
