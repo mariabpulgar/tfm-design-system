@@ -4,12 +4,14 @@ import Vector148 from '../../assets/Vector148.svg?url';
 import Button from '../molecules/Button';
 import IconSelector from '../atoms/IconSelector';
 import './NavBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function NavBar({
   imageSrc = Rectangle982,
   vectorSrc = Vector148,
 }) {
+  const navigate = useNavigate();
+
   // Estado y refs para el submenú "Adopción"
   const [isAdopcionOpen, setIsAdopcionOpen] = useState(false);
   const adopcionWrapRef = useRef(null);
@@ -107,11 +109,7 @@ function NavBar({
                 >
                   Perritos
                 </Link>
-                <IconSelector
-                  color="var(--blue-normal)"
-                  name="dropRightIcon"
-                  size="medium"
-                />
+                <IconSelector color="var(--blue-normal)" name="dropRightIcon" size="medium" />
               </li>
 
               <li role="none" className="submenu-li">
@@ -123,11 +121,7 @@ function NavBar({
                 >
                   Gaticos
                 </Link>
-                <IconSelector
-                  color="var(--blue-normal)"
-                  name="dropRightIcon"
-                  size="medium"
-                />
+                <IconSelector color="var(--blue-normal)" name="dropRightIcon" size="medium" />
               </li>
 
               <li role="none" className="submenu-li">
@@ -139,15 +133,12 @@ function NavBar({
                 >
                   Proceso
                 </Link>
-                <IconSelector
-                  color="var(--blue-normal)"
-                  name="dropRightIcon"
-                  size="medium"
-                />
+                <IconSelector color="var(--blue-normal)" name="dropRightIcon" size="medium" />
               </li>
             </ul>
           </div>
 
+          {/* Botón Donación -> navega a /Donation */}
           <Button
             text="Donación"
             iconSide="left"
@@ -159,6 +150,7 @@ function NavBar({
             type="button"
             variant="btn-primary"
             size="large"
+            onClick={() => navigate('/donation')}
           />
         </div>
       </div>

@@ -5,6 +5,7 @@ import {useState} from 'react';
 import Adoptions from './components/templates/Adoptions';
 import Home from './components/templates/Home';
 import AdoptionForm from './components/templates/AdoptionForm';
+import Donation from './components/templates/Donation';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/adopciones" element={<Adoptions />} />
         <Route path="/adoptionForm" element={<AdoptionForm/>}></Route>
+        <Route path="/donation" element={<Donation/>}></Route>
         {/* aquí más rutas */}
       </Routes>
     </BrowserRouter>
