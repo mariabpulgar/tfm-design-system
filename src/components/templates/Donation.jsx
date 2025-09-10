@@ -2,9 +2,12 @@ import React from 'react';
 import NavBar from '../organisms/NavBar';
 import Hero from '../organisms/Hero';
 import perritoLindo from '../../assets/1250373142.jpg';
+import gaticoLindo from '../../assets/gato1.jpg'
 import Footer from '../organisms/Footer';
 import Forms from "../organisms/Forms";
+import SimpleCard from '../molecules/SimpleCard'
 import './AdoptionForm.css';
+import './Donation.css'
 
 
 function Donation() {
@@ -22,6 +25,22 @@ function Donation() {
         onButtonClick={() => console.log('Enviar formulario')}
       />
 
+      <div className="donacion-y-proposito">
+        <SimpleCard
+          description={
+            <>
+              Durante años hemos trabajado incansablemente para poner fin al abandono y al maltrato animal. 
+              Somos un referente en rescate, protección y adopción, y tu aporte nos ayuda a salvar vidas, combatir la crueldad y darles una segunda oportunidad a cientos de animales.
+              <br /><br />
+              Gracias por hacer parte de este cambio y por darle esperanza a quienes más lo necesitan.
+            </>
+          }
+          imgAlt="gatico"
+          imgSrc={gaticoLindo}
+          title="Nuestro propósito"
+        />
+
+
         <Forms
         type="donation"
         schema={undefined}
@@ -38,7 +57,10 @@ function Donation() {
             payment: "paypal",
             message: "Por favor usen esta donación para cuidados médicos de los animales.",
         }}
-        />    
+        />   
+
+      </div>
+ 
       <Footer
         backToTop={{
           href: '#top',

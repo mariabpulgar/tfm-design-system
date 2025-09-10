@@ -1,0 +1,23 @@
+.donacion-y-proposito {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: var(--space-1200);
+  justify-content: center;
+  margin-top: var(--space-1600);
+}
+
+.donacion-y-proposito .simple-card-vertical {
+  max-width: 265px;
+  height: 100%;
+}
+
+.donacion-y-proposito .simple-card-vertical img{
+    width: 300px;
+}
+.donacion-y-proposito .simple-card-vertical .card-image-vertical{
+    width: 100%;
+}
+.donacion-y-proposito .forms-card{
+    margin: 0;
+}

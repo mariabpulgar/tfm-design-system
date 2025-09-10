@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Image from "../atoms/Image";
 import Button from "../molecules/Button";
 import "./Gallery.css";
-import line3 from "../../assets/line3.jpg";
+import line3 from '../../assets/line3.jpg';
 
 function Gallery({ images, title, description, buttonText, onClose, showCloseButton, onAction }) {
   const [currentIndex, setCurrentIndex] = useState(0);
