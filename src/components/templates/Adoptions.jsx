@@ -234,13 +234,24 @@ function Adoptions() {
       >
         {selectedAnimal && (
           <Gallery
-            title={`Galería de ${selectedAnimal.title}`}
-            description={`Ejemplo de galería de ${selectedAnimal.title}`}
             images={selectedAnimal.galleryImages}
-            buttonText="Anterior"
+            /* Título: SOLO el nombre (ej. "Luna") */
+            title={selectedAnimal.title}
+            /* Párrafo: descripción desde animalesAdoptables */
+            description={selectedAnimal.description}
+            /* Botón configurable: aquí abrimos flujo de adopción */
+            buttonText="Quiero adoptarlo"
             onClose={() => {
               setModalOpen(false);
               setSelectedAnimal(null);
+            }}
+            onAction={() => {
+              // Cerrar modal y redirigir (ajusta la ruta a tu gusto)
+              setModalOpen(false);
+              setSelectedAnimal(null);
+              window.location.href = "/adopciones";
+              // Ejemplo más específico:
+              // window.location.href = `/adopciones/${selectedAnimal.id}`;
             }}
           />
         )}

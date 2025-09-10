@@ -1,7 +1,15 @@
 /* Estilos existentes */
-.hero-section {
-    background-color: var(--ciam-light-hover);
+
+.hero-container {
+  background: linear-gradient(
+    to right,
+    var(--ciam-light-hover) 70%,
+    #fff 50%
+  );
+  width: 100vw;
 }
+
+
 
 .adoption-section {
     display: flex;
