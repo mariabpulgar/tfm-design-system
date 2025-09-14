@@ -39,7 +39,7 @@
 
 .card-text p{
     margin: 0;
-    color: var(--gray-dark-hover);
+    color: var(--gray-dark-active);
 }
 
 .card-text button{

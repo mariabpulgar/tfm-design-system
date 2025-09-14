@@ -58,7 +58,8 @@ export default {
 };
 
 // Historia por defecto
-export const Default = {
+export const PorDefecto = {
+  name: 'Por defecto',
   args: {
     placeholder: 'Escribe tu mensaje aquí...',
     rows: 4,
@@ -66,7 +67,8 @@ export const Default = {
 };
 
 // Con etiqueta
-export const WithLabel = {
+export const ConEtiqueta = {
+  name: 'Con etiqueta',
   args: {
     label: 'Comentarios',
     placeholder: 'Comparte tus comentarios...',
@@ -75,17 +77,19 @@ export const WithLabel = {
 };
 
 // Con valor inicial
-export const WithValue = {
+export const ConValor = {
+  name: 'Con valor inicial',
   args: {
     label: 'Descripción',
-    value: 'Este es un texto de ejemplo que muestra cómo se ve el componente con contenido inicial. Puedes editarlo y ver cómo responde el componente.',
+    value: 'Este es un texto de ejemplo que muestra cómo se ve el componente con contenido inicial.',
     placeholder: 'Ingresa una descripción...',
     rows: 5,
   },
 };
 
 // Estado de error
-export const WithError = {
+export const ConError = {
+  name: 'Con error',
   args: {
     label: 'Mensaje obligatorio',
     value: '',
@@ -96,7 +100,8 @@ export const WithError = {
 };
 
 // Deshabilitado
-export const Disabled = {
+export const Deshabilitado = {
+  name: 'Deshabilitado',
   args: {
     label: 'Campo deshabilitado',
     value: 'Este contenido no se puede editar porque el campo está deshabilitado.',
@@ -106,10 +111,9 @@ export const Disabled = {
   },
 };
 
-
-
-// Tamaño grande
-export const LargeSize = {
+// Tamano grande
+export const TamanoGrande = {
+  name: 'Tamaño grande',
   args: {
     label: 'Descripción detallada',
     placeholder: 'Proporciona una descripción detallada...',
@@ -117,12 +121,12 @@ export const LargeSize = {
   },
 };
 
-// Tamaño compacto
-export const CompactSize = {
+// Tamano compacto
+export const TamanoCompacto = {
+  name: 'Tamaño compacto',
   args: {
     label: 'Nota breve',
     placeholder: 'Nota rápida...',
     rows: 2,
   },
 };
-

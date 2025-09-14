@@ -44,7 +44,7 @@
 /* Variantes de botones */
 .btn-primary {
   border: none;
-  background-color: var(--ciam-normal);
+  background-color: var(--ciam-normal-active);
   border-radius: var(--radius-100);
   color: var(--gray-light);
   cursor: pointer;
@@ -136,7 +136,7 @@
 .btn-text {
   border: none;
   background-color: transparent;
-  color: var(--ciam-normal);
+  color: var(--ciam-normal-active);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }

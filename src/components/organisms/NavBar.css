@@ -39,7 +39,7 @@
 
 .navbar-items a{
   padding: 8px 12px;
-  color: var(--ciam-normal);
+  color: var(--ciam-normal-active);
   font-weight: var(--font-weight-regular);
   font-size: var(--h6-font-size);
   text-decoration: none;
